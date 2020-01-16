@@ -1,0 +1,9 @@
+import Integratoren.VersandEtikettenErstellen;
+
+class JavaMain {
+	public void Main() {
+		VersandEtikettenErstellen versandEtikettenErsteller = new VersandEtikettenErstellen();
+		
+		versandEtikettenErsteller.AnschriftErstellung("KUD0001", "ADR0002", "GER");
+	}
+}

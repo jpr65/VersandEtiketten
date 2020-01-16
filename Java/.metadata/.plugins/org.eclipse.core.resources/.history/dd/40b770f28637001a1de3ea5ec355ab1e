@@ -1,0 +1,17 @@
+package Operationen;
+
+import java.util.List;
+
+import Daten.Adresse;
+import Daten.Kunde;
+import Operationen.IAnschriftFormatierer;
+
+public class GermanAnschriftFormatierer implements IAnschriftFormatierer {
+
+	@Override
+	public List<String> AnschriftErstellung(Kunde KundeArg, Adresse AdresseArg) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

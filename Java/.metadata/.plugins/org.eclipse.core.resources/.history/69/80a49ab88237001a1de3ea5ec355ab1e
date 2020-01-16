@@ -1,0 +1,6 @@
+package VersandEtiketten;
+
+// Stub, der Kunden-Infos und Adressen liefert
+public class MiddelWareInterface {
+
+}

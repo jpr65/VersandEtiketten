@@ -1,0 +1,5 @@
+package Operationen;
+
+public interface IAnschriftFormatierer {
+
+}
