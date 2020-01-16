@@ -1,0 +1,44 @@
+package Operationen;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import Daten.Adresse;
+import Daten.Kunde;
+import Operationen.IAnschriftFormatierer;
+
+public class GermanAnschriftFormatierer implements IAnschriftFormatierer {
+
+	@Override
+	public List<String> AnschriftErstellung(Kunde kundeArg, Adresse adresseArg) {
+		ArrayList<String> anschriftListe = new ArrayList<String>();
+		
+		if (kundeArg.PrivatKunde) {
+			anschriftListe = this.KundeAnschriftErstellung(anschriftListe, kundeArg);
+		}
+		else {
+			anschriftListe = this.FirmaAnschriftErstellung(anschriftListe, kundeArg);
+		}
+		
+		anschriftListe = this.AdresseErstellung(anschriftListe, adresseArg);
+		
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private ArrayList<String> AdresseErstellung(ArrayList<String> anschriftListe, Kunde kundeArg) {
+		// TODO Auto-generated method stub
+		return anschriftListe;
+	}
+
+	private ArrayList<String> FirmaAnschriftErstellung(ArrayList<String> anschriftListe, Kunde kundeArg) {
+		// TODO Auto-generated method stub
+		return anschriftListe;
+	}
+
+	private ArrayList<String> KundeAnschriftErstellung(ArrayList<String> anschriftListe, Adresse adresseArg) {
+		// TODO Auto-generated method stub
+		return anschriftListe;
+	}
+
+}

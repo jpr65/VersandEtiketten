@@ -1,0 +1,10 @@
+package Integratoren;
+
+import Operationen.IAnschriftFormatierer;
+import Operationen.GermanAnschriftFormatierer;
+
+public class Factory {
+	public static IAnschriftFormatierer BuildAnschriftFormatierer(String laenderKennung) {
+		return new GermanAnschriftFormatierer();
+	}
+}

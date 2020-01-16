@@ -1,0 +1,23 @@
+Ticket Nr. 4711
+---------------
+
+Titel
+-----
+
+Erstellung der Anschrift für Versand-Etiketten,
+die auf selbstklebende Etiketten gedruckt werden soll.
+
+Aufgabe
+-------
+
+Aus der Datenhaltung sind die Kunden-Informationen und die
+Adress-Informationen über KundeID und AdressID zu lesen,
+
+und 
+
+(später: abhängig vom Land der Adresse (LandID) der ZielAdresse
+ passend formatiert)
+
+passend zusammengefügt
+
+als Liste von Textzeilen zurückzuliefern.
