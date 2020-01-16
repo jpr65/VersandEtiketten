@@ -1,8 +1,0 @@
-package Daten;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class EtikettVariante1 {
-	public List<String> anschriftZeilen;
-}

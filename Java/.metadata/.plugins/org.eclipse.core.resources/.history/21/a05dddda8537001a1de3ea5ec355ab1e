@@ -1,8 +1,0 @@
-package Operationen;
-
-import java.util.List;
-import Daten;
-
-public interface IAnschriftFormatierer {
-	public List<String> AnschriftErstellung(Kunde KundeArg, Adresse AdresseArg);
-}

@@ -1,7 +1,0 @@
-package Integratoren;
-
-public class Factory {
-	public static void BuildBla(String LaenderKennung) {
-	
-	}
-}

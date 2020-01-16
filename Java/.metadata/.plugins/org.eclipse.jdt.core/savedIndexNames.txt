@@ -1,3 +1,0 @@
-INDEX VERSION 1.131+E:\user\rp\prj_public\Beispiele\VersandEtiketten\Java\.metadata\.plugins\org.eclipse.jdt.core
-2563533800.index
-1671692264.index
