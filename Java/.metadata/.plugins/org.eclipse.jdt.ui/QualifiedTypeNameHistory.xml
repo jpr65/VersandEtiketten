@@ -25,4 +25,7 @@
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="Operationen.GermanAnschriftFormatierer"/>
     <fullyQualifiedTypeName name="Operationen.UnitedKingdomAnschriftFormatierer"/>
+    <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+    <fullyQualifiedTypeName name="java.beans.XMLEncoder"/>
+    <fullyQualifiedTypeName name="java.beans.ExceptionListener"/>
 </qualifiedTypeNameHistroy>

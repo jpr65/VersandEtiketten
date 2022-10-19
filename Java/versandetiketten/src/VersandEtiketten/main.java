@@ -2,6 +2,7 @@ package VersandEtiketten;
 
 import Daten.EtikettVariante1;
 import IO.IEtikettDrucker;
+import IO.MiddelWareStub;
 import Integratoren.OperatorFactory;
 import Integratoren.VersandEtikettenErsteller;
 
@@ -33,6 +34,10 @@ class JavaMain {
 		System.out.println("Anzahl Etiketten (gesamt / gedruckt): " 
 				+ versandEtikettenErsteller.GetEtikettZaehler()
 				+ " / " + anzahlEtikettenGedruckt);
+		
+		System.out.println("======================================");
+		
+		schreibeKunde("KUD0001");
 	}
 
 	private static void printEtikett(
@@ -52,4 +57,19 @@ class JavaMain {
 		}
 		
 	}
+	
+	private static void schreibeKunde(String kundeID){
+		MiddelWareStub MWI = new MiddelWareStub();
+		
+		try {
+			MWI.schreibeKunde(kundeID, "Kunde.xml");
+		}
+		catch (Exception ex) {
+			System.out.println("Fehler beim Schreiben des Kunden");
+			System.out.println(ex.getMessage());
+			System.out.println("------------------------------------------");
+		}
+	}
+
+	
 }

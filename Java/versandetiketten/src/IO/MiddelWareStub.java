@@ -10,6 +10,8 @@ import Daten.Kunde;
 //---------------------------------------------------------------------------------
 public class MiddelWareStub {
 	
+	private String xmlDataPath = "Z:/user/rp/prj_public/Beispiele/VersandEtiketten/Java/data";
+	
 	public Adresse LeseAdresse(String adresseID ) throws Exception {
 		Adresse dummyAdresse = new Adresse();
 		
@@ -149,5 +151,20 @@ public class MiddelWareStub {
 		}
 				
 		return dummyKunde;
+	}
+	
+	public void schreibeKunde(String kundeID, String dateiName) throws Exception {
+		Kunde kunde = LeseKunde(kundeID);
+		schreibeKunde(kunde, dateiName);
+	}
+	
+	public void schreibeKunde(Kunde kunde, String dateiName) {
+		XmlWriter<Kunde> kundeWriter = new XmlWriter<Kunde>();
+		
+		String dateiNameMitPfad = xmlDataPath + "/" + dateiName;
+		
+		System.out.println("Write Kunde " + kunde.PKID + " in Datei " + dateiNameMitPfad);
+		
+		kundeWriter.writeIntoFile(kunde, dateiNameMitPfad);
 	}
 }

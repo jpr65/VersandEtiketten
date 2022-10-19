@@ -1,7 +1,0 @@
-class JavaMain {
-	public void Main() {
-		VersandEtikettenErstellen versandEtikettenErsteller = new VersandEtikettenErstellen();
-		
-		
-	}
-}
