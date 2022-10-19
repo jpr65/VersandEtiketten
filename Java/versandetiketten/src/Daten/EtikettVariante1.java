@@ -2,8 +2,12 @@ package Daten;
 
 import java.util.List;
 
+//-------------------------------------------------------------
 // Datenklasse für Etikett, Variante 1
+//-------------------------------------------------------------
 public class EtikettVariante1 {
 	public List<String> anschriftZeilen;
-	// hier folgen üblicherweise weitere Daten
+	
+	public int EtikettNr = 0;
+	// weitere Daten
 }

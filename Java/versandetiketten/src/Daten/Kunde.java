@@ -1,15 +1,17 @@
 package Daten;
 
-//Datenklasse für Kunden
+//---------------------------------------------------------------------------------
+// Datenklasse für Kunden
+//---------------------------------------------------------------------------------
 public class Kunde {
 	public String PKID;
 	
-	public Boolean PrivatKunde;
+	public Boolean PrivatKunde = true;
 
-	public String Titel;
-	public String Name;
-	public String Vorname;
+	public String Titel = "";
+	public String Name = "";
+	public String Vorname = "";
 
-	public String Firma;
-	public String Abteilung;
+	public String Firma = "";
+	public String Abteilung = "";
 }

@@ -13,11 +13,12 @@ Aufgabe
 Aus der Datenhaltung sind die Kunden-Informationen und die
 Adress-Informationen über KundeID und AdressID zu lesen,
 
-und 
+und abhängig vom Land* der ZielAdresse formatiert
 
-(später: abhängig vom Land der Adresse (LandID) der ZielAdresse
- passend formatiert)
+als Liste von Textzeilen zurückzuliefern
 
-passend zusammengefügt
+und dem Drucker zu übergeben.
 
-als Liste von Textzeilen zurückzuliefern.
+---------------
+
+*Land = internationaler Ländercode, 3 stellig
