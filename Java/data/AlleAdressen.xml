@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="13.0.2" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="Daten.Adresse" id="Adresse0">
+    <void class="Daten.Adresse" method="getField">
+     <string>PKID</string>
+     <void method="set">
+      <object idref="Adresse0"/>
+      <string>ADR001</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Strasse</string>
+     <void method="set">
+      <object idref="Adresse0"/>
+      <string>Viktoriastraße</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Hausnummer</string>
+     <void method="set">
+      <object idref="Adresse0"/>
+      <string>13b</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Ort</string>
+     <void method="set">
+      <object idref="Adresse0"/>
+      <string>Bochum</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>PostLeitInfo</string>
+     <void method="set">
+      <object idref="Adresse0"/>
+      <string>44787</string>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Daten.Adresse" id="Adresse1">
+    <void class="Daten.Adresse" method="getField">
+     <string>PKID</string>
+     <void method="set">
+      <object idref="Adresse1"/>
+      <string>ADR002</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Strasse</string>
+     <void method="set">
+      <object idref="Adresse1"/>
+      <string>Postfach</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Ort</string>
+     <void method="set">
+      <object idref="Adresse1"/>
+      <string>Erlangen</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>PostLeitInfo</string>
+     <void method="set">
+      <object idref="Adresse1"/>
+      <string>91055</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Land</string>
+     <void method="set">
+      <object idref="Adresse1"/>
+      <string>GERMANY</string>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Daten.Adresse" id="Adresse2">
+    <void class="Daten.Adresse" method="getField">
+     <string>PKID</string>
+     <void method="set">
+      <object idref="Adresse2"/>
+      <string>ADR003</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Strasse</string>
+     <void method="set">
+      <object idref="Adresse2"/>
+      <string>Münsterstr.</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Hausnummer</string>
+     <void method="set">
+      <object idref="Adresse2"/>
+      <string>123</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Ort</string>
+     <void method="set">
+      <object idref="Adresse2"/>
+      <string>Bocholt</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>PostLeitInfo</string>
+     <void method="set">
+      <object idref="Adresse2"/>
+      <string>46397</string>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Daten.Adresse" id="Adresse3">
+    <void class="Daten.Adresse" method="getField">
+     <string>PKID</string>
+     <void method="set">
+      <object idref="Adresse3"/>
+      <string>ADR004</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Strasse</string>
+     <void method="set">
+      <object idref="Adresse3"/>
+      <string>Alt-Britz</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Hausnummer</string>
+     <void method="set">
+      <object idref="Adresse3"/>
+      <string>18</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Ortsteil</string>
+     <void method="set">
+      <object idref="Adresse3"/>
+      <string>Ortsteil Neukoelln</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Ort</string>
+     <void method="set">
+      <object idref="Adresse3"/>
+      <string>Berlin</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>PostLeitInfo</string>
+     <void method="set">
+      <object idref="Adresse3"/>
+      <string>12359</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Land</string>
+     <void method="set">
+      <object idref="Adresse3"/>
+      <string>GERMANY</string>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Daten.Adresse" id="Adresse4">
+    <void class="Daten.Adresse" method="getField">
+     <string>PKID</string>
+     <void method="set">
+      <object idref="Adresse4"/>
+      <string>ADR005</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>PackstationNr</string>
+     <void method="set">
+      <object idref="Adresse4"/>
+      <string>Packstation 101</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>PackstationKundenNr</string>
+     <void method="set">
+      <object idref="Adresse4"/>
+      <string>1234567</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Ort</string>
+     <void method="set">
+      <object idref="Adresse4"/>
+      <string>Bonn</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>PostLeitInfo</string>
+     <void method="set">
+      <object idref="Adresse4"/>
+      <string>53113</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Land</string>
+     <void method="set">
+      <object idref="Adresse4"/>
+      <string>GERMANY</string>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Daten.Adresse" id="Adresse5">
+    <void class="Daten.Adresse" method="getField">
+     <string>PKID</string>
+     <void method="set">
+      <object idref="Adresse5"/>
+      <string>ADR010</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Strasse</string>
+     <void method="set">
+      <object idref="Adresse5"/>
+      <string>Upper Littleton</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Hausnummer</string>
+     <void method="set">
+      <object idref="Adresse5"/>
+      <string>1</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Ortsteil</string>
+     <void method="set">
+      <object idref="Adresse5"/>
+      <string>Appleford</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Ort</string>
+     <void method="set">
+      <object idref="Adresse5"/>
+      <string>ABINGDON</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>PostLeitInfo</string>
+     <void method="set">
+      <object idref="Adresse5"/>
+      <string>OX14 4PG</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Land</string>
+     <void method="set">
+      <object idref="Adresse5"/>
+      <string>UNITED KINGDOM</string>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Daten.Adresse" id="Adresse6">
+    <void class="Daten.Adresse" method="getField">
+     <string>PKID</string>
+     <void method="set">
+      <object idref="Adresse6"/>
+      <string>ADR011</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Strasse</string>
+     <void method="set">
+      <object idref="Adresse6"/>
+      <string>Featherstone Street</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Hausnummer</string>
+     <void method="set">
+      <object idref="Adresse6"/>
+      <string>49</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Ort</string>
+     <void method="set">
+      <object idref="Adresse6"/>
+      <string>LONDON</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>PostLeitInfo</string>
+     <void method="set">
+      <object idref="Adresse6"/>
+      <string>EC1Y 8SY</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Land</string>
+     <void method="set">
+      <object idref="Adresse6"/>
+      <string>UNITED KINGDOM</string>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Daten.Adresse" id="Adresse7">
+    <void class="Daten.Adresse" method="getField">
+     <string>PKID</string>
+     <void method="set">
+      <object idref="Adresse7"/>
+      <string>ADR020</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Strasse</string>
+     <void method="set">
+      <object idref="Adresse7"/>
+      <string>Calle Huertas</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Hausnummer</string>
+     <void method="set">
+      <object idref="Adresse7"/>
+      <string>18</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Flur</string>
+     <void method="set">
+      <object idref="Adresse7"/>
+      <string>4º</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Tuer</string>
+     <void method="set">
+      <object idref="Adresse7"/>
+      <string>C</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Ort</string>
+     <void method="set">
+      <object idref="Adresse7"/>
+      <string>Marbella</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>PostLeitInfo</string>
+     <void method="set">
+      <object idref="Adresse7"/>
+      <string>29400</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Provinz</string>
+     <void method="set">
+      <object idref="Adresse7"/>
+      <string>Málaga</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Land</string>
+     <void method="set">
+      <object idref="Adresse7"/>
+      <string>SPAIN</string>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Daten.Adresse" id="Adresse8">
+    <void class="Daten.Adresse" method="getField">
+     <string>PKID</string>
+     <void method="set">
+      <object idref="Adresse8"/>
+      <string>ADR021</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Strasse</string>
+     <void method="set">
+      <object idref="Adresse8"/>
+      <string>Plaza de las Descalzas</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Hausnummer</string>
+     <void method="set">
+      <object idref="Adresse8"/>
+      <string>27</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Ortsteil</string>
+     <void method="set">
+      <object idref="Adresse8"/>
+      <string>Barrio de San Roque</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Ort</string>
+     <void method="set">
+      <object idref="Adresse8"/>
+      <string>CANICOSA DE LA SIERRA</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>PostLeitInfo</string>
+     <void method="set">
+      <object idref="Adresse8"/>
+      <string>09692</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Provinz</string>
+     <void method="set">
+      <object idref="Adresse8"/>
+      <string>BURGOS</string>
+     </void>
+    </void>
+    <void class="Daten.Adresse" method="getField">
+     <string>Land</string>
+     <void method="set">
+      <object idref="Adresse8"/>
+      <string>SPAIN</string>
+     </void>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

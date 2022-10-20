@@ -1,5 +1,8 @@
 package IO;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import Daten.Adresse;
 import Daten.Kunde;
 
@@ -151,6 +154,54 @@ public class MiddelWareStub {
 		}
 				
 		return dummyKunde;
+	}
+	
+	public void schreibeAlleKunden(String dateiName) throws Exception {
+		
+		String[] kundeIdArr = {	"KUD0001", "KUD0002", "KUD0003", "KUD0004", "FIR0001", "FIR0002", 
+								"KUD0010", "KUD0011", "KUD0020", "KUD0021"};
+		List<Kunde> kundeListe = new ArrayList<Kunde>() ;
+	
+		for (String kundeID: kundeIdArr) {
+			Kunde kunde = LeseKunde(kundeID);
+			kundeListe.add(kunde);
+		}
+		
+		schreibeKunden(kundeListe, dateiName);
+	}
+	
+	public void schreibeKunden(List<Kunde> kundeListe, String dateiName) {
+		XmlWriter<List<Kunde>> kundeWriter = new XmlWriter<List<Kunde>>();
+		
+		String dateiNameMitPfad = xmlDataPath + "/" + dateiName;
+		
+		System.out.println("Write " + kundeListe.size() + " Kunden in Datei " + dateiNameMitPfad);
+		
+		kundeWriter.writeIntoFile(kundeListe, dateiNameMitPfad);
+	}
+	
+public void schreibeAlleAdressen(String dateiName) throws Exception {
+		
+		String[] adresseIdArr = {	"ADR001", "ADR002", "ADR003", "ADR004", "ADR005", "ADR010", "ADR011", 
+									"ADR020", "ADR021", };
+		List<Adresse> adresseListe = new ArrayList<Adresse>() ;
+	
+		for (String adresseID: adresseIdArr) {
+			Adresse adresse = LeseAdresse(adresseID);
+			adresseListe.add(adresse);
+		}
+		
+		schreibeAdressen(adresseListe, dateiName);
+	}
+	
+	public void schreibeAdressen(List<Adresse> AdresseListe, String dateiName) {
+		XmlWriter<List<Adresse>> AdresseWriter = new XmlWriter<List<Adresse>>();
+		
+		String dateiNameMitPfad = xmlDataPath + "/" + dateiName;
+		
+		System.out.println("Write " + AdresseListe.size() + " Adressen in Datei " + dateiNameMitPfad);
+		
+		AdresseWriter.writeIntoFile(AdresseListe, dateiNameMitPfad);
 	}
 	
 	public void schreibeKunde(String kundeID, String dateiName) throws Exception {

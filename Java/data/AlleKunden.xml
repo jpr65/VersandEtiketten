@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="13.0.2" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="Daten.Kunde" id="Kunde0">
+    <void class="Daten.Kunde" method="getField">
+     <string>PKID</string>
+     <void method="set">
+      <object idref="Kunde0"/>
+      <string>KUD0001</string>
+     </void>
+    </void>
+    <void class="Daten.Kunde" method="getField">
+     <string>Name</string>
+     <void method="set">
+      <object idref="Kunde0"/>
+      <string>Mustermann</string>
+     </void>
+    </void>
+    <void class="Daten.Kunde" method="getField">
+     <string>Vorname</string>
+     <void method="set">
+      <object idref="Kunde0"/>
+      <string>Monika</string>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Daten.Kunde" id="Kunde1">
+    <void class="Daten.Kunde" method="getField">
+     <string>PKID</string>
+     <void method="set">
+      <object idref="Kunde1"/>
+      <string>KUD0002</string>
+     </void>
+    </void>
+    <void class="Daten.Kunde" method="getField">
+     <string>Titel</string>
+     <void method="set">
+      <object idref="Kunde1"/>
+      <string>Prof. Dr.</string>
+     </void>
+    </void>
+    <void class="Daten.Kunde" method="getField">
+     <string>Name</string>
+     <void method="set">
+      <object idref="Kunde1"/>
+      <string>Staller</string>
+     </void>
+    </void>
+    <void class="Daten.Kunde" method="getField">
+     <string>Vorname</string>
+     <void method="set">
+      <object idref="Kunde1"/>
+      <string>Hubert</string>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Daten.Kunde" id="Kunde2">
+    <void class="Daten.Kunde" method="getField">
+     <string>PKID</string>
+     <void method="set">
+      <object idref="Kunde2"/>
+      <string>KUD0003</string>
+     </void>
+    </void>
+    <void class="Daten.Kunde" method="getField">
+     <string>Name</string>
+     <void method="set">
+      <object idref="Kunde2"/>
+      <string>Schloss Britz</string>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Daten.Kunde" id="Kunde3">
+    <void class="Daten.Kunde" method="getField">
+     <string>PKID</string>
+     <void method="set">
+      <object idref="Kunde3"/>
+      <string>KUD0004</string>
+     </void>
+    </void>
+    <void class="Daten.Kunde" method="getField">
+     <string>Name</string>
+     <void method="set">
+      <object idref="Kunde3"/>
+      <string>Sommer</string>
+     </void>
+    </void>
+    <void class="Daten.Kunde" method="getField">
+     <string>Vorname</string>
+     <void method="set">
+      <object idref="Kunde3"/>
+      <string>Lisa</string>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Daten.Kunde" id="Kunde4">
+    <void class="Daten.Kunde" method="getField">
+     <string>PKID</string>
+     <void method="set">
+      <object idref="Kunde4"/>
+      <string>FIR0001</string>
+     </void>
+    </void>
+    <void class="Daten.Kunde" method="getField">
+     <string>PrivatKunde</string>
+     <void method="set">
+      <object idref="Kunde4"/>
+      <boolean>false</boolean>
+     </void>
+    </void>
+    <void class="Daten.Kunde" method="getField">
+     <string>Firma</string>
+     <void method="set">
+      <object idref="Kunde4"/>
+      <string>Siemens PG</string>
+     </void>
+    </void>
+    <void class="Daten.Kunde" method="getField">
+     <string>Abteilung</string>
+     <void method="set">
+      <object idref="Kunde4"/>
+      <string>OI 41</string>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Daten.Kunde" id="Kunde5">
+    <void class="Daten.Kunde" method="getField">
+     <string>PKID</string>
+     <void method="set">
+      <object idref="Kunde5"/>
+      <string>FIR0002</string>
+     </void>
+    </void>
+    <void class="Daten.Kunde" method="getField">
+     <string>PrivatKunde</string>
+     <void method="set">
+      <object idref="Kunde5"/>
+      <boolean>false</boolean>
+     </void>
+    </void>
+    <void class="Daten.Kunde" method="getField">
+     <string>Firma</string>
+     <void method="set">
+      <object idref="Kunde5"/>
+      <string>Bädergalerie Bocholt</string>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Daten.Kunde" id="Kunde6">
+    <void class="Daten.Kunde" method="getField">
+     <string>PKID</string>
+     <void method="set">
+      <object idref="Kunde6"/>
+      <string>KUD0010</string>
+     </void>
+    </void>
+    <void class="Daten.Kunde" method="getField">
+     <string>Name</string>
+     <void method="set">
+      <object idref="Kunde6"/>
+      <string>Poppins</string>
+     </void>
+    </void>
+    <void class="Daten.Kunde" method="getField">
+     <string>Vorname</string>
+     <void method="set">
+      <object idref="Kunde6"/>
+      <string>Mary</string>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Daten.Kunde" id="Kunde7">
+    <void class="Daten.Kunde" method="getField">
+     <string>PKID</string>
+     <void method="set">
+      <object idref="Kunde7"/>
+      <string>KUD0011</string>
+     </void>
+    </void>
+    <void class="Daten.Kunde" method="getField">
+     <string>Name</string>
+     <void method="set">
+      <object idref="Kunde7"/>
+      <string>Brown</string>
+     </void>
+    </void>
+    <void class="Daten.Kunde" method="getField">
+     <string>Vorname</string>
+     <void method="set">
+      <object idref="Kunde7"/>
+      <string>Walter C.</string>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Daten.Kunde" id="Kunde8">
+    <void class="Daten.Kunde" method="getField">
+     <string>PKID</string>
+     <void method="set">
+      <object idref="Kunde8"/>
+      <string>KUD0020</string>
+     </void>
+    </void>
+    <void class="Daten.Kunde" method="getField">
+     <string>Name</string>
+     <void method="set">
+      <object idref="Kunde8"/>
+      <string>Casero</string>
+     </void>
+    </void>
+    <void class="Daten.Kunde" method="getField">
+     <string>Vorname</string>
+     <void method="set">
+      <object idref="Kunde8"/>
+      <string>Carmen Garcés</string>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Daten.Kunde" id="Kunde9">
+    <void class="Daten.Kunde" method="getField">
+     <string>PKID</string>
+     <void method="set">
+      <object idref="Kunde9"/>
+      <string>KUD0021</string>
+     </void>
+    </void>
+    <void class="Daten.Kunde" method="getField">
+     <string>Name</string>
+     <void method="set">
+      <object idref="Kunde9"/>
+      <string>Cortés</string>
+     </void>
+    </void>
+    <void class="Daten.Kunde" method="getField">
+     <string>Vorname</string>
+     <void method="set">
+      <object idref="Kunde9"/>
+      <string>José Ayuso</string>
+     </void>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

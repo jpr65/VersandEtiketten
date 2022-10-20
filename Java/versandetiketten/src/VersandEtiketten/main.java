@@ -37,7 +37,11 @@ class JavaMain {
 		
 		System.out.println("======================================");
 		
-		schreibeKunde("KUD0001");
+		Boolean erzeugeXmlDatenDateien = true;
+		
+		if (erzeugeXmlDatenDateien) {
+			schreibeKundenUndAdressen();
+		}
 	}
 
 	private static void printEtikett(
@@ -58,14 +62,16 @@ class JavaMain {
 		
 	}
 	
-	private static void schreibeKunde(String kundeID){
+	private static void schreibeKundenUndAdressen(){
 		MiddelWareStub MWI = new MiddelWareStub();
-		
+				
 		try {
-			MWI.schreibeKunde(kundeID, "Kunde.xml");
+			MWI.schreibeKunde("KUD0001", "Kunde.xml");
+			MWI.schreibeAlleKunden("AlleKunden.xml");
+			MWI.schreibeAlleAdressen("AlleAdressen.xml");
 		}
 		catch (Exception ex) {
-			System.out.println("Fehler beim Schreiben des Kunden");
+			System.out.println("Fehler beim Schreiben der Kunden/Adressen");
 			System.out.println(ex.getMessage());
 			System.out.println("------------------------------------------");
 		}
