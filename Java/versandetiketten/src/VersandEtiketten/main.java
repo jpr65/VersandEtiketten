@@ -2,7 +2,8 @@ package VersandEtiketten;
 
 import Daten.EtikettVariante1;
 import IO.IEtikettDrucker;
-import IO.MiddelWareStub;
+import IO.MiddleWareStub;
+import Integratoren.IoFactory;
 import Integratoren.OperatorFactory;
 import Integratoren.VersandEtikettenErsteller;
 
@@ -10,6 +11,11 @@ class JavaMain {
 	public static int anzahlEtikettenGedruckt = 0;
 	
 	public static void main(String[] args) {
+		
+		leseKundenUndAdressen();
+		
+		System.out.println("======================================");
+		
 		VersandEtikettenErsteller versandEtikettenErsteller = new VersandEtikettenErsteller();
 		
 		printEtikett(versandEtikettenErsteller, "KUD0001", "ADR001", "GER");
@@ -37,11 +43,28 @@ class JavaMain {
 		
 		System.out.println("======================================");
 		
-		Boolean erzeugeXmlDatenDateien = true;
+		Boolean erzeugeXmlDatenDateien = false;
 		
 		if (erzeugeXmlDatenDateien) {
 			schreibeKundenUndAdressen();
 		}
+	}
+	
+	private static void leseKundenUndAdressen() {
+		MiddleWareStub middleWareStub = (MiddleWareStub) IoFactory.GetMiddleWare();
+		
+		try {
+			middleWareStub.LeseKundenAusXml("AlleKunden.xml");
+			middleWareStub.LeseAdressenAusXml("AlleAdressen.xml");
+			
+			
+		}
+		catch (Exception ex) {
+			System.out.println("Fehler beim Schreiben der Kunden/Adressen");
+			System.out.println(ex.getMessage());
+			System.out.println("------------------------------------------");
+		}
+		
 	}
 
 	private static void printEtikett(
@@ -63,12 +86,12 @@ class JavaMain {
 	}
 	
 	private static void schreibeKundenUndAdressen(){
-		MiddelWareStub MWI = new MiddelWareStub();
+		MiddleWareStub middleWareStub = new MiddleWareStub();
 				
 		try {
-			MWI.schreibeKunde("KUD0001", "Kunde.xml");
-			MWI.schreibeAlleKunden("AlleKunden.xml");
-			MWI.schreibeAlleAdressen("AlleAdressen.xml");
+			middleWareStub.schreibeKunde("KUD0001", "Kunde.xml");
+			middleWareStub.schreibeAlleKunden("AlleKunden.xml");
+			middleWareStub.schreibeAlleAdressen("AlleAdressen.xml");
 		}
 		catch (Exception ex) {
 			System.out.println("Fehler beim Schreiben der Kunden/Adressen");
@@ -78,4 +101,5 @@ class JavaMain {
 	}
 
 	
+
 }

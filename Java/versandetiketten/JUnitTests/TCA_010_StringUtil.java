@@ -21,6 +21,8 @@ class TCA_010_StringUtil {
 		assertTrue(StringUtil.IsEmpty(" "));
 		assertTrue(StringUtil.IsEmpty("\t"));
 		
+		assertTrue(StringUtil.IsEmpty(" \t\n"));
+		
 		assertFalse(StringUtil.IsEmpty("text"));
 	}
 

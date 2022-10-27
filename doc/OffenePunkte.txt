@@ -1,0 +1,7 @@
+Offene Punkte oder Fragen,
+die während der Entwicklung aufgetaucht sind:
+
+1. Wie kann man leichter lesbares XML beim Mapping aus Java-Klassen erzeugen?
+- JAXB ist ein wenig umständlich, 
+  weil immer erst ein XSD zu jeder Klasse erstellt werden muss.
+- Das Ergebenis von XMLEncoder ist schwer zu lesen und zu editieren

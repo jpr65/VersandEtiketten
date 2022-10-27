@@ -4,11 +4,10 @@ import java.beans.ExceptionListener;
 import java.beans.XMLEncoder;
 import java.io.FileOutputStream;
 
-//------------------------------------------------------------
-//IO-Operation: Write Data-Class into XML File
-//-------------------------------------------------------------
-public class XmlWriter<T> {
-	
+//-------------------------------------------------------------------------------
+//IO-Operation: Write Data-Class into XML file using Java standard XMLEncoder
+//-------------------------------------------------------------------------------
+public class XmlWriterStandardJava<T> {
 	
 	public void writeIntoFile(T dataObject, String fileName) {
 		FileOutputStream fos;

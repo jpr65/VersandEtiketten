@@ -3,7 +3,7 @@ package Integratoren;
 import java.util.*;
 
 import Daten.*;
-import IO.MiddelWareStub;
+import IO.MiddleWareInterface;
 import Operationen.*; 
 
 //---------------------------------------------------------------------------------
@@ -17,7 +17,7 @@ public class VersandEtikettenErsteller {
 		return this.naechsteEtikettNr - 1;
 	}
 	
-	public MiddelWareStub MWI = new MiddelWareStub();
+	public MiddleWareInterface middleWare = IoFactory.GetMiddleWare();
 	
 	public EtikettVariante1 VersandEtikettVariante1(String kundeID, String adresseID, String laenderKennung, String weitereID) throws Exception {
 		EtikettVariante1 erstelltesEtikett = new EtikettVariante1();
@@ -29,8 +29,8 @@ public class VersandEtikettenErsteller {
 	}
 	
 	public List<String> AnschriftErstellung(String kundeID, String adresseID, String laenderKennung) throws Exception {
-		Kunde kunde = MWI.LeseKunde(kundeID);
-		Adresse adresse = MWI.LeseAdresse(adresseID);
+		Kunde kunde = middleWare.LeseKunde(kundeID);
+		Adresse adresse = middleWare.LeseAdresse(adresseID);
 		
 		IAnschriftFormatierer anschriftFormatierer = Integratoren.OperatorFactory.BuildAnschriftFormatierer(laenderKennung);
 		

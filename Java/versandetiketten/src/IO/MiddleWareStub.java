@@ -1,21 +1,90 @@
 package IO;
 
 import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.Hashtable;
 import java.util.List;
 
 import Daten.Adresse;
 import Daten.Kunde;
 
 //---------------------------------------------------------------------------------
-// IO-Stub, der Kunden-Infos und Adressen liefert
+// IO-Stub, der Kunden-Infos und Adressen liefert.
 // Diese Daten werden üblicherweise von der Middleware 
 // oder einer Persistenz-API bereitgestellt.
+// Der Stub wird nur solange benötigt, bis eine Implementierung
+// im realen System vorliegt.
+// Zum Testen der Operations-Klassen "*AnschriftFormatierer" werden weder der Stub
+// noch die spätere Implementierung verwendet.
+// Die Operations-Klassen haben keinen Zugriff auf die IO-Klassen, das ist nur
+// den Integrations-Klassen erlaubt.
 //---------------------------------------------------------------------------------
-public class MiddelWareStub {
+public class MiddleWareStub implements MiddleWareInterface {
 	
 	private String xmlDataPath = "Z:/user/rp/prj_public/Beispiele/VersandEtiketten/Java/data";
 	
-	public Adresse LeseAdresse(String adresseID ) throws Exception {
+	private Dictionary<String, Kunde> kundeDict = new Hashtable<String, Kunde>();
+	private Dictionary<String, Adresse> adresseDict = new Hashtable<String, Adresse>();
+	
+	public Adresse LeseAdresse(String adresseID) {
+		return adresseDict.get(adresseID);
+	}
+	
+	public Kunde LeseKunde(String kundeID) {
+		return kundeDict.get(kundeID);
+	}
+	
+	// Dieser Teil liest aus den XML-Dateien die Kunden und Adressen --------------------------
+	
+	public void LeseKundenAusXml(String dateiName) {
+		XmlReaderStandardJava<List<Kunde>> kundeReader = new XmlReaderStandardJava<List<Kunde>>();
+		
+		String dateiNameMitPfad = xmlDataPath + "/" + dateiName;
+		
+		System.out.println("Lese Kunden aus Datei " + dateiNameMitPfad);
+		
+		List<Kunde> kundeListe = kundeReader.readFromFile(dateiNameMitPfad);
+		
+		System.out.println(kundeListe.size() + " Kunden gelesen.");
+		
+		FillKundeDict(kundeListe);
+	}
+
+	private void FillKundeDict(List<Kunde> kundeListe) {
+		kundeDict = new Hashtable<String, Kunde>();
+		
+		for (Kunde kunde: kundeListe) {
+			kundeDict.put(kunde.PKID, kunde);
+		}
+	}
+
+	public void LeseAdressenAusXml(String dateiName) {
+		XmlReaderStandardJava<List<Adresse>> adresseReader = new XmlReaderStandardJava<List<Adresse>>();
+		
+		String dateiNameMitPfad = xmlDataPath + "/" + dateiName;
+		
+		System.out.println("Lese Adressen aus Datei " + dateiNameMitPfad);
+		
+		List<Adresse> adresseListe = adresseReader.readFromFile(dateiNameMitPfad);
+		
+		System.out.println(adresseListe.size() + " Adressen gelesen.");
+		
+		FillAdresseDict(adresseListe);
+		
+	}
+
+	private void FillAdresseDict(List<Adresse> adresseListe) {
+		adresseDict = new Hashtable<String, Adresse>();
+		
+		for (Adresse adresse: adresseListe) {
+			adresseDict.put(adresse.PKID, adresse);
+		}
+		
+	}
+	
+	// Dieser Teil erzeugt die XML-Dateien für Kunden und Adressen --------------------------
+	
+	public Adresse LeseAdresseDummy(String adresseID ) throws Exception {
 		Adresse dummyAdresse = new Adresse();
 		
 		dummyAdresse.PKID = adresseID;
@@ -95,7 +164,7 @@ public class MiddelWareStub {
 		return dummyAdresse;
 	}
 	
-	public Kunde LeseKunde(String kundeID ) throws Exception {
+	public Kunde LeseKundeDummy(String kundeID ) throws Exception {
 		Kunde dummyKunde = new Kunde();
 		
 		dummyKunde.PKID = kundeID;
@@ -163,7 +232,7 @@ public class MiddelWareStub {
 		List<Kunde> kundeListe = new ArrayList<Kunde>() ;
 	
 		for (String kundeID: kundeIdArr) {
-			Kunde kunde = LeseKunde(kundeID);
+			Kunde kunde = LeseKundeDummy(kundeID);
 			kundeListe.add(kunde);
 		}
 		
@@ -171,7 +240,7 @@ public class MiddelWareStub {
 	}
 	
 	public void schreibeKunden(List<Kunde> kundeListe, String dateiName) {
-		XmlWriter<List<Kunde>> kundeWriter = new XmlWriter<List<Kunde>>();
+		XmlWriterStandardJava<List<Kunde>> kundeWriter = new XmlWriterStandardJava<List<Kunde>>();
 		
 		String dateiNameMitPfad = xmlDataPath + "/" + dateiName;
 		
@@ -187,7 +256,7 @@ public void schreibeAlleAdressen(String dateiName) throws Exception {
 		List<Adresse> adresseListe = new ArrayList<Adresse>() ;
 	
 		for (String adresseID: adresseIdArr) {
-			Adresse adresse = LeseAdresse(adresseID);
+			Adresse adresse = LeseAdresseDummy(adresseID);
 			adresseListe.add(adresse);
 		}
 		
@@ -195,7 +264,7 @@ public void schreibeAlleAdressen(String dateiName) throws Exception {
 	}
 	
 	public void schreibeAdressen(List<Adresse> AdresseListe, String dateiName) {
-		XmlWriter<List<Adresse>> AdresseWriter = new XmlWriter<List<Adresse>>();
+		XmlWriterStandardJava<List<Adresse>> AdresseWriter = new XmlWriterStandardJava<List<Adresse>>();
 		
 		String dateiNameMitPfad = xmlDataPath + "/" + dateiName;
 		
@@ -205,12 +274,12 @@ public void schreibeAlleAdressen(String dateiName) throws Exception {
 	}
 	
 	public void schreibeKunde(String kundeID, String dateiName) throws Exception {
-		Kunde kunde = LeseKunde(kundeID);
+		Kunde kunde = LeseKundeDummy(kundeID);
 		schreibeKunde(kunde, dateiName);
 	}
 	
 	public void schreibeKunde(Kunde kunde, String dateiName) {
-		XmlWriter<Kunde> kundeWriter = new XmlWriter<Kunde>();
+		XmlWriterStandardJava<Kunde> kundeWriter = new XmlWriterStandardJava<Kunde>();
 		
 		String dateiNameMitPfad = xmlDataPath + "/" + dateiName;
 		
@@ -218,4 +287,6 @@ public void schreibeAlleAdressen(String dateiName) throws Exception {
 		
 		kundeWriter.writeIntoFile(kunde, dateiNameMitPfad);
 	}
+	
+	
 }
