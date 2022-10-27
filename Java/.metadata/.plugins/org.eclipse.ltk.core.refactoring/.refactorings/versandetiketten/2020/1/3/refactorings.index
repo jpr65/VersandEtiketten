@@ -1,9 +1,0 @@
-1579084365393	Rename type 'VersandEtikettErstellung'
-1579084400468	Rename package 'versandetiketten'
-1579084517072	Move compilation unit
-1579084888111	Move compilation unit
-1579088264214	Rename local variable 'KundeID'
-1579089011191	Move compilation unit
-1579089285392	Rename local variable 'zuErstellendesEtikett'
-1579089938743	Rename local variable 'adressZeile'
-1579091165538	Rename type 'Factory'
