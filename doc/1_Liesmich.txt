@@ -1,0 +1,87 @@
+Liesmich zum Referenzprojekt 
+
+Versandetiketten-Erstellung
+---------------------------
+
+von Ralf Peine
+
+Stand: 02.11.2022
+
+-----------------------------------------------------------------------
+
+Ticket_VersandEtiketten.txt - beschreibt die (Übungs-)Aufgabe.
+
+-----------------------------------------------------------------------
+
+"OffenePunkte.txt" entstand ebenso während der Entwicklung
+wie die drei PDF-Downloads hier vom Internationalen Postverein UPU.
+
+-----------------------------------------------------------------------
+
+Kommentare, die mit //i/ (i für info) starten,
+enthalten Erläuterungen zu dieser Referenzimplementierung,
+sie würden in Produktiv-Code entfallen.
+
+-----------------------------------------------------------------------
+
+Diese Implementierung der Übungsaufgabe verwendet
+
+IODA nach Ralf Westphal
+-----------------------
+
+kurze Intro:
+
+IODA teilt alle Klassen in die Typen
+
+Integrator
+Operation
+Daten
+API
+
+ein.
+
+*Integratoren* dürfen jeden anderen Klassentyp aufrufen, enthalten
+aber keine Logik.
+
+*Operationen* dürfen nur *Daten* verwenden und manipulieren 
+sowie die *API* aufrufen.
+Sie dürfen keine anderen *Operationen* oder gar *Integratoren* aufrufen.
+Sie enthalten als einzige Klassen (komplexere) Logik.
+Daraus folgt auch, das *Operationen* keine *IO-Operationen* aufrufen dürfen.
+
+*Daten* beschäftigen sich nur mit sich selbst, ihren Kindern, Enkeln usw.
+Außerhalb der Familie ist nur der Zugriff auf das API erlaubt.
+
+Das *API* hat keinen Zugriff auf *Integratoren*, *Operationen* oder *Datenklassen*,
+es ist wie eine Standard-Library des Entwicklungs-Systems zu betrachten
+und zu behandeln.
+Das *API* darf aber niedriger gelegene *APIs* aufrufen,
+z.B. eine Standard-Libraries des Entwicklungs-Systems.
+
+----------------
+
+Meine Erweiterung nach dem EVA-Prinzip (Eingabe - Verarbeitung - Ausgabe):
+
+Trennung der Operationen mit IO und ohne IO in verschiedene Bereiche/Libraries.
+
+IO - Input/Output - Eingabe/Ausgabe
+-----------------------------------
+
+Ruft ein Operator über die API IO-Funktionalität auf,
+sollte er nur Logik enthalten,
+die der Bedienung der IO-Funktionen dient.
+
+Verarbeitung
+------------
+
+Enthält ein Operator Verarbeitungs-Logik,
+darf er keine IO-Funktionalitäten aufrufen.
+
+--------------------------------------------------------------------------------------
+
+Vorteile des IODA-Ansatzes, u.a.
+- Leichte Testbarkeit in Unit-Tests
+- Kein Mocking oder Ähnliches mehr erforderlich
+- Verminderung der Komplexität
+- Entkopplung durch eigene Libraries möglich
+- Klare Struktur
