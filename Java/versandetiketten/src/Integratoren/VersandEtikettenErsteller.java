@@ -13,26 +13,31 @@ public class VersandEtikettenErsteller {
 	
 	public int naechsteEtikettNr = 1;
 	
-	public int GetEtikettZaehler() {
+	public int getEtikettZaehler() {
 		return this.naechsteEtikettNr - 1;
 	}
 	
-	public MiddleWareInterface middleWare = IoFactory.GetMiddleWare();
+	public MiddleWareInterface middleWare = IoFactory.getMiddleWare();
 	
-	public EtikettVariante1 VersandEtikettVariante1(String kundeID, String adresseID, String laenderKennung, String weitereID) throws Exception {
-		EtikettVariante1 erstelltesEtikett = new EtikettVariante1();
-		erstelltesEtikett.EtikettNr = this.naechsteEtikettNr++;
+	public EtikettVariante1 versandEtikettVariante1(String kundeID, String adresseID, String laenderKennung, String weitereID) throws Exception {
+		EtikettVariante1 erstelltesEtikett = this.erzeugeNeuesEtikett();
 		
-		erstelltesEtikett.anschriftZeilen = this.AnschriftErstellung(kundeID, adresseID, laenderKennung);
+		erstelltesEtikett.anschriftZeilen = this.anschriftErstellung(kundeID, adresseID, laenderKennung);
 		
 		return erstelltesEtikett;
 	}
+
+	private EtikettVariante1 erzeugeNeuesEtikett() {
+		EtikettVariante1 erstelltesEtikett = new EtikettVariante1();
+		erstelltesEtikett.EtikettNr = this.naechsteEtikettNr++;
+		return erstelltesEtikett;
+	}
 	
-	public List<String> AnschriftErstellung(String kundeID, String adresseID, String laenderKennung) throws Exception {
-		Kunde kunde = middleWare.LeseKunde(kundeID);
-		Adresse adresse = middleWare.LeseAdresse(adresseID);
+	public List<String> anschriftErstellung(String kundeID, String adresseID, String laenderKennung) throws Exception {
+		Kunde kunde = middleWare.leseKunde(kundeID);
+		Adresse adresse = middleWare.leseAdresse(adresseID);
 		
-		IAnschriftFormatierer anschriftFormatierer = Integratoren.OperatorFactory.BuildAnschriftFormatierer(laenderKennung);
+		IAnschriftFormatierer anschriftFormatierer = Integratoren.OperatorFactory.buildAnschriftFormatierer(laenderKennung);
 		
 		return anschriftFormatierer.AnschriftErstellung(kunde, adresse);
 	}

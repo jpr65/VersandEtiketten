@@ -9,6 +9,7 @@ import Integratoren.VersandEtikettenErsteller;
 
 class JavaMain {
 	public static int anzahlEtikettenGedruckt = 0;
+	public static int anzahlZeilenBelegt = 0;
 	
 	public static void main(String[] args) {
 		
@@ -38,9 +39,11 @@ class JavaMain {
 		printEtikett(versandEtikettenErsteller, "KUD0001", "ADR101", "GER");
 		
 		System.out.println("Anzahl Etiketten (gesamt / gedruckt): " 
-				+ versandEtikettenErsteller.GetEtikettZaehler()
+				+ versandEtikettenErsteller.getEtikettZaehler()
 				+ " / " + anzahlEtikettenGedruckt);
 		
+		System.out.println("Anzahl Zeilen belegt insgesamt: "
+				+ anzahlZeilenBelegt);
 		System.out.println("======================================");
 		
 		Boolean erzeugeXmlDatenDateien = false;
@@ -51,7 +54,7 @@ class JavaMain {
 	}
 	
 	private static void leseKundenUndAdressen() {
-		MiddleWareStub middleWareStub = (MiddleWareStub) IoFactory.GetMiddleWare();
+		MiddleWareStub middleWareStub = (MiddleWareStub) IoFactory.getMiddleWare();
 		
 		try {
 			middleWareStub.LeseKundenAusXml("AlleKunden.xml");
@@ -71,11 +74,13 @@ class JavaMain {
 			VersandEtikettenErsteller versandEtikettenErsteller,
 			String KundeId, String AdresseId, String Land) {
 		try {
-			EtikettVariante1 etikett = versandEtikettenErsteller.VersandEtikettVariante1(KundeId, AdresseId, Land, null);
-		
-			IEtikettDrucker etikettDrucker = OperatorFactory.BuildEtikettDrucker();
-			etikettDrucker.DruckeEtikett(etikett.anschriftZeilen);
+			EtikettVariante1 etikett = versandEtikettenErsteller.versandEtikettVariante1(KundeId, AdresseId, Land, null);
+			
+			IEtikettDrucker etikettDrucker = OperatorFactory.buildEtikettDrucker();
+			etikettDrucker.druckeEtikett(etikett.anschriftZeilen);
+			
 			anzahlEtikettenGedruckt++;
+			anzahlZeilenBelegt += etikett.belegteZeilenAnz();
 		}
 		catch (Exception ex) {
 			System.out.println("Fehler beim Drucken des Etiketts");

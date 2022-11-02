@@ -5,18 +5,18 @@ import java.beans.XMLEncoder;
 import java.io.FileOutputStream;
 
 //-------------------------------------------------------------------------------
-//IO-Operation: Write Data-Class into XML file using Java standard XMLEncoder
+// IO-Operation: Write Data-Class into XML file using Java standard XMLEncoder
 //-------------------------------------------------------------------------------
 public class XmlWriterStandardJava<T> {
 	
 	public void writeIntoFile(T dataObject, String fileName) {
-		FileOutputStream fos;
+		FileOutputStream fileOutStream;
 		try {
-			fos = new FileOutputStream(fileName);
+			fileOutStream = new FileOutputStream(fileName);
 			
-			writeIntoStream(dataObject, fos);
+			writeIntoStream(dataObject, fileOutStream);
 			  
-			  fos.close();
+			  fileOutStream.close();
 		} catch (Exception ex) {
 			System.out.println("Exception FileIO! :" + ex.toString());
 		}

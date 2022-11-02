@@ -8,7 +8,7 @@ import API.StringUtil;
  * @author rp
  *
  */
-// @TestMethodOrder(MethodOrderer.Alphanumeric)
+// @TestMethodOrder(MethodOrderer.Alphanumeric) - oder wie funktioniert das?
 class TCA_010_StringUtil {
 
 	/**

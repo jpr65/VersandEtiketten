@@ -4,7 +4,7 @@ import java.beans.XMLDecoder;
 import java.io.FileInputStream;
 
 //-------------------------------------------------------------------------------
-//IO-Operation: Read Data-Class from XML file using Java standard XMLDecoder
+// IO-Operation: Read Data-Class from XML file using Java standard XMLDecoder
 //-------------------------------------------------------------------------------
 public class XmlReaderStandardJava<T> {
 	

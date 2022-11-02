@@ -14,10 +14,11 @@ import Daten.Kunde;
 // oder einer Persistenz-API bereitgestellt.
 // Der Stub wird nur solange benötigt, bis eine Implementierung
 // im realen System vorliegt.
-// Zum Testen der Operations-Klassen "*AnschriftFormatierer" werden weder der Stub
-// noch die spätere Implementierung verwendet.
-// Die Operations-Klassen haben keinen Zugriff auf die IO-Klassen, das ist nur
-// den Integrations-Klassen erlaubt.
+//
+//i/ Zum Testen der Operations-Klassen "*AnschriftFormatierer" werden weder der Stub
+//i/ noch die spätere Implementierung verwendet.
+//i/ Die Operations-Klassen haben keinen Zugriff auf die IO-Klassen, das ist nur
+//i/ den Integrations-Klassen erlaubt.
 //---------------------------------------------------------------------------------
 public class MiddleWareStub implements MiddleWareInterface {
 	
@@ -26,11 +27,11 @@ public class MiddleWareStub implements MiddleWareInterface {
 	private Dictionary<String, Kunde> kundeDict = new Hashtable<String, Kunde>();
 	private Dictionary<String, Adresse> adresseDict = new Hashtable<String, Adresse>();
 	
-	public Adresse LeseAdresse(String adresseID) {
+	public Adresse leseAdresse(String adresseID) {
 		return adresseDict.get(adresseID);
 	}
 	
-	public Kunde LeseKunde(String kundeID) {
+	public Kunde leseKunde(String kundeID) {
 		return kundeDict.get(kundeID);
 	}
 	

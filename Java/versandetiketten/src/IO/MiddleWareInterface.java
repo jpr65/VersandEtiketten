@@ -8,6 +8,6 @@ import Daten.Kunde;
 //---------------------------------------------------------------------------------
 
 public interface MiddleWareInterface {
-	public Adresse LeseAdresse(String adresseID ) throws Exception;
-	public Kunde LeseKunde(String kundeID ) throws Exception;
+	public Adresse leseAdresse(String adresseID ) throws Exception;
+	public Kunde leseKunde(String kundeID ) throws Exception;
 }

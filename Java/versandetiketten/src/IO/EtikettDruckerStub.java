@@ -5,11 +5,14 @@ import java.util.List;
 
 // ------------------------------------------------------------
 // IO-Operation: Stub eines Etikettdruckers für die Demo
+//
+// Hier würde üblicherweise ein Interface
+// zu einem echten Drucker bedient.
 //-------------------------------------------------------------
 public class EtikettDruckerStub implements IEtikettDrucker {
 
 	@Override
-	public void DruckeEtikett(List<String> etikettZeilen) {
+	public void druckeEtikett(List<String> etikettZeilen) {
 		Iterator<String> iter = etikettZeilen.iterator();
 		
 		while (iter.hasNext()) {

@@ -8,11 +8,14 @@ import Operationen.GermanAnschriftFormatierer;
 import Operationen.UnitedKingdomAnschriftFormatierer;
 
 //-------------------------------------------------------------
-// Eine Factory, die Operatoren erzeugt.
-// Ein Integrator, der auch ein wenig Logik enthält.
+// Integration: Eine Factory, die Operatoren erzeugt.
+//
+//i/ Factories bilden eine Ausnahme, 
+//i/ sie dürfen auch ein wenig Logik enthalten,
+//i/ die zur Erzeugung der Instanzen benötigt wird.
 //-------------------------------------------------------------
 public class OperatorFactory {
-	public static IAnschriftFormatierer BuildAnschriftFormatierer(String laenderKennung) throws Exception {
+	public static IAnschriftFormatierer buildAnschriftFormatierer(String laenderKennung) throws Exception {
 		IAnschriftFormatierer anschriftFormatierer = null;
 		
 		if (laenderKennung.toLowerCase().equals("ger")) {
@@ -40,7 +43,7 @@ public class OperatorFactory {
 		return anschriftFormatierer;
 	}
 
-	public static IEtikettDrucker BuildEtikettDrucker() {
+	public static IEtikettDrucker buildEtikettDrucker() {
 		return new EtikettDruckerStub();
 	}
 }

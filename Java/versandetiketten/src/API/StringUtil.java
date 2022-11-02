@@ -1,8 +1,13 @@
 package API;
 
-//---------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------
 // API: Utilities für Strings
-//---------------------------------------------------------------------------------
+//
+//i/    Diese API-Klasse darf nur die Java-APIs aufrufen
+//i/    Deshalb werden APIs üblicherweise als eigene Library im Projekt abgelegt.
+//i/    Daten-, Operations- und Integrationsklassen sind dann für die API nicht sichtbar.
+//i/    Auf eine eigene Lib wurde hier verzichtet, um das Projekt einfacher zu gestalten.
+//---------------------------------------------------------------------------------------------
 public class StringUtil {
 	public static boolean IsEmpty(String str) {
 		if (str == null) {
