@@ -8,13 +8,14 @@ import Operationen.*;
 
 //---------------------------------------------------------------------------------
 // Integrator, der die Versandetiketten erstellen lässt
+//i/ Dieser Integrator enthält weder Logik noch eine Schleife!
 //---------------------------------------------------------------------------------
 public class VersandEtikettenErsteller {
 	
-	public int naechsteEtikettNr = 1;
+	private int letzteEtikettNr = 0;
 	
 	public int getEtikettZaehler() {
-		return this.naechsteEtikettNr - 1;
+		return this.letzteEtikettNr;
 	}
 	
 	public MiddleWareInterface middleWare = IoFactory.getMiddleWare();
@@ -29,7 +30,9 @@ public class VersandEtikettenErsteller {
 
 	private EtikettVariante1 erzeugeNeuesEtikett() {
 		EtikettVariante1 erstelltesEtikett = new EtikettVariante1();
-		erstelltesEtikett.EtikettNr = this.naechsteEtikettNr++;
+		
+		erstelltesEtikett.EtikettNr = ++this.letzteEtikettNr;
+		
 		return erstelltesEtikett;
 	}
 	

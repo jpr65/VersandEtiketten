@@ -68,15 +68,7 @@ public class UnitedKingdomAnschriftFormatierer implements IAnschriftFormatierer 
 	}
 
 	private void ErstelleStrasseZeile(ArrayList<String> anschriftListe, Adresse adresseArg) {
-		String strasseZeile = adresseArg.Hausnummer;
-		
-		if (!StringUtil.IsEmpty(adresseArg.Hausnummer)) {
-			if (!StringUtil.IsEmpty(strasseZeile)) {
-				strasseZeile += " ";
-			}
-			
-			strasseZeile += adresseArg.Strasse;
-		}
+		String strasseZeile = StringUtil.AddOptionalPart(adresseArg.Hausnummer, adresseArg.Strasse);
 		
 		if (!StringUtil.IsEmpty(strasseZeile)) {
 			anschriftListe.add(strasseZeile);

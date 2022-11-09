@@ -1,4 +1,6 @@
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import static org.junit.Assert.*;
 
@@ -12,7 +14,7 @@ import Operationen.UnitedKingdomAnschriftFormatierer;
  * @author rp
  *
  */
-
+@TestMethodOrder(MethodOrderer.Alphanumeric.class)
 public class TCL_0110_UnitedKingdomAnschriftFormatierer {
 
 	private Adresse CreateAdresseLeer() {

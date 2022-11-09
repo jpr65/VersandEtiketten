@@ -22,17 +22,30 @@ import Daten.Kunde;
 //---------------------------------------------------------------------------------
 public class MiddleWareStub implements MiddleWareInterface {
 	
+	//i/ Nur die Stub weiﬂ, wo die Daten liegen!
 	private String xmlDataPath = "Z:/user/rp/prj_public/Beispiele/VersandEtiketten/Java/data";
 	
 	private Dictionary<String, Kunde> kundeDict = new Hashtable<String, Kunde>();
 	private Dictionary<String, Adresse> adresseDict = new Hashtable<String, Adresse>();
 	
-	public Adresse leseAdresse(String adresseID) {
-		return adresseDict.get(adresseID);
+	public Adresse leseAdresse(String adresseID) throws Exception {
+		Adresse adresse = adresseDict.get(adresseID);
+		
+		if (adresse == null) {
+			throw new Exception("adresse zu ID " + adresseID + " unbekannt!");
+		}
+		
+		return adresse;
 	}
 	
-	public Kunde leseKunde(String kundeID) {
-		return kundeDict.get(kundeID);
+	public Kunde leseKunde(String kundeID) throws Exception {
+		Kunde kunde = kundeDict.get(kundeID);
+		
+		if (kunde == null) {
+			throw new Exception("kunde zu ID " + kundeID + " unbekannt!");
+		}
+		
+		return kunde;
 	}
 	
 	// Dieser Teil liest aus den XML-Dateien die Kunden und Adressen --------------------------

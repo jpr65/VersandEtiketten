@@ -31,8 +31,9 @@ class JavaMain {
 		printEtikett(versandEtikettenErsteller, "KUD0021", "ADR021", "ESP");
 		
 		// unbekanntes Land für Formatierung
-		printEtikett(versandEtikettenErsteller, "KUD0001", "ADR001", "AUT");
+		printEtikett(versandEtikettenErsteller, "KUD0001", "ADR001", null);
 		printEtikett(versandEtikettenErsteller, "KUD0001", "ADR001", "");
+		printEtikett(versandEtikettenErsteller, "KUD0001", "ADR001", "AUT");
 
 		// Unbekannte KundeId / AdresseId
 		printEtikett(versandEtikettenErsteller, "KUD1001", "ADR001", "GER");
@@ -46,6 +47,11 @@ class JavaMain {
 				+ anzahlZeilenBelegt);
 		System.out.println("======================================");
 		
+		//i/ Bis hierhin keine Logik!
+		
+		// Der Code bis zum Ende der Methode könnte auskommentiert werden,
+		// aber dann würde er bei Umbenennungen nicht berücksichtigt.
+		
 		Boolean erzeugeXmlDatenDateien = false;
 		
 		if (erzeugeXmlDatenDateien) {
@@ -56,14 +62,14 @@ class JavaMain {
 	private static void leseKundenUndAdressen() {
 		MiddleWareStub middleWareStub = (MiddleWareStub) IoFactory.getMiddleWare();
 		
+		//i/ try-catch darf auch im Integrator verwendet werden,
+		//i/ da einige Fehler nur hier abgefangen werden können.
 		try {
 			middleWareStub.LeseKundenAusXml("AlleKunden.xml");
 			middleWareStub.LeseAdressenAusXml("AlleAdressen.xml");
-			
-			
 		}
 		catch (Exception ex) {
-			System.out.println("Fehler beim Schreiben der Kunden/Adressen");
+			System.out.println("Fehler beim Lesen der Kunden/Adressen");
 			System.out.println(ex.getMessage());
 			System.out.println("------------------------------------------");
 		}

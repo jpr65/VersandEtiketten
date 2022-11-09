@@ -1,4 +1,6 @@
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.MethodOrderer;
 
 import static org.junit.Assert.*;
 
@@ -8,7 +10,7 @@ import API.StringUtil;
  * @author rp
  *
  */
-// @TestMethodOrder(MethodOrderer.Alphanumeric) - oder wie funktioniert das?
+@TestMethodOrder(MethodOrderer.Alphanumeric.class)
 class TCA_010_StringUtil {
 
 	/**
@@ -101,14 +103,24 @@ class TCA_010_StringUtil {
 	 * Test method for {@link API.StringUtil#AddOptionalPart(java.lang.String, java.lang.String, java.lang.String)}.
 	 */
 	@Test
-	void T200_AddOptionalPart_StrStrStr_empty() {
+	void T200_AddOptionalPart_StrStrStr_nulls() {
 		assertEquals(null, StringUtil.AddOptionalPart(null,  null, null));
+		
 		assertEquals("", StringUtil.AddOptionalPart("",  null, null));
+		assertEquals("\t", StringUtil.AddOptionalPart("\t",  null, null));
+		assertEquals(" ", StringUtil.AddOptionalPart(" ",  null, null));
+		assertEquals("B", StringUtil.AddOptionalPart("B",  null, null));
+		assertEquals("ü", StringUtil.AddOptionalPart("ü",  null, null));
+		
+		assertEquals("", StringUtil.AddOptionalPart(null,  "", null));
 		assertEquals("\t", StringUtil.AddOptionalPart(null,  "\t", null));
 		assertEquals(" ", StringUtil.AddOptionalPart(null,  " ", null));
-
+		assertEquals("C", StringUtil.AddOptionalPart(null,  "C", null));
+		assertEquals("ä", StringUtil.AddOptionalPart(null,  "ä", null));
+		
 		assertEquals("", StringUtil.AddOptionalPart("",  "", null));
 		assertEquals("  ", StringUtil.AddOptionalPart(" ",  " ", null));
+		assertEquals("ef", StringUtil.AddOptionalPart("e",  "f", null));
 	}
 	
 	/**

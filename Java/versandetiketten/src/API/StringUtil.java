@@ -1,7 +1,7 @@
 package API;
 
 //---------------------------------------------------------------------------------------------
-// API: Utilities für Strings
+// API: Utilities für Strings, auch aufrufbar, falls der str == null ist
 //
 //i/    Diese API-Klasse darf nur die Java-APIs aufrufen
 //i/    Deshalb werden APIs üblicherweise als eigene Library im Projekt abgelegt.
@@ -9,6 +9,7 @@ package API;
 //i/    Auf eine eigene Lib wurde hier verzichtet, um das Projekt einfacher zu gestalten.
 //---------------------------------------------------------------------------------------------
 public class StringUtil {
+	
 	public static boolean IsEmpty(String str) {
 		if (str == null) {
 			return true;
@@ -29,7 +30,12 @@ public class StringUtil {
 		return AddOptionalPart(leftPartStr, newPartStr, " ");
 	}
 	
+	//-----------------------------------------------------------------------
+	//   Anders als bei String.join() wird der Separator nur angehängt,
+	//   wenn beide Strings nicht (leer oder null) sind.
+	//-----------------------------------------------------------------------
 	public static String AddOptionalPart(String leftPartStr, String newPartStr, String separator) {
+		
 		String resultStr = leftPartStr;
 		
 		if (resultStr == null) {
@@ -40,7 +46,7 @@ public class StringUtil {
 			return resultStr;
 		}
 		
-		if (!IsEmpty(resultStr) && !IsEmpty(newPartStr)) {
+		if (separator != null && !IsEmpty(resultStr) && !IsEmpty(newPartStr)) {
 			resultStr += separator;
 		}
 		
