@@ -104,7 +104,7 @@ public class GermanAnschriftFormatierer implements IAnschriftFormatierer {
 			if (!StringUtil.IsEmpty(adresseArg.PackstationKundenNr)) {
 				anschriftListe.add(adresseArg.PackstationKundenNr);
 			}
-			anschriftListe.add(adresseArg.PackstationNr);
+			anschriftListe.add("Packstation " + adresseArg.PackstationNr);
 		}
 	}
 

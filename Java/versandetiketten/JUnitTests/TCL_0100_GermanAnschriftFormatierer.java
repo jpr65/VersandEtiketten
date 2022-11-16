@@ -37,6 +37,17 @@ public class TCL_0100_GermanAnschriftFormatierer {
 		
 		return adresse;
 	}
+	
+	private Adresse CreateAdressePackstation() {
+		Adresse adresse = new Adresse();
+		
+		adresse.PackstationNr = "4711";
+		adresse.PackstationKundenNr = "1234567";
+		adresse.PostLeitInfo = "12359";
+		adresse.Ort = "Berlin";
+		
+		return adresse;
+	}
 
 	private Adresse CreateFirmenAdresse() {
 		Adresse adresse = new Adresse();
@@ -69,6 +80,25 @@ public class TCL_0100_GermanAnschriftFormatierer {
 		firmenKunde.Abteilung = "Tankstellen-Planung";
 		
 		return firmenKunde;
+	}
+	
+	/**
+	 * Test method for {@link Operationen.GermanAnschriftFormatierer#GetLaenderkennung()}.
+	 */
+	@Test
+	void T001_GetLaenderkennung() {
+
+		// --- Testvorbereitung --------------------------------
+		
+		GermanAnschriftFormatierer testObject = new GermanAnschriftFormatierer();
+		
+		// --- Testdurchführung --------------------------------
+		
+		String laenderKennungResult = testObject.GetLaenderKennung();
+				
+		// --- Testvalidierung --------------------------------
+		
+		assertEquals("ger", laenderKennungResult.toLowerCase());
 	}
 	
 	/**
@@ -150,5 +180,30 @@ public class TCL_0100_GermanAnschriftFormatierer {
 		assertEquals("GERMANY", testResult.get(lineNbr++));
 	}
 
+	/**
+	 * Test method for {@link Operationen.GermanAnschriftFormatierer#AnschriftErstellung(Kunde kundeArg, Adresse adresseArg)}.
+	 */
+	@Test
+	void T200_AnschriftErstellung_Packstation() {
 
+		// --- Testvorbereitung --------------------------------
+		
+		Kunde kunde = this.CreateKunde1();
+		Adresse adresse = this.CreateAdressePackstation();
+		
+		GermanAnschriftFormatierer testObject = new GermanAnschriftFormatierer();
+
+		// --- Testdurchführung --------------------------------
+		
+		List<String> testResult = testObject.AnschriftErstellung(kunde, adresse);
+		
+		// --- Testvalidierung --------------------------------
+		
+		assertEquals(4, testResult.size());
+		int lineNbr = 0;
+		assertEquals("Prof. Dr. Hubert Staller", testResult.get(lineNbr++));
+		assertEquals("1234567", testResult.get(lineNbr++));
+		assertEquals("Packstation 4711", testResult.get(lineNbr++));
+		assertEquals("12359 BERLIN", testResult.get(lineNbr++));
+	}
 }

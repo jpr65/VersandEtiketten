@@ -26,25 +26,29 @@ public class StringUtil {
 		return str.toUpperCase();
 	}
 	
-	public static String AddOptionalPart(String leftPartStr, String newPartStr) {
-		return AddOptionalPart(leftPartStr, newPartStr, " ");
-	}
-	
 	//-----------------------------------------------------------------------
 	//   Anders als bei String.join() wird der Separator nur angehängt,
 	//   wenn beide Strings nicht (leer oder null) sind.
 	//-----------------------------------------------------------------------
+	public static String AddOptionalPart(String leftPartStr, String newPartStr) {
+		return AddOptionalPart(leftPartStr, newPartStr, " ");
+	}
+	
+	//----------------------------------------------------------------------------------
+	//   Anders als bei String.join() wird der Separator nur angehängt,
+	//   wenn beide Strings nicht (leer oder null) sind und der Separator != null ist.
+	//----------------------------------------------------------------------------------
 	public static String AddOptionalPart(String leftPartStr, String newPartStr, String separator) {
 		
-		String resultStr = leftPartStr;
-		
-		if (resultStr == null) {
+		if (leftPartStr == null) {
 			return newPartStr;
 		}
 		
 		if (newPartStr == null) {
-			return resultStr;
+			return leftPartStr;
 		}
+		
+		String resultStr = leftPartStr;
 		
 		if (separator != null && !IsEmpty(resultStr) && !IsEmpty(newPartStr)) {
 			resultStr += separator;
