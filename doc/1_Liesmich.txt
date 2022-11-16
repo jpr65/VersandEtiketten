@@ -5,7 +5,7 @@ Versandetiketten-Erstellung
 
 von Ralf Peine
 
-Stand: 09.11.2022
+Stand: 16.11.2022
 
 -----------------------------------------------------------------------
 
@@ -21,6 +21,13 @@ wie die drei PDF-Downloads hier vom Internationalen Postverein UPU.
 Kommentare, die mit //i/ (i für info) starten,
 enthalten Erläuterungen zu dieser Referenzimplementierung,
 sie würden in Produktiv-Code entfallen.
+
+-----------------------------------------------------------------------
+
+Entwicklungsumgebung
+
+Eclipse IDE for Java Developers (includes Incubating components)
+Version: 2022-09 (4.25.0)
 
 -----------------------------------------------------------------------
 
@@ -130,12 +137,13 @@ Beispiel IO-Test
 T010_CreateKunde - darf nur testObject.CreateKunde aufrufen
 T020_ReadKunde   - darf testObject.CreateKunde verwenden
 T030_UpdateKunde - darf testObject.CreateKunde und ReadKunde verwenden
-T040_DeleteKunde - darf testObject.CreateKunde und ReadKunde verwenden
+T040_DeleteKunde - darf testObject.CreateKunde, ReadKunde und UpdateKunde verwenden
 
 T100_SelectKunden - darf testObject.CreateKunde, ReadKunde, UpdateKunde und DeleteKunde verwenden
 
 Dadurch sind die Tests nicht mehr ganz unabhängig,
-doch sonst müsste T020_ReadKunde per direktem SQL (oder irgendwie anders) einen Kunden in der Datenbank anlegen,
+doch sonst müsste T020_ReadKunde per direktem SQL (oder irgendwie anders)
+einen Kunden in der Datenbank anlegen,
 um ihn anschließend einlesen zu können.
 
 Das führt zu doppelter Implementierung, z.B. in einem Test-Fixture.
