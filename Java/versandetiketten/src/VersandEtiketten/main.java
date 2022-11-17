@@ -1,6 +1,12 @@
 package VersandEtiketten;
 
+import java.util.List;
+
+import Daten.Adresse;
 import Daten.EtikettVariante1;
+import Daten.Kunde;
+import IO.KundenUndAdressenGenerator;
+import IO.KundenUndAdressenReader;
 import IO.IEtikettDrucker;
 import IO.MiddleWareStub;
 import Integratoren.IoFactory;
@@ -61,12 +67,16 @@ class JavaMain {
 	
 	private static void leseKundenUndAdressen() {
 		MiddleWareStub middleWareStub = (MiddleWareStub) IoFactory.getMiddleWare();
+		KundenUndAdressenReader reader = new KundenUndAdressenReader();
 		
 		//i/ try-catch darf auch im Integrator verwendet werden,
 		//i/ da einige Fehler nur hier abgefangen werden können.
 		try {
-			middleWareStub.LeseKundenAusXml("AlleKunden.xml");
-			middleWareStub.LeseAdressenAusXml("AlleAdressen.xml");
+			List<Kunde> kundenListe = reader.LeseKundenAusXml("AlleKunden.xml");
+			List<Adresse> adressenListe = reader.LeseAdressenAusXml("AlleAdressen.xml");
+			
+			middleWareStub.FillKundeDict(kundenListe);
+			middleWareStub.FillAdresseDict(adressenListe);
 		}
 		catch (Exception ex) {
 			System.out.println("Fehler beim Lesen der Kunden/Adressen");
@@ -97,12 +107,12 @@ class JavaMain {
 	}
 	
 	private static void schreibeKundenUndAdressen(){
-		MiddleWareStub middleWareStub = new MiddleWareStub();
+		KundenUndAdressenGenerator kundenUndAdressenGenerator = new KundenUndAdressenGenerator();
 				
 		try {
-			middleWareStub.schreibeKunde("KUD0001", "Kunde.xml");
-			middleWareStub.schreibeAlleKunden("AlleKunden.xml");
-			middleWareStub.schreibeAlleAdressen("AlleAdressen.xml");
+			kundenUndAdressenGenerator.schreibeKunde("KUD0001", "Kunde.xml");
+			kundenUndAdressenGenerator.schreibeAlleKunden("AlleKunden.xml");
+			kundenUndAdressenGenerator.schreibeAlleAdressen("AlleAdressen.xml");
 		}
 		catch (Exception ex) {
 			System.out.println("Fehler beim Schreiben der Kunden/Adressen");
