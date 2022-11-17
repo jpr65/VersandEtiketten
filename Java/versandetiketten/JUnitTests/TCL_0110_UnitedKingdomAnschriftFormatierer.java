@@ -38,6 +38,18 @@ public class TCL_0110_UnitedKingdomAnschriftFormatierer {
 		return adresse;
 	}
 
+	private Adresse CreateAdresse2() {
+		Adresse adresse = new Adresse();
+		
+		adresse.Strasse = "John Street";
+		adresse.Hausnummer = "27";
+		adresse.PostLeitInfo = "SO23 9AP";
+		adresse.Ort = "Winchester";
+		adresse.Land = "United Kingdom";
+		
+		return adresse;
+	}
+
 	private Kunde CreateKunde1() {
 		Kunde kunde = new Kunde();
 		
@@ -56,6 +68,36 @@ public class TCL_0110_UnitedKingdomAnschriftFormatierer {
 		firmenKunde.Abteilung = "Test Development";
 		
 		return firmenKunde;
+	}
+	
+	private Kunde CreateFirmenKundeOhneAbteilung() {
+		Kunde firmenKunde = new Kunde();
+		
+		firmenKunde.PrivatKunde = false;
+		firmenKunde.Firma = "Import INC";
+		
+		return firmenKunde;
+	}
+	
+	
+	
+	/**
+	 * Test method for {@link Operationen.UnitedKingdomAnschriftFormatierer#GetLaenderkennung()}.
+	 */
+	@Test
+	void T001_GetLaenderkennung() {
+
+		// --- Testvorbereitung --------------------------------
+		
+		UnitedKingdomAnschriftFormatierer testObject = new UnitedKingdomAnschriftFormatierer();
+		
+		// --- Testdurchführung --------------------------------
+		
+		String laenderKennungResult = testObject.GetLaenderKennung();
+				
+		// --- Testvalidierung --------------------------------
+		
+		assertEquals("gbr", laenderKennungResult.toLowerCase());
 	}
 	
 	/**
@@ -140,5 +182,31 @@ public class TCL_0110_UnitedKingdomAnschriftFormatierer {
 		assertEquals("UNITED KINGDOM", testResult.get(lineNbr++));
 	}
 
-	
+	/**
+	 * Test method for {@link Operationen.SpainAnschriftFormatierer#AnschriftErstellung(Kunde kundeArg, Adresse adresseArg)}.
+	 */
+	@Test
+	void T120_AnschriftErstellung_FirmenKundeOhneAbteilung() {
+
+		// --- Testvorbereitung --------------------------------
+		
+		Kunde kunde = this.CreateFirmenKundeOhneAbteilung();
+		Adresse adresse = this.CreateAdresse2();
+		
+		UnitedKingdomAnschriftFormatierer testObject = new UnitedKingdomAnschriftFormatierer();
+
+		// --- Testdurchführung --------------------------------
+		
+		List<String> testResult = testObject.AnschriftErstellung(kunde, adresse);
+		
+		// --- Testvalidierung --------------------------------
+		
+		assertEquals(5, testResult.size());
+		int lineNbr = 0;
+		assertEquals("Import INC", testResult.get(lineNbr++));
+		assertEquals("27 John Street", testResult.get(lineNbr++));
+		assertEquals("WINCHESTER", testResult.get(lineNbr++));
+		assertEquals("SO23 9AP", testResult.get(lineNbr++));
+		assertEquals("UNITED KINGDOM", testResult.get(lineNbr++));
+	}
 }

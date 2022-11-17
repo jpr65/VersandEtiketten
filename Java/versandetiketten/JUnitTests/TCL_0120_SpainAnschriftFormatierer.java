@@ -73,6 +73,34 @@ public class TCL_0120_SpainAnschriftFormatierer {
 		return firmenKunde;
 	}
 	
+	private Kunde CreateFirmenKundeOhneAbteilung() {
+		Kunde firmenKunde = new Kunde();
+		
+		firmenKunde.PrivatKunde = false;
+		firmenKunde.Firma = "International Imports";
+		
+		return firmenKunde;
+	}
+	
+	/**
+	 * Test method for {@link Operationen.SpainAnschriftFormatierer#GetLaenderkennung()}.
+	 */
+	@Test
+	void T001_GetLaenderkennung() {
+
+		// --- Testvorbereitung --------------------------------
+		
+		SpainAnschriftFormatierer testObject = new SpainAnschriftFormatierer();
+		
+		// --- Testdurchführung --------------------------------
+		
+		String laenderKennungResult = testObject.GetLaenderKennung();
+				
+		// --- Testvalidierung --------------------------------
+		
+		assertEquals("esp", laenderKennungResult.toLowerCase());
+	}
+	
 	/**
 	 * Test method for {@link Operationen.SpainAnschriftFormatierer#AnschriftErstellung(Kunde kundeArg, Adresse adresseArg)}.
 	 */
@@ -152,4 +180,33 @@ public class TCL_0120_SpainAnschriftFormatierer {
 		assertEquals("08028 BARCELONA", testResult.get(lineNbr++));
 		assertEquals("SPAIN", testResult.get(lineNbr++));
 	}
+	
+	/**
+	 * Test method for {@link Operationen.SpainAnschriftFormatierer#AnschriftErstellung(Kunde kundeArg, Adresse adresseArg)}.
+	 */
+	@Test
+	void T120_AnschriftErstellung_FirmenKundeOhneAbteilung() {
+		
+		// --- Testvorbereitung --------------------------------
+		
+		Kunde kunde = this.CreateFirmenKundeOhneAbteilung();
+		Adresse adresse = this.CreateAdresse2();
+		
+		SpainAnschriftFormatierer testObject = new SpainAnschriftFormatierer();
+		
+		// --- Testdurchführung --------------------------------
+		
+		List<String> testResult = testObject.AnschriftErstellung(kunde, adresse);
+		
+		// --- Testvalidierung --------------------------------
+
+		assertEquals(4, testResult.size());
+		int lineNbr = 0;
+		assertEquals("International Imports", testResult.get(lineNbr++));
+		assertEquals("Av. Joan XXIII, s/n", testResult.get(lineNbr++));
+		assertEquals("08028 BARCELONA", testResult.get(lineNbr++));
+		assertEquals("SPAIN", testResult.get(lineNbr++));
+	}
+	
+	
 }

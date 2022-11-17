@@ -82,6 +82,15 @@ public class TCL_0100_GermanAnschriftFormatierer {
 		return firmenKunde;
 	}
 	
+	private Kunde CreateFirmenKundeOhneAbteilung() {
+		Kunde firmenKunde = new Kunde();
+		
+		firmenKunde.PrivatKunde = false;
+		firmenKunde.Firma = "Heinrich Schlotmüller GmbH";
+		
+		return firmenKunde;
+	}
+	
 	/**
 	 * Test method for {@link Operationen.GermanAnschriftFormatierer#GetLaenderkennung()}.
 	 */
@@ -175,6 +184,33 @@ public class TCL_0100_GermanAnschriftFormatierer {
 		int lineNbr = 0;
 		assertEquals("Aral AG", testResult.get(lineNbr++));
 		assertEquals("Tankstellen-Planung", testResult.get(lineNbr++));
+		assertEquals("Wittener Str. 45", testResult.get(lineNbr++));
+		assertEquals("44789 BOCHUM", testResult.get(lineNbr++));
+		assertEquals("GERMANY", testResult.get(lineNbr++));
+	}
+
+	/**
+	 * Test method for {@link Operationen.GermanAnschriftFormatierer#AnschriftErstellung(Kunde kundeArg, Adresse adresseArg)}.
+	 */
+	@Test
+	void T120_AnschriftErstellung_FirmenKundeOhneAbteilung() {
+
+		// --- Testvorbereitung --------------------------------
+		
+		Kunde kunde = this.CreateFirmenKundeOhneAbteilung();
+		Adresse adresse = this.CreateFirmenAdresse();
+		
+		GermanAnschriftFormatierer testObject = new GermanAnschriftFormatierer();
+
+		// --- Testdurchführung --------------------------------
+		
+		List<String> testResult = testObject.AnschriftErstellung(kunde, adresse);
+		
+		// --- Testvalidierung --------------------------------
+		
+		assertEquals(4, testResult.size());
+		int lineNbr = 0;
+		assertEquals("Heinrich Schlotmüller GmbH", testResult.get(lineNbr++));
 		assertEquals("Wittener Str. 45", testResult.get(lineNbr++));
 		assertEquals("44789 BOCHUM", testResult.get(lineNbr++));
 		assertEquals("GERMANY", testResult.get(lineNbr++));
