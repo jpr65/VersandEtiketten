@@ -1,11 +1,11 @@
-package IO;
+package IO.API;
 
 import java.beans.ExceptionListener;
 import java.beans.XMLEncoder;
 import java.io.FileOutputStream;
 
 //-------------------------------------------------------------------------------
-// IO-Operation: Write Data-Class into XML file using Java standard XMLEncoder
+// IO-API: Write Data-Class into XML file using Java standard XMLEncoder
 //-------------------------------------------------------------------------------
 public class XmlWriterStandardJava<T> {
 	

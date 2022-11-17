@@ -4,7 +4,11 @@ import java.util.List;
 
 import Daten.Adresse;
 import Daten.Kunde;
+import IO.API.XmlReaderStandardJava;
 
+//---------------------------------------------------------------------------------
+// IO-Klasse, die Kunden-Infos und Adressen aus XML-Dateien einliest
+//---------------------------------------------------------------------------------
 public class KundenUndAdressenReader {
 	
 	public List<Kunde> LeseKundenAusXml(String dateiName) {

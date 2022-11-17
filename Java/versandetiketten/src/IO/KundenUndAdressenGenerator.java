@@ -5,7 +5,11 @@ import java.util.List;
 
 import Daten.Adresse;
 import Daten.Kunde;
+import IO.API.XmlWriterStandardJava;
 
+//---------------------------------------------------------------------------------
+// IO-Klasse, die Kunden-Infos und Adressen generiert und in eine Datei schreibt.
+//---------------------------------------------------------------------------------
 public class KundenUndAdressenGenerator {
 	
 	public Adresse LeseAdresseDummy(String adresseID) throws Exception {
@@ -173,7 +177,7 @@ public class KundenUndAdressenGenerator {
 		kundeWriter.writeIntoFile(kundeListe, dateiNameMitPfad);
 	}
 	
-public void schreibeAlleAdressen(String dateiName) throws Exception {
+	public void schreibeAlleAdressen(String dateiName) throws Exception {
 		
 		String[] adresseIdArr = {	"ADR001", "ADR002", "ADR003", "ADR004", "ADR005", "ADR010", "ADR011", 
 									"ADR020", "ADR021", };
