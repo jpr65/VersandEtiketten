@@ -120,13 +120,16 @@ Klassen
   
 Methoden
 --------
-* T0001_MeineMethode1
+* T001_MeineMethode1
   T für Test
-  0000 => Nummerierung der Tests für eine Sortierung der Ausführungsreihenfolge
+  000 => Nummerierung der Tests für eine Sortierung der Ausführungsreihenfolge
 
-* T0100_MeineMethode2
+* T100_MeineMethode2
 
-Eine Test-Methode darf alle Methoden des Testobjekts verwenden,
+Besonders beim Testen von Klassen aus dem IO-Bereich ist es hilfreich,
+wenn bereits getestete Funktionalität verwendet werden kann.
+
+Daher darf eine Test-Methode alle Methoden des Testobjekts verwenden,
 die bereits in Tests mit niedrigerer Nummer getestet worden sind.
 Bei auftretenden Fehlern ist zuerst der mit der niedrigsten Nummer zu beheben.
 Evtl. funktionieren danach einige oder alle Tests wieder.
@@ -146,10 +149,13 @@ doch sonst müsste T020_ReadKunde per direktem SQL (oder irgendwie anders)
 einen Kunden in der Datenbank anlegen,
 um ihn anschließend einlesen zu können.
 
-Das führt zu doppelter Implementierung, z.B. in einem Test-Fixture.
-Und wie wird sichergestellt, dass das Test-Fixture keine Fehler bei der Anlage der Kunden macht??
-
 Ebenso benötigt T100_SelectKunden mehrere Kunden in der Datenbank.
+
+Ohne diese "Nutzungserlaubnis" wird eine doppelte oder mehrfache Implementierung erzwungen,
+z.B. in Test-Prepare-Methoden oder in einem Test-Fixture.
+Das Fixture kann natürlich auch Fehler bei der Anlage der Kunden machen und muss bei jeder Änderung
+mitgezogen werden, auch wenn diese sich gar nicht auf den eigentlichen Test bezieht.
+Das Fixture selbst wird ja nicht Unit-getestet und daher fallen Fehler/Abweichungen nicht immer auf.
 
 Oft werden die 4 CRUD-Tests zusammengefasst zu einem TestCase:
 
