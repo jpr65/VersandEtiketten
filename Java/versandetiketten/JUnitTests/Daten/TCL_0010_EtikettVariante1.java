@@ -1,16 +1,10 @@
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+package Daten;
 
-import Daten.Adresse;
-import Daten.EtikettVariante1;
-import Daten.Kunde;
-import Operationen.UnitedKingdomAnschriftFormatierer;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class TCL_0010_EtikettVariante1 {
 

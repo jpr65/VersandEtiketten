@@ -1,6 +1,6 @@
-import org.junit.jupiter.api.MethodOrderer;
+package Operationen;
+
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
 
 import static org.junit.Assert.*;
 
@@ -8,13 +8,11 @@ import java.util.List;
 
 import Daten.Adresse;
 import Daten.Kunde;
-import Operationen.GermanAnschriftFormatierer;
 
 /**
  * @author rp
  *
  */
-@TestMethodOrder(MethodOrderer.Alphanumeric.class)
 public class TCL_0100_GermanAnschriftFormatierer {
 
 	private Adresse CreateAdresseLeer() {

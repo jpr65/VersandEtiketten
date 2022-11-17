@@ -1,16 +1,15 @@
+package API;
+
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.jupiter.api.MethodOrderer;
 
 import static org.junit.Assert.*;
 
-import API.StringUtil;
+// import API.StringUtil;
 
 /**
  * @author rp
  *
  */
-@TestMethodOrder(MethodOrderer.Alphanumeric.class)
 class TCA_010_StringUtil {
 
 	/**

@@ -5,7 +5,6 @@ import java.util.List;
 
 import API.StringUtil;
 import Daten.*;
-import Operationen.IAnschriftFormatierer;
 
 //---------------------------------------------------------------------------------
 // Operation: Anschrift formatieren, Variante für ESP (Spanien)
