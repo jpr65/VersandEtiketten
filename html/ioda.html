@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="de">
+<head>
+</head>
+
+<body>
+  <header>
+    <p>Mein TDD - IODA und TDD mit Java</p>
+	<hr />
+  </header>
+
+  <h1>IODA</h1>
+  
+  <h2>IODA nach Ralf Westphal</h2>
+  
+  <p>Ralf Westphal hat um 2015 herum IODA entwickelt/erfunden.
+  </p>
+  <p>Hier der <a href="https://blog.ralfw.de/2015/04/die-ioda-architektur.html">
+  Link auf seinen Artikel</a>.
+  </p>
+  <p>Für alle, die nicht den gesamten Artikel lesen möchten, hier eine sehr kurze
+  Einführung durch mich:
+  </p>
+
+  <h2>Kurze Intro</h2>
+
+</p>
+  <p>IODA teilt alle Klassen in die Typen
+
+<ul>
+<li>Integrator</li>
+<li>Operation</li>
+<li>Daten</li>
+<li>API</li>
+</ul>
+
+</p>
+  <p>ein. Zugriff ist nur von "Oben nach Unten" erlaubt.
+</p>
+  <p>*Integratoren* dürfen jeden anderen Klassentyp aufrufen, enthalten
+aber keine Logik.
+</p>
+  <p>*Operationen* dürfen nur *Daten* verwenden und manipulieren 
+sowie die *API* aufrufen.
+Sie dürfen keine anderen *Operationen* oder gar *Integratoren* aufrufen.
+Sie enthalten als einzige Klassen (komplexere) Logik.
+Daraus folgt auch, das *Operationen* direkt keine *IO-Operationen* aufrufen dürfen.
+</p>
+  <p>*Daten* beschäftigen sich nur mit sich selbst, ihren Kindern, Enkeln usw.
+Außerhalb der Familie ist nur der Zugriff auf das API erlaubt.
+</p>
+  <p>Das *API* hat keinen Zugriff auf *Integratoren*, *Operationen* oder *Datenklassen*,
+es ist wie eine Standard-Library des Entwicklungs-Systems zu betrachten
+und zu behandeln.
+</p>
+  <p>Das *API* darf aber niedriger gelegene *APIs* aufrufen,
+z.B. Standard-Libraries des Entwicklungs-Systems.
+</p>
+  
+  <footer>
+	<hr />
+     <a href="kontakt.html">Kontakt</a>
+  </footer>
+</body>
+</html>

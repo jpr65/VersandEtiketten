@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="de">
+<head>
+</head>
+
+<body>
+  <header>
+    <p>Inhalt - IODA und TDD mit Java</p>
+	<hr />
+  </header>
+
+  <h1>Inhalt</h1>
+  
+  <h2>Übersicht</h2>
+  
+  <p>
+  Das <a href="ticket-4711.html">Ticket 4711</a> beschreibt eine Übungsaufgabe bzw. Probe-Aufgabe,
+  die ich einigen Entwicklern gestellt habe.
+  </p>
+  
+  <p>
+  Als Aufgabe habe ich die <i>Vorbereitung der Anschrift für einen Etikettdrucker</i> gewählt, weil:
+  </p>
+  
+  <ul>
+	<li>diese Aufgabe leicht verständlich ist,</li>
+	<li>diese Aufgabe nur scheinbar trivial ist, wenn mehrere Länder unterstützt werden sollen,</li>
+	<li>diese kleine Aufgabe dazu verführt, es flott und unsauber zu lösen,</li>
+	<li>alles Wichtige enthält, was man beim Design und Test von Software berücksichtigen sollte.</li>
+  </ul>
+  
+  <p>
+  In diesem Referenzprojekt stelle ich nun vor, wie für mich eine gute bis optimale Lösung
+  dieser Aufgabe aussieht. Dabei erläutere ich, wie ich <a href="mein-TDD.html">TDD</a> einsetze und vor allem,
+  wie <a href="ioda.html">IODA</a> umgesetzt wird und welche Vorteile man dadurch gewinnt.
+  </p>
+  
+  <p>
+  Ich erwarte natürlich nicht, dass jemand im Rahmen eine Probeaufgabe hier die "Volle Punktzahl"
+  erreicht, denn das ist ein paar Stunden so nicht komplett umzusetzen, wie ich es hier durchgeführt habe.
+  </p>
+  
+  <p>
+  Dazu bedarf es mehr Zeit.
+  </p>
+  
+  <p>
+  Als Programmiersprache habe ich Java gewählt, weil ich mich dort noch nicht so gut auskenne
+  und mich ein wenig mehr in Java und Eclipse einarbeiten wollte. Außerdem kann ich so zeigen,
+  dass TDD und vor allem IODA auch - oder gerade dann - eingesetzt werden können, wenn man sich
+  noch nicht so gut auskennt.
+  </p>
+  
+  <h2>1. Analyse des Tickets und der Aufgabenstellung</h2>
+  
+  <p>Zunächst sind die einzelnen Schritte aus dem Ticket zu lesen. Dazu habe ich die 
+  <a href="ticket-4711-formatiert.html"> Beschreibung im Ticket umgebrochen</a>
+  .</p>
+  
+  <p>Als zweites ist zu klären, wie denn eine Anschrift aufgebaut werden sollte, nach den jweils gültigen Richtlinien.
+  Doch wer legt diese Richtlinien fest? Die "Deutsche Post" kann ja wohl nur für Deutschland zuständig sein?
+  </p>
+
+  <p>Diese Richtlinien legt der <a href="https://de.wikipedia.org/wiki/Weltpostverein">Weltpostverein</a> fest,
+  <a href="https://www.upu.int/en/Home">www.upu.int</a>.
+  </p>
+  
+  <p>Von dort habe ich mir die Richtlinien für den Aufbau der Anschriften für Deutschland, Spanien und UK heruntergeladen
+  und im Ordner "doc" des Projektes abgelegt:
+  </p>
+
+  <p>
+  <a href="../doc">Zum Ordner ../doc</a>
+  </p>
+  
+  <h2>2. Entwicklung</h2>
+  
+  <h3>a. Entwicklung mittels Stubs</h3>
+  
+  <p>Da ich anfangs noch keine Unit-Tests entwickeln konnte, habe ich direkt mit dem Coding begonnen.
+  </p>
+  <p>Ein Middleware-Stub liefert die Daten, aus denen dann die Anschrift erstellt
+     und danach an einen Drucker-Stub weitergereicht wird, der die Anschrift einfach auf der Console ausgibt.
+  </p>
+  <p>Üblicherweise hat man bereits Schnittstellen zur Middle-Ware, eine Datenbank oder XML-Daten, auf
+     die man zugreifen kann. Ebenso ist davon auszugehen, dass es bereits einen Drucker bzw.
+	 eine Drucker-Schnittstelle gibt.
+  </p>
+  <p>
+	 Das habe ich hier in diesem Demo-Projekt nicht und deshalb - NUR deshalb - müssen hier auch diese
+	 beiden Stubs entwickelt werden.
+  </p>
+  <p>
+	 Es zeigt sich im weiteren Verlauf, dass auch Code-First funktionieren kann. Im klassischen TDD gilt ja Test-First.
+	 Ich selbst ziehe es vor, Code und Tests beide nach und nach zu entwickeln.
+  </p>
+  
+  <h3>b. Entwicklung der Tests</h3>
+  
+  <p>Nachdem die ersten Versionen der Software liefen, habe ich das Unit-Testing eingefügt
+     und immer wieder einiges umgestellt, Methoden ins API extrahiert, Factories eingefügt und vieles mehr.
+  </p>
+  
+  <h3>c. IO: Daten aus XML lesen</h3>
+  
+  <p>Der nächste Schritt war eine Umstellung im Middleware-Stub: Von programmatisch generierten Daten auf Dateien, die per
+     XML in die Datenklassen eingelesen werden können. Dazu mussten die Daten natürlich auch in XML geschrieben werden.
+     Leider sind die so erzeugten XML-Dateien nicht so gut lesbar wie die XML-Dateien, 
+     das mit C# und den Standard .NET-Klassen erstellt wird.
+  </p>
+  
+  <p>Im Sinne der reinen Aufgabenstellung wäre das natürlich gar nicht notwendig gewesen,
+     aber mir geht es hier auch darum, meine Anwendung des
+	 <a href="https://de.wikipedia.org/wiki/EVA-Prinzip">EVA-Prinzips</a>
+	 zu zeigen, das unter anderem besagt, dass Eingabe und Ausgabe <b>unbedingt</b>
+	 von der Verarbeitung zu trennen sind.
+  </p>
+  <p>Ich wende dieses Prinzip nicht nur im Großen, sondern auch im ganz Kleinen an.	 
+	 Das hat unter anderem große Vorteile im Unit-Testing, wie ich herausgefunden habe.
+  </p>
+  <p>So trenne ich in realen Projekten IO von den Verarbeitungs-Klassen.
+     IO wird grundsätzlich in eigenen Operator-Klassen durchgeführt und meistens sogar in eigene Libraries ausgelagert.
+     Denn IO-Funktionalität ist aufwendiger und vor allem langsamer zu testen.
+  </p>
+  
+  <h3>d. Testfälle komplettieren</h3>
+  
+  <p>Im letzten großen Schritt wurden die Testfälle komplettiert, 
+     was die Funktionalität einerseits und die Code-Überdeckung andererseits betraf.
+  </p>
+  <footer>
+	<hr />
+     <a href="kontakt.html">Kontakt</a>
+  </footer>
+</body>
+</html>
