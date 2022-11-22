@@ -1,65 +1,129 @@
 <!doctype html>
 <html lang="de">
-<head>
-</head>
+	<head>
+		<title>IODA Kurzbeschreibung - IODA und TDD mit Java</title>
+	</head>
+	<body>
+		<header>
+			<p>IODA Kurzbeschreibung - IODA und TDD mit Java</p>
+			<hr/>
+		</header>
+		<h1>IODA</h1>
 
-<body>
-  <header>
-    <p>Mein TDD - IODA und TDD mit Java</p>
-	<hr />
-  </header>
-
-  <h1>IODA</h1>
-  
-  <h2>IODA nach Ralf Westphal</h2>
-  
-  <p>Ralf Westphal hat um 2015 herum IODA entwickelt/erfunden.
-  </p>
-  <p>Hier der <a href="https://blog.ralfw.de/2015/04/die-ioda-architektur.html">
-  Link auf seinen Artikel</a>.
-  </p>
-  <p>Für alle, die nicht den gesamten Artikel lesen möchten, hier eine sehr kurze
-  Einführung durch mich:
-  </p>
-
-  <h2>Kurze Intro</h2>
-
-</p>
-  <p>IODA teilt alle Klassen in die Typen
-
-<ul>
-<li>Integrator</li>
-<li>Operation</li>
-<li>Daten</li>
-<li>API</li>
-</ul>
-
-</p>
-  <p>ein. Zugriff ist nur von "Oben nach Unten" erlaubt.
-</p>
-  <p>*Integratoren* dürfen jeden anderen Klassentyp aufrufen, enthalten
-aber keine Logik.
-</p>
-  <p>*Operationen* dürfen nur *Daten* verwenden und manipulieren 
-sowie die *API* aufrufen.
-Sie dürfen keine anderen *Operationen* oder gar *Integratoren* aufrufen.
-Sie enthalten als einzige Klassen (komplexere) Logik.
-Daraus folgt auch, das *Operationen* direkt keine *IO-Operationen* aufrufen dürfen.
-</p>
-  <p>*Daten* beschäftigen sich nur mit sich selbst, ihren Kindern, Enkeln usw.
-Außerhalb der Familie ist nur der Zugriff auf das API erlaubt.
-</p>
-  <p>Das *API* hat keinen Zugriff auf *Integratoren*, *Operationen* oder *Datenklassen*,
-es ist wie eine Standard-Library des Entwicklungs-Systems zu betrachten
-und zu behandeln.
-</p>
-  <p>Das *API* darf aber niedriger gelegene *APIs* aufrufen,
-z.B. Standard-Libraries des Entwicklungs-Systems.
-</p>
-  
-  <footer>
-	<hr />
-     <a href="kontakt.html">Kontakt</a>
-  </footer>
-</body>
+		<p><b><i>Funktionale Abhändigkeiten sind böse!</i></b>
+		<p>
+		
+		<p>Ziel des IODA-Ansatzes ist es daher, diese funktionalen Abhängikeiten 
+		zwischen einzelnen Klassen und Bereichen
+		in der Software zu regeln und zu minimieren.
+		Daraus ergeben sich dann weitere Vorteile.</p>
+		
+		<h2>Vorteile des IODA-Ansatzes</h2>
+		
+		<ul>
+			<li>Minimierung der funktionalen Abhängikeiten</li>
+			<li>Leichtere Wartung des Codes</li>
+			<li>Verminderung der Komplexität</li>
+			<li>Entkopplung durch eigene Libraries möglich</li>
+			<li>klare SW-Struktur</li>
+			<li>leichte Testbarkeit in Unit-Tests</li>
+			<li>kein Mocking oder Ähnliches mehr erforderlich</li>
+			
+		</ul>
+		
+		<h2>IODA nach Ralf Westphal</h2>
+		
+		<p>Ralf Westphal hat um 2015 herum IODA entwickelt/erfunden.
+		</p>
+		<p>Hier der <a href="https://blog.ralfw.de/2015/04/die-ioda-architektur.html">
+        Link auf seinen Artikel</a>.
+		</p>
+		
+		<p>Zitat aus dem Artikel:</p>
+		
+		<p><i>So entsteht Software als Summe von Prozessen, 
+		   deren Schritte in Operationen implementiert sind, 
+		   die Daten konsumieren und produzieren unter Zuhilfenahme von APIs.
+		   </i>
+		</p>
+		
+		<p>Für alle, die nicht den gesamten Artikel lesen möchten, hier eine sehr kurze
+		Einführung:
+		</p>
+		
+		<h2>Kurze IODA Intro</h2>
+		
+		<p>IODA teilt alle Klassen in die Typen
+		</p>
+		<ul>
+			<li>Integrator</li>
+			<li>Operation</li>
+			<li>Daten</li>
+			<li>API</li>
+		</ul>
+		<p>ein. Zugriff ist nur von "Oben nach Unten" erlaubt.
+		</p>
+		
+		<h3>Integratoren</h3>
+			<p>
+				<i>Integratoren</i> dürfen jeden anderen Klassentyp aufrufen, enthalten
+			aber keine Logik.
+			</p>
+			
+		<h3>Operationen</h3>
+			<p>
+				<i>Operationen</i> dürfen nur <i>Daten</i> verwenden und manipulieren 
+			sowie die <i>API</i> aufrufen.
+			Sie dürfen keine anderen <i>Operationen</i> oder gar <i>Integratoren</i> aufrufen.
+			Sie enthalten als einzige Klassen (komplexere) Logik.
+			Daraus folgt auch, dass <i>Operationen</i> direkt keine <i>IO-Operationen</i> aufrufen dürfen.
+			</p>
+			
+		<h3>Daten</h3>
+			<p>
+				<i>Daten</i> beschäftigen sich nur mit sich selbst, ihren Kindern, Enkeln usw.
+			Außerhalb der Familie ist nur der Zugriff auf das API erlaubt.
+			</p>
+			
+		<h3>API</h3>
+			<p>Das <i>API</i> hat keinen Zugriff auf <i>Integratoren</i>, <i>Operationen</i> oder <i>Datenklassen</i>,
+			es ist wie eine Standard-Library des Entwicklungs-Systems zu betrachten
+			und zu behandeln.
+			</p>
+			<p>Das <i>API</i> darf aber niedriger gelegene <i>APIs</i> aufrufen,
+			z.B. Standard-Libraries des Entwicklungs-Systems.
+			</p>
+			
+		<img src="IODA.png" />
+			
+		<h2>Meine Erweiterung nach dem EVA-Prinzip</h2>
+		
+			<p>Die Operationen mit IO werden von den Operationen ohne IO getrennt 
+			und idealerweise in verschiedenen Libraries abgelegt.
+			</p>
+			
+			<h3>IO-Operationen</h3>
+			
+			<p>Ruft eine Operation über die <i>API IO-Operationen</i> (der API) auf,
+				so wird sie als <i>IO-Operation</i> gewertet.
+				Dazu gehören z.B. Schreib- und Lesezugriffe auf Datenbanken, Dateien, die Konsole.
+			</p>
+			
+			<p><i>IO-Operationen</i> sollten nur Logik enthalten, die der Bedienung der IO-Funktionalität dienen,
+			   und selbst keine Verarbeitungslogik enthalten.
+			</p>
+			
+			<h3>Verarbeitungs-Operationen</h3>
+			
+			<p>Einer <i>Verarbeitungs-Operation</i> werden sämtliche Daten beim Aufruf übergeben.
+			   Es werden von der Operation keinerlei weitere Daten von irgendwoher beschafft
+			   oder irgendwohin abgelegt. Die Ergebnisse der Verarbeitung werden in <i>Datenklassen</i>
+			   zurückgeliefert.
+			<p>
+		
+		<footer>
+			<hr/>
+			<a href="kontakt.html">Kontakt</a>
+		</footer>
+	</body>
 </html>
