@@ -10,8 +10,11 @@
 		</header>
 		<h1>IODA</h1>
 
-		<p><b><i>Funktionale Abhändigkeiten sind böse!</i></b>
+		<p><b><i>Funktionale Abhängigkeiten sind böse!</i></b>
 		<p>
+		
+		<p>Dieses Zitat von Ralf Westphal ist für mich wesentlich, weil
+		   sich genau das immer wieder in meiner Arbeit bestätigt hat.</p>
 		
 		<p>Ziel des IODA-Ansatzes ist es daher, diese funktionalen Abhängikeiten 
 		zwischen einzelnen Klassen und Bereichen
@@ -33,18 +36,20 @@
 		
 		<h2>IODA nach Ralf Westphal</h2>
 		
-		<p>Ralf Westphal hat um 2015 herum IODA entwickelt/erfunden.
+		<p>Ralf Westphal hat um 2015 herum IODA entwickelt/erfunden, 
+		um diese <i>Funktionalen Abhängigkeiten</i> zu eliminieren oder
+		zumindest auf das notwendige Minimum zu beschränken.
 		</p>
 		<p>Hier der <a href="https://blog.ralfw.de/2015/04/die-ioda-architektur.html">
         Link auf seinen Artikel</a>.
 		</p>
 		
-		<p>Zitat aus dem Artikel:</p>
+		<p>Zusammenfassung des IODA Ansatzes als Zitat aus dem Artikel:</p>
 		
-		<p><i>So entsteht Software als Summe von Prozessen, 
+		<p><b><i>So entsteht Software als Summe von Prozessen, 
 		   deren Schritte in Operationen implementiert sind, 
 		   die Daten konsumieren und produzieren unter Zuhilfenahme von APIs.
-		   </i>
+		   </i></b>
 		</p>
 		
 		<p>Für alle, die nicht den gesamten Artikel lesen möchten, hier eine sehr kurze
@@ -115,12 +120,52 @@
 			
 			<h3>Verarbeitungs-Operationen</h3>
 			
-			<p>Einer <i>Verarbeitungs-Operation</i> werden sämtliche Daten beim Aufruf übergeben.
+			<p>Einer <i>Verarbeitungs-Operation</i> werden sämtliche Daten als <i>Instanzen von Datenklassen</i>
+			   beim Aufruf übergeben.
 			   Es werden von der Operation keinerlei weitere Daten von irgendwoher beschafft
-			   oder irgendwohin abgelegt. Die Ergebnisse der Verarbeitung werden in <i>Datenklassen</i>
-			   zurückgeliefert.
+			   oder irgendwohin abgelegt. Die Ergebnisse der Verarbeitung werden als 
+			   <i>Instanzen von Datenklassen</i> zurückgeliefert.
 			<p>
+			
+		<h2>Analogie zur Fabrik</h2>
 		
+		<p>
+		In einer Fabrik werden Holzrohlinge mit Sägen oder komplexen 5-Achs-Fräs-Maschinen verarbeitet.
+		</p>
+		<p>
+		Der Rohling wird von einem Mitarbeiter im Lager ausgesucht und dann in einer Gitterbox 
+		gemeinsam mit anderen Rohlingen in die Fabrikhalle gefahren. Das ist eine IO-Operation.
+		</p>
+		<p>
+		Die Integratoren führen dann den weiteren Materialfluss durch und liefern das Holz-Werkstück
+        zuerst zur maschinellen Säge und danach zu einer anderen Maschine, dem 5-Achs-Fräser.
+		</p>
+		<p>
+		Diese Maschinen bilden die Operationen,
+		</p>
+		<p>
+        und die Holzwerkstücke die Daten.
+		</p>
+		<p>
+		Die Stromversorgung kann als API interpretiert werden, auf das auch die Operatoren Zugriff haben.
+		</p>
+		<p>
+		Wenn aus dem Werkstück ein geschwungener Handlauf eines Treppengeländers entstanden ist,
+		</p>
+		<p>
+		kann dieser von der Versandabteilung verpackt und verschickt werden. Die Versandabteilung bildet damit
+		einen weiteren Teil der IO-Funktionalität ab.
+		</p>
+		<p>
+		Als weitere Variante einer Operation kann ein einfacheres Teil 
+		auch in manuellen Arbeitsschritten erstellt werden. Dazu werden dem Handwerker Holz und Schrauben geliefert.
+		</p>
+		<p>
+		Der Arbeiter verwendet nur Standard-Werkzeuge (aus der API):
+		Zuerst eine Stichsäge, dann eine Bohrmaschine
+		und zum Schluss einen Akkuschrauber.
+		</p>
+	
 		<footer>
 			<hr/>
 			<a href="kontakt.html">Kontakt</a>

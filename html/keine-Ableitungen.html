@@ -16,17 +16,13 @@
 	mehr für Objekte zu verwenden. Ableitungen verwende ich nur noch für Interfaces.
 	</p>
 	
-	<p>Sieht eine Klassenbibliothek allerdings die Erweiterung / Spezifizierung durch Vererbung
-	von Objekten vor, ja, dann hat man leider keine andere Wahl.
-	Man muss dann Vererbung von Objekten anwenden, mit allen Konsequenzen, die daraus folgen.
-	</p>
-	
 	<p>Für Objekte keine Vererbung mehr zu verwenden, hat den folgenden Grund:</p>
 	
 	<p>Die Unterklasse hat Zugriff auf protected Anteile der Oberklasse.
 	Die Unterklasse greift damit viel zu weit in die Oberklasse ein und verletzt die Objektkapselung.
 	Das hat zur Folge, dass auch die protected Anteile der Oberklasse nur schwer
-	und mit unabsehbaren Folgen änderbar sind.
+	oder gar mit unabsehbaren Folgen änderbar sind. Das gilt insbesondere für den Fall,
+	dass die (möglichen) Unterklassen dem Entwickler der Oberklasse unbekannt sind. 
 	<p>
 	
 	<p>Große Vererbungshierachien enwickeln sich deshalb irgendwann zu einem 
@@ -38,6 +34,11 @@
 	
 	<p>Siehe dazu auch: <a href="https://de.wikipedia.org/wiki/Komposition_an_Stelle_von_Vererbung">
 	Komposition an Stelle von Vererbung</a></p>
+	
+	<p>Sieht eine Klassenbibliothek allerdings die Erweiterung / Spezifizierung durch Vererbung
+	von Objekten vor, ja, dann hat man leider keine andere Wahl.
+	Man muss dann Vererbung von Objekten anwenden, mit allen Problemen, die daraus folgen können.
+	</p>
 
   <footer>
 	<hr />

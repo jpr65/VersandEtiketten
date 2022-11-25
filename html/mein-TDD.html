@@ -61,7 +61,7 @@
 	<li>TCOI_0000_NameDerZuTestendenKlasse (Test-Class-IO) für Klassen aus dem IO-Bereich.</li>
   </ul>
   
-  <p>TCIO_0000_* als Name im Bereich IO sortiert diese Klassen VOR den Applikation-Klassen ein,
+  <p>TCIO_0000_* als Name im Bereich IO würde diese Klassen VOR den Applikation-Klassen einsortieren,
      da I vor L einsortiert wird. Daher verwende ich das Kürzel TCOI mit dem O vor dem I.
   </p>
   
@@ -80,10 +80,17 @@
   dass man gerade an einer Basis-Klasse entwickelt und dort achtsam vorgehen sollte.
   </p>
   
-  <p>Im klassischen TDD lautet der Name der Test-Klasse exakt so wie der Name der zu testenden Klasse.
-  Das Voranstellen einer Kennung vor dem Klassennamen hat somit noch den weiteren Vorteil, dass der Compiler die zu
+  <p>Im klassischen TDD lautet der Name der Test-Klasse exakt so wie der Name der zu testenden Klasse,
+  was zu Namenskonflikten und Verwechslungen führen kann.
+  Das Voranstellen einer Kennung vor den Klassennamen hat somit noch den weiteren Vorteil, dass der Compiler die zu
   testende Klasse und den Test der Klasse nicht verwechseln kann und bei der Suche nach Klassen in der
   Entwicklungsumgebung sofort klar ist, welche Klasse einen Test implementiert und welche Teil des Produktiv-Codes ist.
+  </p>
+  
+  <p>
+  Da TCL_4711_* kein eindeutiger Identifizierer sein muss, erzeugen Duplikate in der Nummer kein Problem.
+  Die Nummer kann später noch angepasst werden oder auch bestehen bleiben, wenn alle sinnvollen Nummern bzgl.
+  der Reihenfolge bereits belegt sind.
   </p>
    
   <h3>Methoden-Namen</h3>
@@ -176,6 +183,14 @@ Oft werden die 4 CRUD-Tests zusammengefasst zu einem TestCase:
   }
   </code>
   </pre>
+  
+  <p>Hier werden mehrere Methoden in nur einem Test geprüft.
+  Auch das ist eine Abweichung zu strictem TDD.
+  Ich fasse oft mehrere Tests in einem TestCase zusammen,
+  wenn mir das sinnvoll erscheint:
+  Neben der Arbeitserleichterung geht es mir auch darum, die Anzahl der TestCases
+  zu reduzieren. Ansonsten könnte man in großen Projekten auf 10 000 TestCases und mehr kommen.
+  </p>
 
   <footer>
 	<hr />
