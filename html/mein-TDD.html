@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="de">
 <head>
-	<title>Mein TDD - IODA und TDD mit Java</title>
+	<title>Mein TDD - IODA und TDD mit Java, C# und Raku</title>
 </head>
 
 <body>
   <header>
-    <p>Mein TDD - IODA und TDD mit Java</p>
+    <p>Mein TDD - IODA und TDD mit Java, C# und Raku</p>
 	<hr />
   </header>
 
@@ -30,7 +30,8 @@
   
   <p>
   Nach der reinen Lehre des TDD darf für Test-Fixtures kein Produktiv-Code verwendet werden,
-  da dieser sich ja (noch) in der Entwicklung befindet und somit die Änderung einer Klasse,
+  da dieser sich ja (noch) in der Entwicklung befindet und somit die Änderung einer 
+  Klasse aus dem Produktiv-Code,
   die gar nicht Gegenstand des Tests ist, den Test fehlschlagen lassen könnte.
   </p>
   
@@ -48,20 +49,22 @@
   
   <p>Daher erlaube ich die Wiederverwendung von Produktiv-Code in Test-Fixtures oder Unit-Tests anderer Klassen.
   Das hat zur Folge, dass sich ein Fehler in einer Produktiv-Klasse auch auf Tests auswirken kann, die andere
-  Klassen verwenden, um z.B. Testdaten aufzubauen.
+  Klassen testen, wenn z.B. Fehler im Testaufbau passieren oder sich die Testdaten verändern.
+  Wo der Fehler steckt bzw. was die Änderung der Testdaten verursacht hat,
+  lässt sich jedoch meistens leicht aufklären.
   </p>
   
   <h3>Namen der Test-Klassen</h3>
   
-  <p>Daher nummeriere ich die Test-Klassen durch nach folgendem Schema:</p>
+  <p>Dazu nummeriere ich die Test-Klassen durch nach folgendem Schema:</p>
   
   <ul>
-	<li>TCA_0000_NameDerZuTestendenKlasse (Test-Class-Api) für Klassen aus dem API </li>
-	<li>TCL_0000_NameDerZuTestendenKlasse (Test-CLass) für Klassen aus der Applikation (ohne IO)</li>
-	<li>TCOI_0000_NameDerZuTestendenKlasse (Test-Class-IO) für Klassen aus dem IO-Bereich.</li>
+	<li><code>TCA_0000_NameDerZuTestendenKlasse</code> (Test-Class-Api) für Klassen aus dem API </li>
+	<li><code>CL_0000_NameDerZuTestendenKlasse</code> (Test-CLass) für Klassen aus der Applikation (ohne IO)</li>
+	<li><code>TCOI_0000_NameDerZuTestendenKlasse</code> (Test-Class-IO) für Klassen aus dem IO-Bereich.</li>
   </ul>
   
-  <p>TCIO_0000_* als Name im Bereich IO würde diese Klassen VOR den Applikation-Klassen einsortieren,
+  <p><code>TCIO_0000_*</code> als Name im Bereich IO würde diese Klassen VOR den Applikation-Klassen einsortieren,
      da I vor L einsortiert wird. Daher verwende ich das Kürzel TCOI mit dem O vor dem I.
   </p>
   
@@ -76,7 +79,7 @@
   <p>
   Man erkauft sich also die höhere Entwicklungsperformance damit, dass in einigen Fällen die Suche nach der Ursache
   eines Fehlers etwas aufwendiger wird und dem Schrecken, dass nach einer kleinen Änderung in einer Basis-Klasse
-  plötzlich sehr viele Tests fehlschlagen. Andererseits wird man in diesem Fall auch noch einmal darauf hingewiesen,
+  plötzlich sehr viele Tests fehlschlagen. Als Positiv kann man vermerken: Man wird noch einmal darauf hingewiesen,
   dass man gerade an einer Basis-Klasse entwickelt und dort achtsam vorgehen sollte.
   </p>
   
@@ -95,7 +98,8 @@
    
   <h3>Methoden-Namen</h3>
   
-  <p>Test-Methoden benenne ich immer nach dem Schema T000_NameDerMethode. Ein Test darf zur Vorbereitung eines Tests
+  <p>Test-Methoden benenne ich immer nach dem Schema <code>T000_NameDerMethode</code>. 
+  Ein Test darf zur Vorbereitung eines Tests
   auch die Methoden aufrufen, die bereits getestet wurden. Die Reihenfolge gibt die Nummerierung vor. Hier gilt dasselbe
   Prinzip wie bei der Benennung der Test-Klassen.
   </p>
@@ -122,7 +126,8 @@ einen Kunden in der Datenbank anlegen,
 um ihn anschließend einlesen zu können.
 </p>
 <p>
-Ebenso benötigt T100_SelectKunden mehrere Kunden in der Datenbank.
+Ebenso benötigt T100_SelectKunden mehrere Kunden in der Datenbank, die leicht mit
+<code>testObject.CreateKunde</code> angelegt werden können.
 </p>
 <p>
 Ohne diese "Nutzungserlaubnis" wird eine doppelte oder mehrfache Implementierung erzwungen,
@@ -140,7 +145,7 @@ Oft werden die 4 CRUD-Tests zusammengefasst zu einem TestCase:
   </code></pre>
   
   Create - Read - Update - Delete werden in einem einzigen Test ausgeführt
-  und jeder einzelne Schritt geprüft:
+  und es wird jeder einzelne Schritt geprüft:
   </p>
 <p>
 
@@ -151,7 +156,7 @@ Oft werden die 4 CRUD-Tests zusammengefasst zu einem TestCase:
       string kundeNr = "K4711";
       
       Kunde kunde = createKundeInMemory(kundeNr);
-      OrmManager testObject = new OrmManager();
+      OrmManager testObject = this.CreateOrmManagerFuerDatenbank();
       
       // --- Test Create ----------
       testObject.Create(kunde);
@@ -185,11 +190,12 @@ Oft werden die 4 CRUD-Tests zusammengefasst zu einem TestCase:
   </pre>
   
   <p>Hier werden mehrere Methoden in nur einem Test geprüft.
-  Auch das ist eine Abweichung zu strictem TDD.
+  Auch das ist eine Abweichung zu striktem TDD.
   Ich fasse oft mehrere Tests in einem TestCase zusammen,
   wenn mir das sinnvoll erscheint:
   Neben der Arbeitserleichterung geht es mir auch darum, die Anzahl der TestCases
-  zu reduzieren. Ansonsten könnte man in großen Projekten auf 10 000 TestCases und mehr kommen.
+  zu reduzieren. Nach der reinen Lehre kann man in großen Projekten schnell 
+  auf 10.000 TestCases und mehr kommen.
   </p>
 
   <footer>
