@@ -2,61 +2,62 @@
 <html lang="de">
 	<head>
 		<title>Inhalt - IODA und TDD mit Java, C# und Raku</title>
+		<link type="text/css" rel="stylesheet" media="screen" href="stylesheet.css" />
 	</head>
 	<body>
 		<header>
-			<p>Inhalt - IODA und TDD mit Java, C# und Raku</p>
+			<div>Inhalt - IODA und TDD mit Java, C# und Raku</div>
 			<hr/>
 		</header>
 		<h1>Inhalt</h1>
 		
-		<h2>Übersicht</h2>
+		<h2>Ãœbersicht</h2>
 		
 		<p>
-		  Das <a href="ticket-4711.html">Ticket 4711</a> beschreibt eine Übungsaufgabe bzw. Probe-Aufgabe,
+		  Das <a href="ticket-4711.html">Ticket 4711</a> beschreibt eine Ãœbungsaufgabe bzw. Probe-Aufgabe,
 		  die ich einigen Entwicklern gestellt habe.
 		  </p>
 		<p>
-		  Als Aufgabe habe ich die <i>Vorbereitung der Anschrift für einen Etikettdrucker</i> gewählt, weil:
+		  Als Aufgabe habe ich die <i>Vorbereitung der Anschrift fÃ¼r einen Etikettdrucker</i> gewÃ¤hlt, weil:
 		  </p>
 		<ul>
-			<li>diese Aufgabe leicht verständlich ist,</li>
-			<li>diese Aufgabe nur scheinbar trivial ist, wenn mehrere Länder unterstützt werden sollen,</li>
-			<li>diese kleine Aufgabe dazu verführt, es flott und unsauber zu lösen,</li>
-			<li>alles Wichtige enthält, was man beim Design und Test von Software berücksichtigen sollte.</li>
+			<li>diese Aufgabe leicht verstÃ¤ndlich ist,</li>
+			<li>diese Aufgabe nur scheinbar trivial ist, wenn mehrere LÃ¤nder unterstÃ¼tzt werden sollen,</li>
+			<li>diese kleine Aufgabe dazu verfÃ¼hrt, es flott und unsauber zu lÃ¶sen,</li>
+			<li>alles Wichtige enthÃ¤lt, was man beim Design und Test von Software berÃ¼cksichtigen sollte.</li>
 		</ul>
 		<p>
-		  In diesem Referenzprojekt stelle ich nun vor, wie für mich eine <b><i>gute bis optimale Lösung</i></b>
-		  dieser Aufgabe aussieht. Dabei erläutere ich, wie ich <a href="mein-TDD.html">TDD</a> einsetze und vor allem,
+		  In diesem Referenzprojekt stelle ich nun vor, wie fÃ¼r mich eine <b><i>gute bis optimale LÃ¶sung</i></b>
+		  dieser Aufgabe aussieht. Dabei erlÃ¤utere ich, wie ich <a href="mein-TDD.html">TDD</a> einsetze und vor allem,
 		  </p>
 		  <p>wie <a href="ioda.html">IODA</a> umgesetzt wird
 		  </p>
 		  <p>und welche Vorteile man dadurch gewinnt.
-		  Zu den Wichtigsten zählen die <b><i>Entkopplung der Klassen</i></b> und 
-		  <b><i>keinen Aufwand mehr für Test-Stubs, Mocks</i></b> und Ähnliches investieren zu müssen.
+		  Zu den Wichtigsten zÃ¤hlen die <b><i>Entkopplung der Klassen</i></b> und 
+		  <b><i>keinen Aufwand mehr fÃ¼r Test-Stubs, Mocks</i></b> und Ã„hnliches investieren zu mÃ¼ssen.
 		  </p>
 		<p>
-		  Ich erwarte natürlich nicht, dass jemand im Rahmen eine Probeaufgabe hier die "Volle Punktzahl"
-		  erreicht, denn das ist in ein paar Stunden so nicht komplett umzusetzen, wie ich es hier durchgeführt habe.
+		  Ich erwarte natÃ¼rlich nicht, dass jemand im Rahmen eine Probeaufgabe hier die "Volle Punktzahl"
+		  erreicht, denn das ist in ein paar Stunden so nicht komplett umzusetzen, wie ich es hier durchgefÃ¼hrt habe.
 		  </p>
 		<p>
 		  Dazu bedarf es mehr Zeit.
 		  </p>
 		<p>
-		  Als erste Programmiersprache für die Implementierung habe ich Java gewählt,
+		  Als erste Programmiersprache fÃ¼r die Implementierung habe ich Java gewÃ¤hlt,
 		  weil ich mich dort noch nicht so gut auskenne
-		  und mich ein wenig mehr in Java und Eclipse einarbeiten wollte. Außerdem kann ich so zeigen,
-		  dass TDD und vor allem IODA auch - oder gerade dann - eingesetzt werden können, wenn man sich
+		  und mich ein wenig mehr in Java und Eclipse einarbeiten wollte. AuÃŸerdem kann ich so zeigen,
+		  dass TDD und vor allem IODA auch - oder gerade dann - eingesetzt werden kÃ¶nnen, wenn man sich
 		  noch nicht so gut auskennt.
 		  </p>
 		  
-		<p>Als nächstes werde ich den Code nach C# und .NET portieren 
+		<p>Als nÃ¤chstes werde ich den Code nach C# und .NET portieren 
 		   und es noch einmal neu in RAKU (Perl-6) implementieren.
 		</p>
 		
 		<h2>Angewendete Techniken und Prinzipien</h2>
 		
-		<p>Für die Software-Entwicklung wende ich folgende Techniken/Prinzipien an:</p>
+		<p>FÃ¼r die Software-Entwicklung wende ich folgende Techniken/Prinzipien an:</p>
 		
 		<ul>
 			<li>Objektorientierung</li>
@@ -64,9 +65,9 @@
 			<li><a href="https://de.wikipedia.org/wiki/Clean_Code">Clean Code</a> (Wikipedia)</li>
 			<li><a href="https://de.wikipedia.org/wiki/EVA-Prinzip">EVA-Prinzip / IPO-Model</a> (Wikipedia)</li>
 			<li>IODA - <a href="ioda.html">hier kurz beschrieben</a></li>
-			<li><a href="https://de.wikipedia.org/wiki/Don%E2%80%99t_repeat_yourself">DRY - Don’t repeat yourself</a>
+			<li><a href="https://de.wikipedia.org/wiki/Don%E2%80%99t_repeat_yourself">DRY - Donâ€™t repeat yourself</a>
 			    (Wikipedia) - Vermeidung / Reduzierung von Redundanz</li>
-			<li>Ableitung nur für Interfaces - <a href="keine-Ableitungen.html">hier kurz beschrieben</a></li>
+			<li>Ableitung nur fÃ¼r Interfaces - <a href="keine-Ableitungen.html">hier kurz beschrieben</a></li>
 		</ul>
 		
 		<h2>Meine Implementierungen</h2>
@@ -88,9 +89,11 @@
 		habe ich sie zum Abschluss von Text-Dateien auf HTML umgestellt.
 		</p>
 		
+		<link href="footer.html" rel="import" />
+		
 		<footer>
-			<hr/>
-			<a href="kontakt.html">Kontakt</a>
+			<hr />
+			<a href="index.html">&#8962; Home</a> - <a href="kontakt.html">Kontakt</a>
 		</footer>
 	</body>
 </html>

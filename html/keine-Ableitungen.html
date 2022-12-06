@@ -1,48 +1,49 @@
 <!doctype html>
 <html lang="de">
 <head>
-	<title>Keine Ableitungen für Objekte - IODA und TDD mit Java, C# und Raku</title>
+	<title>Keine Ableitungen fÃ¼r Objekte - IODA und TDD mit Java, C# und Raku</title>
+	<link type="text/css" rel="stylesheet" media="screen" href="stylesheet.css" />
 </head>
 
 <body>
   <header>
-    <p>Keine Ableitungen für Objekte - IODA und TDD mit Java, C# und Raku</p>
+    <p>Keine Ableitungen fÃ¼r Objekte - IODA und TDD mit Java, C# und Raku</p>
 	<hr />
   </header>
 
-  <h1>Keine Ableitungen für Objekte</h1>
+  <h1>Keine Ableitungen fÃ¼r Objekte</h1>
   
   <p>Ich habe mich - wie auch der Erfinder von Java - dazu entschieden, freiwillig keine Ableitungen
-	mehr für Klassen zu verwenden. Ableitungen verwende ich nur noch für Interfaces.
+	mehr fÃ¼r Klassen zu verwenden. Ableitungen verwende ich nur noch fÃ¼r Interfaces.
 	</p>
 	
-	<p>Für Klassen keine Vererbung mehr zu verwenden, hat den folgenden Grund:</p>
+	<p>FÃ¼r Klassen keine Vererbung mehr zu verwenden, hat den folgenden Grund:</p>
 	
 	<p>Die Unterklasse hat Zugriff auf protected Anteile der Oberklasse.
 	Die Unterklasse greift damit viel zu weit in die Oberklasse ein und verletzt die Objektkapselung.
 	Das hat zur Folge, dass auch die protected Anteile der Oberklasse nur schwer
-	oder sogar mit unabsehbaren Folgen änderbar sind. Das gilt insbesondere für den Fall,
-	dass die (möglichen) Unterklassen dem Entwickler der Oberklasse unbekannt sind. 
+	oder sogar mit unabsehbaren Folgen Ã¤nderbar sind. Das gilt insbesondere fÃ¼r den Fall,
+	dass die (mÃ¶glichen) Unterklassen dem Entwickler der Oberklasse unbekannt sind. 
 	<p>
 	
-	<p>Große Vererbungshierarchien enwickeln sich deshalb irgendwann zu einem 
+	<p>GroÃŸe Vererbungshierarchien enwickeln sich deshalb irgendwann zu einem 
 	<a href="https://de.wikipedia.org/wiki/Anti-Pattern">Anti-Pattern</a>, weil
-	der Aufwand für Änderungen viel zu groß wird. Falls sich solche Änderungen überhaupt
+	der Aufwand fÃ¼r Ã„nderungen viel zu groÃŸ wird. Falls sich solche Ã„nderungen Ã¼berhaupt
 	umsetzen lassen.</p>
 	
-	<p>Verwendet man aber IODA, dann wird Vererbung von Objekten vollkommen überflüssig.</p>
+	<p>Verwendet man aber IODA, dann wird Vererbung von Objekten vollkommen Ã¼berflÃ¼ssig.</p>
 	
 	<p>Siehe dazu auch: <a href="https://de.wikipedia.org/wiki/Komposition_an_Stelle_von_Vererbung">
 	Komposition an Stelle von Vererbung</a> auf Wikipedia.</p>
 	
 	<p>Sieht eine Klassenbibliothek allerdings die Erweiterung / Spezifizierung durch Vererbung
 	von Objekten vor, ja, dann hat man leider keine andere Wahl.
-	Man muss dann Vererbung von Objekten anwenden, mit allen Problemen, die daraus folgen können.
+	Man muss dann Vererbung von Objekten anwenden, mit allen Problemen, die daraus folgen kÃ¶nnen.
 	</p>
 
   <footer>
 	<hr />
-     <a href="kontakt.html">Kontakt</a>
+     <a href="index.html">&#8962; Home</a> - <a href="kontakt.html">Kontakt</a>
   </footer>
 </body>
 </html>

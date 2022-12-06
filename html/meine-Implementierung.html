@@ -2,6 +2,7 @@
 <html lang="de">
 	<head>
 		<title>Meine Implementierung - IODA und TDD mit Java, C# und Raku</title>
+		<link type="text/css" rel="stylesheet" media="screen" href="stylesheet.css" />
 	</head>
 	<body>
 		<header>
@@ -18,7 +19,7 @@
 		
 		<h2>Angewendete Techniken und Prinzipien</h2>
 			
-		<p>Für die Software-Entwicklung wende ich folgende Techniken/Prinzipien an:</p>
+		<p>FÃ¼r die Software-Entwicklung wende ich folgende Techniken/Prinzipien an:</p>
 			
 		<ul>
 			<li>Objektorientierung</li>
@@ -26,51 +27,51 @@
 			<li><a href="https://de.wikipedia.org/wiki/Clean_Code">Clean Code</a> (Wikipedia)</li>
 			<li><a href="https://de.wikipedia.org/wiki/EVA-Prinzip">EVA-Prinzip / IPO-Model</a> (Wikipedia)</li>
 			<li>IODA - <a href="ioda.html">hier kurz beschrieben</a></li>
-			<li><a href="https://de.wikipedia.org/wiki/Don%E2%80%99t_repeat_yourself">DRY - Don’t repeat yourself</a>
+			<li><a href="https://de.wikipedia.org/wiki/Don%E2%80%99t_repeat_yourself">DRY - Donâ€™t repeat yourself</a>
 			    (Wikipedia) - Vermeidung / Reduzierung von Redundanz</li>
-			<li>Ableitung nur für Interfaces - <a href="keine-Ableitungen.html">hier kurz beschrieben</a></li>
+			<li>Ableitung nur fÃ¼r Interfaces - <a href="keine-Ableitungen.html">hier kurz beschrieben</a></li>
 		</ul>
 		
 		<h2>Historie der Entwicklung</h2>
 		
 		<p>Im Folgenden beschreibe ich grob die Historie, wie ich was in welcher Reihenfolge umgesetzt habe.
-			Diese Reihenfolge ist natürlich nur eine mögliche Variante, die Software zu erstellen.
-			Es zählt einzig das Endergebnis.
+			Diese Reihenfolge ist natÃ¼rlich nur eine mÃ¶gliche Variante, die Software zu erstellen.
+			Es zÃ¤hlt einzig das Endergebnis.
 		</p>
 		
 		<p>Vor der Codierung muss zuerst die Aufgabenstellung verstanden werden.
-			In diesem einfachen Fall ist das gut möglich. In echten Projekten muss die Aufgabenstellung
+			In diesem einfachen Fall ist das gut mÃ¶glich. In echten Projekten muss die Aufgabenstellung
 			oft gemeinsam erarbeitet werden, bisweilen sogar iterativ mit Prototypen
 			oder leichten Implementierungen.<p>
 		
 		<h2>1. Analyse des Tickets und der Aufgabenstellung</h2>
 		
-		<p>Zunächst sind die einzelnen Schritte aus dem Ticket zu lesen. Dazu habe ich die 
+		<p>ZunÃ¤chst sind die einzelnen Schritte aus dem Ticket zu lesen. Dazu habe ich die 
 		  <a href="ticket-4711-formatiert.html"> Beschreibung im Ticket umgebrochen</a>
 		  .</p>
 		
-		<p>Als zweites ist zu klären, wie denn eine Anschrift aufgebaut werden sollte,
-		   nach den jeweils gültigen Richtlinien.
+		<p>Als zweites ist zu klÃ¤ren, wie denn eine Anschrift aufgebaut werden sollte,
+		   nach den jeweils gÃ¼ltigen Richtlinien.
 		   Doch wer legt diese Richtlinien fest? Die "Deutsche Post" 
-		   kann ja wohl nur für Deutschland zuständig sein?
+		   kann ja wohl nur fÃ¼r Deutschland zustÃ¤ndig sein?
 		   Hier ist ein wenig Recherche im Web erforderlich.
 		  </p>
 				
-		<p>Die Richtlinien für den Aufbau von Adressen legt der 
+		<p>Die Richtlinien fÃ¼r den Aufbau von Adressen legt der 
 		  <a href="https://de.wikipedia.org/wiki/Weltpostverein">Weltpostverein</a> fest,
 		  <a href="https://www.upu.int/en/Home">www.upu.int</a>.
 		  Alle anderen Richtlinien im Web sollten darauf aufbauen.
 		  </p>
-		  <p>Für die Probeaufgabe würde ich auch andere Quellen akzeptieren.
+		  <p>FÃ¼r die Probeaufgabe wÃ¼rde ich auch andere Quellen akzeptieren.
 		  </p>
 		  <p>
-		  Doch die Entwicklung durchzuführen, <i>ohne irgendwelche Richtlinien zu zitieren</i>,
-          das wäre mir deutlich zu wenig. Denn in diesem Fall wäre der Aufbau der Adressen
-		  allein durch den Code festgelegt. Wogegen soll das dann später getestet werden?
+		  Doch die Entwicklung durchzufÃ¼hren, <i>ohne irgendwelche Richtlinien zu zitieren</i>,
+          das wÃ¤re mir deutlich zu wenig. Denn in diesem Fall wÃ¤re der Aufbau der Adressen
+		  allein durch den Code festgelegt. Wogegen soll das dann spÃ¤ter getestet werden?
 		  </p>
 				
-		<p>Vom Weltpostverein habe ich mir nun die passenden Richtlinien für den Aufbau 
-		  der Anschriften für Deutschland,
+		<p>Vom Weltpostverein habe ich mir nun die passenden Richtlinien fÃ¼r den Aufbau 
+		  der Anschriften fÃ¼r Deutschland,
 		  Spanien und UK heruntergeladen
 		  und im Ordner "doc" des Projektes abgelegt:
 		  </p>
@@ -81,13 +82,13 @@
 		
 		<h3>Generelle Hinweise</h3>
 		
-		<p>Kommentare, die mit //i/ (i für info) starten,
-			enthalten Erläuterungen zu dieser Referenzimplementierung,
-			sie würden in Produktiv-Code entfallen.
+		<p>Kommentare, die mit //i/ (i fÃ¼r info) starten,
+			enthalten ErlÃ¤uterungen zu dieser Referenzimplementierung,
+			sie wÃ¼rden in Produktiv-Code entfallen.
 		</p>
 		
 		<p>Die Datei <a href="../doc/OffenePunkte.txt">OffenePunkte.txt</a>
-			enthält offene Punkte oder Fragen, die während der Entwicklung aufgekommen sind.
+			enthÃ¤lt offene Punkte oder Fragen, die wÃ¤hrend der Entwicklung aufgekommen sind.
 		</p>
 		
 		<h3>a. Entwicklung mittels Stubs</h3>
@@ -99,14 +100,14 @@
 			und danach an einen Drucker-Stub weitergereicht wird.
 			Der Drucker Stub gibt dann die Anschrift einfach auf der Console aus.
 		  </p>
-		<p>In einem realen Projekt hat man üblicherweise bereits Schnittstellen zur Middle-Ware, 
+		<p>In einem realen Projekt hat man Ã¼blicherweise bereits Schnittstellen zur Middle-Ware, 
 		     eine Datenbank oder XML-Daten, auf
 			 die man zugreifen kann. Ebenso ist davon auszugehen, dass es bereits einen Drucker bzw.
 			 eine Drucker-Schnittstelle gibt.
 		  </p>
 		<p>
 			 Das gibt es hier in einem solchen Demo-Projekt nicht und 
-			 deshalb - NUR deshalb - müssen hier auch diese
+			 deshalb - NUR deshalb - mÃ¼ssen hier auch diese
 			 beiden Stubs entwickelt werden.
 		  </p>
 		<p>
@@ -117,49 +118,49 @@
 		  
 		<h3>b. Entwicklung der Tests und Redesign</h3>
 		
-		<p>Nachdem die ersten Versionen der Software liefen, habe ich das Unit-Testing eingefügt
-			 und immer wieder Einiges umgestellt, Methoden ins API extrahiert, Factories eingefügt
-			 und Anderes. Das ist der übliche Prozess, damit der Produktiv-Code besser testbar wird.
+		<p>Nachdem die ersten Versionen der Software liefen, habe ich das Unit-Testing eingefÃ¼gt
+			 und immer wieder Einiges umgestellt, Methoden ins API extrahiert, Factories eingefÃ¼gt
+			 und Anderes. Das ist der Ã¼bliche Prozess, damit der Produktiv-Code besser testbar wird.
 		  </p>
 		  
 		<h3>c. IO: Daten aus XML lesen</h3>
 		
-		<p>Der nächste Schritt war eine Umstellung im Middleware-Stub: 
+		<p>Der nÃ¤chste Schritt war eine Umstellung im Middleware-Stub: 
 		     Von programmatisch generierten Daten auf Dateien, die per
-			 XML in die Datenklassen eingelesen werden können. 
-			 Dazu mussten die Daten natürlich auch in XML geschrieben werden.
+			 XML in die Datenklassen eingelesen werden kÃ¶nnen. 
+			 Dazu mussten die Daten natÃ¼rlich auch in XML geschrieben werden.
 			 Leider sind die so erzeugten XML-Dateien nicht so gut lesbar wie die XML-Dateien, 
 			 die mit C# und den Standard .NET-Klassen erstellt werden.
 		  </p>
-		<p>Im Sinne der reinen Aufgabenstellung wäre das natürlich gar nicht notwendig gewesen,
+		<p>Im Sinne der reinen Aufgabenstellung wÃ¤re das natÃ¼rlich gar nicht notwendig gewesen,
 			 aber mir geht es hier auch darum, meine Anwendung des
 			 <a href="https://de.wikipedia.org/wiki/EVA-Prinzip">EVA-Prinzips</a>
 			 zu zeigen, das unter anderem besagt, dass Eingabe und Ausgabe <b>unbedingt</b>
 			 von der Verarbeitung zu trennen sind.
 		  </p>
-		<p>Ich wende dieses Prinzip nicht nur im Großen, sondern auch im ganz Kleinen an.
+		<p>Ich wende dieses Prinzip nicht nur im GroÃŸen, sondern auch im ganz Kleinen an.
         </p>
 		<p>So trenne ich in realen Projekten IO von den Verarbeitungs-Klassen.
-			 IO wird grundsätzlich in eigenen Operator-Klassen durchgeführt 
+			 IO wird grundsÃ¤tzlich in eigenen Operator-Klassen durchgefÃ¼hrt 
 			 und meistens sogar in eigene Libraries ausgelagert.
-			 Denn IO-Funktionalität ist aufwendiger und vor allem langsamer zu testen.
+			 Denn IO-FunktionalitÃ¤t ist aufwendiger und vor allem langsamer zu testen.
 		  </p>
 		<p>		
-		   Diese Auslagerung der IO-Funktionalität hat unter anderem große Vorteile im Unit-Testing.
+		   Diese Auslagerung der IO-FunktionalitÃ¤t hat unter anderem groÃŸe Vorteile im Unit-Testing.
 		   Da alle anderen Operator-Klassen (Verarbeitungs-Klassen) keinen Zugriff auf IO haben,
-		   müssen ihnen alle Daten von außen
-		   hereingegeben werden. Dadurch wird die Software klarer und die Tests können sich die 
+		   mÃ¼ssen ihnen alle Daten von auÃŸen
+		   hereingegeben werden. Dadurch wird die Software klarer und die Tests kÃ¶nnen sich die 
 		   Daten einfach selbst als Instanzen von Datenklassen erzeugen. 
 		  </p>
 		  
-		<h3>d. Testfälle komplettieren</h3>
+		<h3>d. TestfÃ¤lle komplettieren</h3>
 		
-		<p>Im letzten großen Schritt wurden die Testfälle komplettiert, 
-			 was die Funktionalität einerseits und die Code-Überdeckung andererseits betraf.
+		<p>Im letzten groÃŸen Schritt wurden die TestfÃ¤lle komplettiert, 
+			 was die FunktionalitÃ¤t einerseits und die Code-Ãœberdeckung andererseits betraf.
 		  </p>
 		<footer>
 			<hr/>
-			<a href="kontakt.html">Kontakt</a>
+			<a href="index.html">&#8962; Home</a> - <a href="kontakt.html">Kontakt</a>
 		</footer>
 	</body>
 </html>

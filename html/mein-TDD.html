@@ -2,9 +2,12 @@
 <html lang="de">
 <head>
 	<title>Mein TDD - IODA und TDD mit Java, C# und Raku</title>
+	<link type="text/css" rel="stylesheet" media="screen" href="stylesheet.css" />
 </head>
 
 <body>
+
+
   <header>
     <p>Mein TDD - IODA und TDD mit Java, C# und Raku</p>
 	<hr />
@@ -17,7 +20,7 @@
   <p>
   In <a href=""https://de.wikipedia.org/wiki/Testgetriebene_Entwicklung">
       TDD (Test Driven Development - Testgetriebene Entwicklung)</a>
-  wird üblicherweise der Test VOR dem Code geschrieben.
+  wird Ã¼blicherweise der Test VOR dem Code geschrieben.
   </p>
   
   <h2>TDD - Parallel oder alternierend</h2>
@@ -29,29 +32,29 @@
   <h2>Test-Fixtures und Hilfsklassen</h2>
   
   <p>
-  Nach der reinen Lehre des TDD darf für Test-Fixtures kein Produktiv-Code verwendet werden,
-  da dieser sich ja (noch) in der Entwicklung befindet und somit die Änderung einer 
+  Nach der reinen Lehre des TDD darf fÃ¼r Test-Fixtures kein Produktiv-Code verwendet werden,
+  da dieser sich ja (noch) in der Entwicklung befindet und somit die Ã„nderung einer 
   Klasse aus dem Produktiv-Code,
-  die gar nicht Gegenstand des Tests ist, den Test fehlschlagen lassen könnte.
+  die gar nicht Gegenstand des Tests ist, den Test fehlschlagen lassen kÃ¶nnte.
   </p>
   
   <p>
-  Deshalb wird nach der reinen Lehre der Code teilweise noch einmal (oder öfter) in Test-Fixtures
+  Deshalb wird nach der reinen Lehre der Code teilweise noch einmal (oder Ã¶fter) in Test-Fixtures
   entwickelt, den man eh schon als Produktiv-Code entwickelt hat oder bald entwickeln wird.
   </p>
   
   <p>
-  Das halte ich nicht für sinnvoll. Denn wer testet diesen Code im Test-Fixture - dazu werden ja keine
+  Das halte ich nicht fÃ¼r sinnvoll. Denn wer testet diesen Code im Test-Fixture - dazu werden ja keine
   Unit-Tests geschrieben? Der Code der Test-Fixtures ist somit nicht gut bis gar nicht getestet.
-  Wird der Produktiv-Code umgeschrieben, kann das zu zusätzlichem Aufwand beim Anpassen der Test-Fixtures
-  führen oder sogar zu fehlerhaftem Code, was beim Testen aber nicht immer auffällt.
+  Wird der Produktiv-Code umgeschrieben, kann das zu zusÃ¤tzlichem Aufwand beim Anpassen der Test-Fixtures
+  fÃ¼hren oder sogar zu fehlerhaftem Code, was beim Testen aber nicht immer auffÃ¤llt.
   </p>
   
   <p>Daher erlaube ich die Wiederverwendung von Produktiv-Code in Test-Fixtures oder Unit-Tests anderer Klassen.
   Das hat zur Folge, dass sich ein Fehler in einer Produktiv-Klasse auch auf Tests auswirken kann, die andere
-  Klassen testen, wenn z.B. Fehler im Testaufbau passieren oder sich die Testdaten verändern.
-  Wo der Fehler steckt bzw. was die Änderung der Testdaten verursacht hat,
-  lässt sich jedoch meistens leicht aufklären.
+  Klassen testen, wenn z.B. Fehler im Testaufbau passieren oder sich die Testdaten verÃ¤ndern.
+  Wo der Fehler steckt bzw. was die Ã„nderung der Testdaten verursacht hat,
+  lÃ¤sst sich jedoch meistens leicht aufklÃ¤ren.
   </p>
   
   <h3>Namen der Test-Klassen</h3>
@@ -59,32 +62,32 @@
   <p>Dazu nummeriere ich die Test-Klassen durch nach folgendem Schema:</p>
   
   <ul>
-	<li><code>TCA_0000_NameDerZuTestendenKlasse</code> (Test-Class-Api) für Klassen aus dem API </li>
-	<li><code>CL_0000_NameDerZuTestendenKlasse</code> (Test-CLass) für Klassen aus der Applikation (ohne IO)</li>
-	<li><code>TCOI_0000_NameDerZuTestendenKlasse</code> (Test-Class-IO) für Klassen aus dem IO-Bereich.</li>
+	<li><code class="language-c#">TCA_0000_NameDerZuTestendenKlasse</code> (Test-Class-Api) fÃ¼r Klassen aus dem API </li>
+	<li><code>CL_0000_NameDerZuTestendenKlasse</code> (Test-CLass) fÃ¼r Klassen aus der Applikation (ohne IO)</li>
+	<li><code>TCOI_0000_NameDerZuTestendenKlasse</code> (Test-Class-IO) fÃ¼r Klassen aus dem IO-Bereich.</li>
   </ul>
   
-  <p><code>TCIO_0000_*</code> als Name im Bereich IO würde diese Klassen VOR den Applikation-Klassen einsortieren,
-     da I vor L einsortiert wird. Daher verwende ich das Kürzel TCOI mit dem O vor dem I.
+  <p><code>TCIO_0000_*</code> als Name im Bereich IO wÃ¼rde diese Klassen VOR den Applikation-Klassen einsortieren,
+     da I vor L einsortiert wird. Daher verwende ich das KÃ¼rzel TCOI mit dem O vor dem I.
   </p>
   
   <p>Der Test <code>TCL_4711_ZweiteKlasse</code> darf zum Beispiel im Fixture oder direkt in der Test-Klasse die Klasse
   <code>MeineErsteKlasse</code> verwenden, weil diese bereits in <code>TCL_0100_MeineErsteKlasse</code>
   getestet wurde.</p>
   
-  <p>Treten nun in den Unit-Tests Fehler auf, sollten zunächst die Fehler behoben werden, die am weitesten oben
+  <p>Treten nun in den Unit-Tests Fehler auf, sollten zunÃ¤chst die Fehler behoben werden, die am weitesten oben
      stehen. Enventuell verschwinden danach einige oder alle folgenden Fehler.
   </p>
   
   <p>
-  Man erkauft sich also die höhere Entwicklungsperformance damit, dass in einigen Fällen die Suche nach der Ursache
-  eines Fehlers etwas aufwendiger wird und dem Schrecken, dass nach einer kleinen Änderung in einer Basis-Klasse
-  plötzlich sehr viele Tests fehlschlagen. Als Positiv kann man vermerken: Man wird noch einmal darauf hingewiesen,
+  Man erkauft sich also die hÃ¶here Entwicklungsperformance damit, dass in einigen FÃ¤llen die Suche nach der Ursache
+  eines Fehlers etwas aufwendiger wird und dem Schrecken, dass nach einer kleinen Ã„nderung in einer Basis-Klasse
+  plÃ¶tzlich sehr viele Tests fehlschlagen. Als Positiv kann man vermerken: Man wird noch einmal darauf hingewiesen,
   dass man gerade an einer Basis-Klasse entwickelt und dort achtsam vorgehen sollte.
   </p>
   
   <p>Im klassischen TDD lautet der Name der Test-Klasse exakt so wie der Name der zu testenden Klasse,
-  was zu Namenskonflikten und Verwechslungen führen kann.
+  was zu Namenskonflikten und Verwechslungen fÃ¼hren kann.
   Das Voranstellen einer Kennung vor den Klassennamen hat somit noch den weiteren Vorteil, dass der Compiler die zu
   testende Klasse und den Test der Klasse nicht verwechseln kann und bei der Suche nach Klassen in der
   Entwicklungsumgebung sofort klar ist, welche Klasse einen Test implementiert und welche Teil des Produktiv-Codes ist.
@@ -92,7 +95,7 @@
   
   <p>
   Da TCL_4711_* kein eindeutiger Identifizierer sein muss, erzeugen Duplikate in der Nummer kein Problem.
-  Die Nummer kann später noch angepasst werden oder auch bestehen bleiben, wenn alle sinnvollen Nummern bzgl.
+  Die Nummer kann spÃ¤ter noch angepasst werden oder auch bestehen bleiben, wenn alle sinnvollen Nummern bzgl.
   der Reihenfolge bereits belegt sind.
   </p>
    
@@ -108,31 +111,28 @@
   
   <h3>CRUD-Tests</h3>
   
-  <pre>
-  <code>
-  T010_CreateKunde - darf nur testObject.CreateKunde aufrufen
+<div class="codeblock">  T010_CreateKunde - darf nur testObject.CreateKunde aufrufen
   T020_ReadKunde   - darf testObject.CreateKunde verwenden
   T030_UpdateKunde - darf testObject.CreateKunde und ReadKunde verwenden
   T040_DeleteKunde - darf testObject.CreateKunde, ReadKunde und UpdateKunde verwenden
 
   T100_SelectKunden - darf testObject.CreateKunde, ReadKunde, UpdateKunde und DeleteKunde verwenden
-  </code>
-  </pre>
+</div>
 
 <p>
-Dadurch sind die Tests nicht mehr ganz unabhängig,
-doch sonst müsste T020_ReadKunde per direktem SQL (oder irgendwie anders)
+Dadurch sind die Tests nicht mehr ganz unabhÃ¤ngig,
+doch sonst mÃ¼sste T020_ReadKunde per direktem SQL (oder irgendwie anders)
 einen Kunden in der Datenbank anlegen,
-um ihn anschließend einlesen zu können.
+um ihn anschlieÃŸend einlesen zu kÃ¶nnen.
 </p>
 <p>
-Ebenso benötigt T100_SelectKunden mehrere Kunden in der Datenbank, die leicht mit
-<code>testObject.CreateKunde</code> angelegt werden können.
+Ebenso benÃ¶tigt T100_SelectKunden mehrere Kunden in der Datenbank, die leicht mit
+<code>testObject.CreateKunde</code> angelegt werden kÃ¶nnen.
 </p>
 <p>
 Ohne diese "Nutzungserlaubnis" wird eine doppelte oder mehrfache Implementierung erzwungen,
 z.B. in Test-Prepare-Methoden oder in einem Test-Fixture.
-Das Fixture kann natürlich auch Fehler bei der Anlage der Kunden machen und muss bei jeder Änderung
+Das Fixture kann natÃ¼rlich auch Fehler bei der Anlage der Kunden machen und muss bei jeder Ã„nderung
 mitgezogen werden, auch wenn diese sich gar nicht auf den eigentlichen Test bezieht.
 Das Fixture selbst wird ja nicht Unit-getestet und daher fallen Fehler/Abweichungen nicht immer auf.
 </p>
@@ -140,18 +140,15 @@ Das Fixture selbst wird ja nicht Unit-getestet und daher fallen Fehler/Abweichun
 Oft werden die 4 CRUD-Tests zusammengefasst zu einem TestCase:
 </p>
 
-  <pre><code>
-  T010_CRUD_Kunde
-  </code></pre>
+<pre><code>  T010_CRUD_Kunde
+</code></pre>
   
-  Create - Read - Update - Delete werden in einem einzigen Test ausgeführt
-  und es wird jeder einzelne Schritt geprüft:
+  Create - Read - Update - Delete werden in einem einzigen Test ausgefÃ¼hrt
+  und es wird jeder einzelne Schritt geprÃ¼ft:
   </p>
 <p>
 
-  <pre>
-  <code>
-  void T010_CRUD_Kunde () {
+  <div class="codeblock">void T010_CRUD_Kunde () {
        
       string kundeNr = "K4711";
       
@@ -185,22 +182,21 @@ Oft werden die 4 CRUD-Tests zusammengefasst zu einem TestCase:
       Kunde kundeReadDeleted = testObject.Read(kundeNr);
       
       Assert.AreEqual(null, kundeReadDeleted);
-  }
-  </code>
-  </pre>
+}
+</div>
   
-  <p>Hier werden mehrere Methoden in nur einem Test geprüft.
+  <p>Hier werden mehrere Methoden in nur einem Test geprÃ¼ft.
   Auch das ist eine Abweichung zu striktem TDD.
   Ich fasse oft mehrere Tests in einem TestCase zusammen,
   wenn mir das sinnvoll erscheint:
   Neben der Arbeitserleichterung geht es mir auch darum, die Anzahl der TestCases
-  zu reduzieren. Nach der reinen Lehre kann man in großen Projekten schnell 
+  zu reduzieren. Nach der reinen Lehre kann man in groÃŸen Projekten schnell 
   auf 10.000 TestCases und mehr kommen.
   </p>
 
   <footer>
 	<hr />
-     <a href="kontakt.html">Kontakt</a>
+     <a href="index.html">&#8962; Home</a> - <a href="kontakt.html">Kontakt</a>
   </footer>
 </body>
 </html>

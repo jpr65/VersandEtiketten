@@ -1,0 +1,50 @@
+/* Stylesheet.css 
+*/
+header {
+	color: 		#666666;
+	font-style: italic;
+	background: #DDEEFF;
+	position:	sticky;
+	top:		0;
+	left:		0;
+	right:		0;
+}
+
+footer {
+	background: #DDEEFF;
+	font-style: italic;
+	position:	sticky;
+	bottom:		0;
+	left:		0;
+	right:		0;
+}
+
+body {
+	padding-bottom:	3em;
+}
+
+code {
+	  font-family: monospace;
+	  white-space: pre;
+	  background: #DDDDDD;
+	}
+	
+div.codeblock {
+	font-family: monospace;
+	white-space: pre;
+	background: #DDDDDD;
+	width: 60em;
+}
+
+div.boese {
+	background: #FFCCBB;
+	font-style: italic;
+	font-weight: bold;
+}
+
+div.email {
+	  font-family: 	monospace;
+	  background: 	#DDEEFF;
+	  width:		20em;
+}
+	
