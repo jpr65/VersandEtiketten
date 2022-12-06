@@ -1,176 +1,277 @@
 <!doctype html>
 <html lang="de">
-	<head>
-		<title>IODA Kurzbeschreibung - IODA und TDD mit Java, C# und Raku</title>
-		<link type="text/css" rel="stylesheet" media="screen" href="stylesheet.css" />
-	</head>
-	<body>
-		<header>
-			<p>IODA Kurzbeschreibung - IODA und TDD mit Java, C# und Raku</p>
-			<hr/>
-		</header>
-		<h1>IODA</h1>
 
-		<p><div class="boese">Funktionale Abhängigkeiten sind böse!</div>
-		<p>
-		
-		<p>Dieses Zitat von Ralf Westphal ist für mich wesentlich, weil
-		   sich genau das immer wieder in meiner Arbeit bestätigt hat.</p>
-		
-		<p>Ziel des IODA-Ansatzes ist es daher, diese funktionalen Abhängikeiten 
+<head>
+	<title>IODA Kurzbeschreibung - IODA und TDD mit Java, C# und Raku</title>
+	<link type="text/css" rel="stylesheet" media="screen" href="stylesheet.css" />
+</head>
+
+<body>
+	<header>
+		<div>IODA Kurzbeschreibung - IODA und TDD mit Java, C# und Raku</div>
+		<hr />
+	</header>
+	<h1>IODA</h1>
+
+	<p>
+	<div class="boese">Funktionale Abhängigkeiten sind böse!</div>
+	<p>
+
+	<p>Dieses Zitat von Ralf Westphal ist für mich wesentlich, weil
+		sich genau das immer wieder in meiner Arbeit bestätigt hat.</p>
+
+	<p>Ziel des IODA-Ansatzes ist es daher, diese funktionalen Abhängikeiten
 		zwischen einzelnen Klassen und Bereichen
 		in der Software zu regeln und zu minimieren.
 		Daraus ergeben sich dann weitere Vorteile.</p>
-		
-		<h2>Vorteile des IODA-Ansatzes</h2>
-		
-		<ul>
-			<li>Minimierung der funktionalen Abhängikeiten</li>
-			<li>Leichtere Wartung des Codes</li>
-			<li>Verminderung der Komplexität</li>
-			<li>Entkopplung durch eigene Libraries möglich</li>
-			<li>klare SW-Struktur</li>
-			<li>leichte Testbarkeit in Unit-Tests</li>
-			<li>kein Mocking oder Ähnliches mehr erforderlich</li>
-			
-		</ul>
-		
-		<h2>IODA nach Ralf Westphal</h2>
-		
-		<p>Ralf Westphal hat um 2015 herum IODA entwickelt/erfunden, 
+
+	<h2>Vorteile des IODA-Ansatzes</h2>
+
+	<ul>
+		<li>Minimierung der funktionalen Abhängikeiten</li>
+		<li>Leichtere Wartung des Codes</li>
+		<li>Verminderung der Komplexität</li>
+		<li>Entkopplung durch eigene Libraries möglich</li>
+		<li>klare SW-Struktur</li>
+		<li>leichte Testbarkeit in Unit-Tests</li>
+		<li>kein Mocking oder Ähnliches mehr erforderlich</li>
+
+	</ul>
+
+	<h2>IODA nach Ralf Westphal</h2>
+
+	<p>Ralf Westphal hat um 2015 herum IODA entwickelt/erfunden,
 		um diese <i>Funktionalen Abhängigkeiten</i> zu eliminieren oder
 		zumindest auf das notwendige Minimum zu beschränken.
-		</p>
-		<p>Hier der <a href="https://blog.ralfw.de/2015/04/die-ioda-architektur.html">
-        Link auf seinen Artikel</a>.
-		</p>
-		
-		<p>Zusammenfassung des IODA Ansatzes als Zitat aus dem Artikel:</p>
-		
-		<p><b><i>So entsteht Software als Summe von Prozessen, 
-		   deren Schritte in Operationen implementiert sind, 
-		   die Daten konsumieren und produzieren unter Zuhilfenahme von APIs.
-		   </i></b>
-		</p>
-		
-		<p>Für alle, die nicht den gesamten Artikel lesen möchten, hier eine sehr kurze
+	</p>
+	<p>Hier der <a href="https://blog.ralfw.de/2015/04/die-ioda-architektur.html">
+			Link auf seinen Artikel</a>.
+	</p>
+
+	<p>Zusammenfassung des IODA Ansatzes als Zitat aus dem Artikel:</p>
+
+	<p><b><i>So entsteht Software als Summe von Prozessen,
+				deren Schritte in Operationen implementiert sind,
+				die Daten konsumieren und produzieren unter Zuhilfenahme von APIs.
+			</i></b>
+	</p>
+
+	<p>Für alle, die nicht den gesamten Artikel lesen möchten, hier eine sehr kurze
 		Einführung:
-		</p>
-		
-		<h2>Kurze IODA Intro</h2>
-		
-		<p>IODA teilt alle Klassen in die Typen
-		</p>
-		<ul>
-			<li>Integrator</li>
-			<li>Operation</li>
-			<li>Daten</li>
-			<li>API</li>
-		</ul>
-		<p>ein. Zugriff ist nur von "Oben nach Unten" erlaubt.
-		</p>
-		
-		<h3>Integratoren</h3>
-			<p>
-				<i>Integratoren</i> dürfen jeden anderen Klassentyp aufrufen, enthalten
-			aber keine Logik.
-			</p>
-			
-		<h3>Operationen</h3>
-			<p>
-				<i>Operationen</i> dürfen nur <i>Daten</i> verwenden und manipulieren 
-			sowie die <i>API</i> aufrufen.
-			Sie dürfen keine anderen <i>Operationen</i> oder gar <i>Integratoren</i> aufrufen.
-			Sie enthalten als einzige Klassen (komplexere) Logik.
-			Daraus folgt auch, dass <i>Operationen</i> direkt keine <i>IO-Operationen</i> aufrufen dürfen.
-			</p>
-			
-		<h3>Daten</h3>
-			<p>
-				<i>Daten</i> beschäftigen sich nur mit sich selbst, ihren Kindern, Enkeln usw.
-			Außerhalb der Familie ist nur der Zugriff auf das API erlaubt.
-			</p>
-			
-		<h3>API</h3>
-			<p>Das <i>API</i> hat keinen Zugriff auf <i>Integratoren</i>, <i>Operationen</i> oder <i>Datenklassen</i>,
-			es ist wie eine Standard-Library des Entwicklungs-Systems zu betrachten
-			und zu behandeln.
-			</p>
-			<p>Das <i>API</i> darf aber niedriger gelegene <i>APIs</i> aufrufen,
-			z.B. Standard-Libraries des Entwicklungs-Systems.
-			</p>
-			
-		<img src="IODA.png" />
-			
-		<h2>Meine Erweiterung nach dem EVA-Prinzip</h2>
-		
-			<p>Die Operationen mit IO werden von den Operationen ohne IO getrennt 
-			und idealerweise in verschiedenen Libraries abgelegt.
-			</p>
-			
-			<h3>IO-Operationen</h3>
-			
-			<p>Ruft eine Operation über die <i>API IO-Operationen</i> (der API) auf,
-				so wird sie als <i>IO-Operation</i> gewertet.
-				Dazu gehören z.B. Schreib- und Lesezugriffe auf Datenbanken, Dateien, die Konsole
-				oder auch in Form-Elemente wie Labels, Text-Boxen und Textfelder.
-			</p>
-			
-			<p><i>IO-Operationen</i> sollten nur Logik enthalten, die der Bedienung der IO-Funktionalität dienen,
-			   und selbst keine weiterführende Verarbeitungslogik enthalten.
-			</p>
-			
-			<h3>Verarbeitungs-Operationen</h3>
-			
-			<p>Einer <i>Verarbeitungs-Operation</i> werden sämtliche Daten als <i>Instanzen von Datenklassen</i>
-			   beim Aufruf übergeben.
-			   Es werden von der Operation keinerlei weitere Daten von irgendwoher beschafft
-			   oder irgendwohin abgelegt. Die Ergebnisse der Verarbeitung werden als 
-			   <i>Instanzen von Datenklassen</i> zurückgeliefert.
-			<p>
-			
-		<h2>Analogie zur Fabrik</h2>
-		
-		<p>
+	</p>
+
+	<h2>Kurze IODA Intro</h2>
+
+	<p>IODA teilt alle Klassen in die Typen
+	</p>
+	<ul>
+		<li>Integrator</li>
+		<li>Operation</li>
+		<li>Daten</li>
+		<li>API</li>
+	</ul>
+	<p>ein. Zugriff ist nur von "Oben nach Unten" erlaubt.
+	</p>
+
+	<h3>Integratoren</h3>
+	<p>
+		<i>Integratoren</i> dürfen jeden anderen Klassentyp aufrufen, enthalten
+		aber keine Logik.
+	</p>
+
+	<h3>Operationen</h3>
+	<p>
+		<i>Operationen</i> dürfen nur <i>Daten</i> verwenden und manipulieren
+		sowie die <i>API</i> aufrufen.
+		Sie dürfen keine anderen <i>Operationen</i> oder gar <i>Integratoren</i> aufrufen.
+		Sie enthalten als einzige Klassen (komplexere) Logik.
+		Daraus folgt auch, dass <i>Operationen</i> direkt keine <i>IO-Operationen</i> aufrufen dürfen.
+	</p>
+
+	<h3>Daten</h3>
+	<p>
+		<i>Daten</i> beschäftigen sich nur mit sich selbst, ihren Kindern, Enkeln usw.
+		Außerhalb der Familie ist nur der Zugriff auf das API erlaubt.
+	</p>
+
+	<h3>API</h3>
+	<p>Das <i>API</i> hat keinen Zugriff auf <i>Integratoren</i>, <i>Operationen</i> oder <i>Datenklassen</i>,
+		es ist wie eine Standard-Library des Entwicklungs-Systems zu betrachten
+		und zu behandeln.
+	</p>
+	<p>Das <i>API</i> darf aber niedriger gelegene <i>APIs</i> aufrufen,
+		z.B. Standard-Libraries des Entwicklungs-Systems.
+	</p>
+
+	<img src="IODA.png" />
+
+	<h2>Meine Erweiterung nach dem EVA-Prinzip</h2>
+
+	<p>Die Operationen mit IO werden von den Operationen ohne IO getrennt
+		und idealerweise in verschiedenen Libraries abgelegt.
+	</p>
+
+	<h3>IO-Operationen</h3>
+
+	<p>Ruft eine Operation über die <i>API IO-Operationen</i> (der API) auf,
+		so wird sie als <i>IO-Operation</i> gewertet.
+		Dazu gehören z.B. Schreib- und Lesezugriffe auf Datenbanken, Dateien, die Konsole,
+		Web-Services
+		oder auch in Form-Elemente wie Labels, Text-Boxen und Textfelder.
+	</p>
+
+	<p><i>IO-Operationen</i> sollten nur Logik enthalten, die der Bedienung der IO-Funktionalität dienen,
+		und selbst keine weiterführende Verarbeitungslogik enthalten.
+	</p>
+
+	<h3>Verarbeitungs-Operationen</h3>
+
+	<p>Einer <i>Verarbeitungs-Operation</i> werden üblicherweise
+		sämtliche Daten als <i>Instanzen von Datenklassen</i>
+		beim Aufruf übergeben.
+		Es werden von der Operation keinerlei weitere Daten von irgendwoher beschafft
+		oder irgendwohin abgelegt. Die Ergebnisse der Verarbeitung werden als
+		<i>Instanzen von Datenklassen</i> zurückgeliefert.
+	<p>
+
+	<h2>Analogie zur Fabrik</h2>
+
+	<p>
 		In einer Fabrik werden Holzrohlinge mit Sägen oder komplexen 5-Achs-Fräs-Maschinen verarbeitet.
-		</p>
-		<p>
-		Der Rohling wird von einem Mitarbeiter im Lager ausgesucht und dann in einer Gitterbox 
+	</p>
+	<p>
+		Der Rohling wird von einem Mitarbeiter im Lager ausgesucht und dann in einer Gitterbox
 		gemeinsam mit anderen Rohlingen in die Fabrikhalle gefahren. Das ist eine IO-Operation.
-		</p>
-		<p>
+	</p>
+	<p>
 		Die Integratoren führen dann den weiteren Materialfluss durch und liefern das Holz-Werkstück
-        zuerst zur maschinellen Säge und danach zu einer anderen Maschine, dem 5-Achs-Fräser.
-		</p>
-		<p>
+		zuerst zur maschinellen Säge und danach zu einer anderen Maschine, 
+		einem 5-Achs-Fräser.
+	</p>
+
+	<p>
 		Diese Maschinen bilden die Operationen,
-		</p>
-		<p>
-        und die Holzwerkstücke die Daten.
-		</p>
-		<p>
+	</p>
+	<p>
+		und die Holzwerkstücke die Daten.
+	</p>
+	<p>
 		Die Stromversorgung kann als API interpretiert werden, auf das auch die Operatoren Zugriff haben.
-		</p>
-		<p>
+	</p>
+	<p>
 		Wenn aus dem Werkstück ein geschwungener Handlauf eines Treppengeländers entstanden ist,
-		</p>
-		<p>
+	</p>
+	<p>
 		kann dieser von der Versandabteilung verpackt und verschickt werden. Die Versandabteilung bildet damit
 		einen weiteren Teil der IO-Funktionalität ab.
-		</p>
-		<p>
+	</p>
+	<p>
 		Als weitere Variante einer Operation kann ein Teil
 		auch in manuellen Arbeitsschritten erstellt werden. Dazu werden dem Handwerker Holz und Schrauben geliefert.
-		</p>
-		<p>
+	</p>
+	<p>
 		Der Arbeiter (Operator) verwendet nur Standard-Werkzeuge (aus der API):
 		Zuerst eine Stichsäge, dann eine Bohrmaschine
 		und zum Schluss einen Akkuschrauber.
-		</p>
+	</p>
+
+	<h2>Indirekte Verbindung von Operationen</h2>
+
+	<p>Operatoren sollen sich ja selbst keine Daten beschaffen.
+		Einen Sonderfall bildet der Aufruf einer Klasse, die Daten zurückliefert,
+		aus einem Operator heraus.
+	</p>
+		
+	<p>Der zweite Sonderfall ist der - indirekte - Aufruf 
+		einer anderen Operation zur Weiterverarbeitung,
+		z.B. innerhalb einer Schleife, 
+		die Daten aus einer Datenbanktabelle liest.
+	</p>
+
+	<p>Das kann der Beschleunigung dienen oder dazu, den belegten Speicher
+		möglichst klein zu halten. Müssen z.B. 5 000 000 Datensätze verdichtet werden,
+		kann man so vermeiden, dass erst Alles geladen werden muss, um es danach der 
+		Operation in einer großen Liste zu übergeben. Denn die IO-Operation darf ja
+		die Verarbeitungs-Operation nicht selbst aufrufen.
+	</p>
+
+	<p>
+		Hier sollte eine möglichst einfache Schnittstelle verwendet werden,
+		die vor allem keinerlei Rückschlüsse darüber liefert, woher diese Daten stammen.
+	</p>
+
+	<p>
+		Werden die Daten einfach der Reihe nach verarbeitet, kann eine 
+		<a href="https://de.wikipedia.org/wiki/Anonyme_Funktion">anonyme Funktion</a>
+		 (Lambda-Funktion) oder auch ein 
+		 <a href="https://de.wikipedia.org/wiki/Closure_(Funktion)">Closure</a> verwendet werden.
+		 Diese bilden dann einen "Mikro-Integrator", der zwischen den beiden Operationen
+		 sitzt und diese verbindet. Somit wird die Aufrufregel
+	</p>
+
+	<p><div class="codeblock">Ein Operator darf keinen anderen Operator aufrufen</div>
+	</p>
+
+	<p>nicht verletzt, wenn die DB-IO-Klasse in einer Schleife jeweils das Closure aufruft und
+		ihm die Daten übergibt. Das Closure (oder die Anonyme Funktion) wird dabei von außen
+		hereingegeben und innerhalb der Schleife nur aufgerufen. Somit gibt es keinerlei
+		Abhängigkeiten zwischen den beiden Operations-Klassen, sie befolgen das 
+		<a href="https://blog.ralfw.de/2012/12/prinzip-der-gegenseitigen-nichtbeachtung.html">
+			Prinzip der gegenseitigen Nicht-Beachtung</a>.
+	</p>
+
+	<p>Muss über die Daten navigiert werden, kann zum Beispiel das
+		 <a href="https://de.wikipedia.org/wiki/Iterator_(Entwurfsmuster)">Iterator-Pattern</a>
+		verwendet werden.
+	</p>
+
+	<h3>Merkregel</h3>
 	
-		<footer>
-			<hr/>
-			<a href="index.html">&#8962; Home</a> - <a href="kontakt.html">Kontakt</a>
-		</footer>
-	</body>
+	<p><i>Closures, Anonyme Funktionen sowie Iteratoren entstammen einer API, 
+		sie dürfen somit von Operationen aufgerufen werden.</i></p>
+
+	<h2>Komplexe Operationen</h2>
+
+	<p>Operationen können sehr komplex sein, z.B. wie eine 5-Achs-Fräsmaschine:</p>
+
+	<img src="5-Achs-Fraesmaschine.jpg">
+
+	<p><b>Wie komplex</b> eine Operation auch immer ist, nach außen ist sie <i>nur</i>
+	eine Operation.</p>
+
+	<p>Doch im Inneren kann eine Operation wieder aus Integratoren, Operationen und Daten bestehen.
+		Diese können als eigene Klassen oder nur als Methoden und einfache Datentypen realisiert sein.
+		Das ist jedoch für die Sicht von Außen nicht relevant.
+	</p>
+
+	<p>Ein weiteres Beispiel für eine Hülle um eine komplexe Operation bildet ein Heizungsraum,
+		der durch eine abgeschlossene Brandschutztür gesichert ist.
+		Das einzige Interface ist nur ein Notschalter neben der Tür, wenn man die Tür nicht
+		öffnen kann, weil man nicht im Besitz des Schlüssels ist. 
+	</p>
+
+	<img src="Heizung-Notschalter-klein.jpg">
+
+	<p>Im Normalbetrieb läuft die Heizung völlig selbstständig, es besteht somit auch kein Grund,
+		den Heizungskeller zu betreten. Was sich innerhalb der Hülle (des Heizungsraumes)
+		des Objekts befindet, bleibt dem Aufrufer (Hausbewohner) verborgen. Nur für Fehlerbehebung
+		oder Wartung der Heizung wird die Tür aufgeschlossen, damit der Hausmeister oder
+		der Techniker Zugang zur Heizung hat.
+	</p>
+
+	<p>In den Heizungskeller führen Stromkabel, Wasserleitungen für Frischwasser, Gasleitungen und Heizungsrohre.
+		Heraus führen Heizungsrohre, Warmwasserrohre und der Kamin zur Ableitung der Verbrennungsgase.
+		Doch das muss der Hausbewohner gar nicht wissen. Er dreht einfach nur den Wasserhahn auf oder stellt
+		in seiner Wohnung das Termostat für die Heizung ein.
+	</p>
+
+	<p>Mit IODA kann man sich dieser idealen Welt nun auch in der Software-Entwicklung sehr stark annähern.
+	</p>
+
+	<footer>
+		<hr />
+		<a href="index.html">&#8962; Home</a> - <a href="kontakt.html">Kontakt</a>
+	</footer>
+</body>
+
 </html>
