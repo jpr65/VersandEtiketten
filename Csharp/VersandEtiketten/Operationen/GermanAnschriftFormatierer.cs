@@ -10,7 +10,7 @@ namespace Operationen
     /// </summary>
     public class GermanAnschriftFormatierer : IAnschriftFormatierer
     {
-        private String laenderKennung = "GER";
+        private const String laenderKennung = "GER";
 
         public String GetLaenderKennung()
         {

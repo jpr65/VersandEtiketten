@@ -11,7 +11,7 @@ namespace Operationen
     public class SpainAnschriftFormatierer : IAnschriftFormatierer
     {
 
-        private String laenderKennung = "ESP";
+        private const String laenderKennung = "ESP";
 
 
         public String GetLaenderKennung()

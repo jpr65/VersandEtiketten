@@ -10,8 +10,7 @@ namespace Operationen
     /// </summary>
     public class UnitedKingdomAnschriftFormatierer : IAnschriftFormatierer
     {
-
-        private String laenderKennung = "GBR";
+        private const String laenderKennung = "GBR";
 
 
         public String GetLaenderKennung()
