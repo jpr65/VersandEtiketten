@@ -15,4 +15,10 @@
     <PackageReference Include="coverlet.collector" Version="3.1.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\API\API.csproj" />
+    <ProjectReference Include="..\Daten\Daten.csproj" />
+    <ProjectReference Include="..\Operationen\Operationen.csproj" />
+  </ItemGroup>
+
 </Project>
