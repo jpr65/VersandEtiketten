@@ -23,4 +23,6 @@ $RECYCLE.BIN/
 # Operating System Files
 # =========================
 bin
+obj
 .metadata
+.vs
