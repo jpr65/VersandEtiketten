@@ -62,7 +62,7 @@ namespace VersandEtiketten
         }
 
         private static void PrintEtikett(VersandEtikettenErsteller versandEtikettenErsteller,
-            String KundeId, String AdresseId, String Land)
+            String? KundeId, String? AdresseId, String? Land)
         {
             Console.WriteLine("printEtikett noch nicht implementiert.");
         }
