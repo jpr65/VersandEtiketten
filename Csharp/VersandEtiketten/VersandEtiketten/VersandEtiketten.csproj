@@ -8,7 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Daten\Daten.csproj" />
     <ProjectReference Include="..\Integration\Integration.csproj" />
+    <ProjectReference Include="..\IO_Operationen\IO_Operationen.csproj" />
+    <ProjectReference Include="..\Operationen\Operationen.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,6 @@
-﻿using Integration;
+﻿using Daten;
+using Integration;
+using IO_Operationen;
 
 namespace VersandEtiketten
 {
@@ -42,36 +44,51 @@ namespace VersandEtiketten
             Console.WriteLine("Anzahl Zeilen belegt insgesamt: "
                     + anzahlZeilenBelegt);
             Console.WriteLine("======================================");
-
-            //i/ Bis hierhin keine Logik!
-
-            // Der Code bis zum Ende der Methode könnte auskommentiert werden,
-            // aber dann würde er bei Umbenennungen nicht berücksichtigt.
-
-            Boolean erzeugeXmlDatenDateien = false;
-
-            if (erzeugeXmlDatenDateien)
-            {
-                SchreibeKundenUndAdressen();
-            }
         }
 
         private static void LeseKundenUndAdressen()
         {
-            Console.WriteLine("leseKundenUndAdressen noch nicht implementiert.");
+            KundenUndAdressenReader reader = new KundenUndAdressenReader();
+
+            //i/ try-catch darf auch im Integrator verwendet werden,
+            //i/ da einige Fehler nur hier abgefangen werden können.
+            try
+            {
+                List<Kunde>? kundenListe = reader.LeseKundenAusXml("AlleKunden.xml");
+                List<Adresse>? adressenListe = reader.LeseAdressenAusXml("AlleAdressen.xml");
+
+                // middleWareStub.FillKundeDict(kundenListe);
+                // middleWareStub.FillAdresseDict(adressenListe);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Fehler beim Lesen der Kunden/Adressen");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("------------------------------------------");
+            }
         }
 
         private static void PrintEtikett(VersandEtikettenErsteller versandEtikettenErsteller,
             String? KundeId, String? AdresseId, String? Land)
         {
-            Console.WriteLine("printEtikett noch nicht implementiert.");
+            try
+                {
+                    //EtikettVariante1 etikett = versandEtikettenErsteller.versandEtikettVariante1(KundeId, AdresseId, Land, null);
+
+                    //IEtikettDrucker etikettDrucker = OperatorFactory.buildEtikettDrucker();
+                    //etikettDrucker.druckeEtikett(etikett.anschriftZeilen);
+
+                    //anzahlEtikettenGedruckt++;
+                    //anzahlZeilenBelegt += etikett.belegteZeilenAnz();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Fehler beim Drucken des Etiketts");
+                    Console.WriteLine(ex.Message);
+                    Console.WriteLine("------------------------------------------");
+                }
+
+                Console.WriteLine("printEtikett noch nicht implementiert.");
         }
-
-        private static void SchreibeKundenUndAdressen()
-        {
-            Console.WriteLine("schreibeKundenUndAdressen noch nicht implementiert.");
-        }
-
-
     }
 }
