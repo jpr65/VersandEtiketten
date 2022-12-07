@@ -2,7 +2,10 @@ using TestFixtures;
 
 namespace TestIO
 {
-    [TestClass]
+    /// <summary>
+    /// Dieser Test schreibt die XML-Datendateien und ist normalerweise auskommentiert.
+    /// </summary>
+    //[TestClass]
     public class TCOI_0010_KundenUndAdressenGenerator
     {
         [TestMethod]

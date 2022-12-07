@@ -10,7 +10,7 @@ namespace TestAPI_IO
         private String TestDataPath = IoConfig.StubXmlDataPath;
 
         [TestMethod]
-        public void CRUD_SingleXml()
+        public void CreateReadDelete_SingleXml()
         {
             IoDataForXml testData = new IoDataForXml
             {
@@ -33,6 +33,9 @@ namespace TestAPI_IO
             Assert.AreEqual(testData.Name, dataRead.Name);
             Assert.AreEqual(testData.Alter, dataRead.Alter);
 
+            File.Delete(testFileName);
+
+            Assert.IsFalse(File.Exists(testFileName));
         }
     }
 }

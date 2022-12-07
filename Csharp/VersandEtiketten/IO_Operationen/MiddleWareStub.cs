@@ -50,8 +50,13 @@ namespace IO_Operationen
         }
 
 
-        public void FillKundeDict(List<Kunde> kundeListe)
+        public void FillKundeDict(List<Kunde>? kundeListe)
         {
+            if (kundeListe == null)
+            {
+                return;
+            }
+
             kundeDict = new Dictionary<String, Kunde>();
 
             foreach (Kunde kunde in kundeListe)
@@ -63,8 +68,13 @@ namespace IO_Operationen
             }
         }
 
-        public void FillAdresseDict(List<Adresse> adresseListe)
+        public void FillAdresseDict(List<Adresse>? adresseListe)
         {
+            if (adresseListe == null)
+            {
+                return;
+            }
+
             adresseDict = new Dictionary<String, Adresse>();
 
             foreach (Adresse adresse in adresseListe)

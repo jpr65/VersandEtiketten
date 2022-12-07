@@ -11,6 +11,6 @@ namespace IO_Operationen
     /// </summary>
     public interface IEtikettDrucker
     {
-        public void DruckeEtikett(List<String?> zeilen);
+        public void DruckeEtikett(List<String?>? zeilen);
     }
 }

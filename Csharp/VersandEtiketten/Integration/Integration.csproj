@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\API\API.csproj" />
+    <ProjectReference Include="..\API_IO\API_IO.csproj" />
+    <ProjectReference Include="..\Daten\Daten.csproj" />
+    <ProjectReference Include="..\IO_Operationen\IO_Operationen.csproj" />
+    <ProjectReference Include="..\Operationen\Operationen.csproj" />
+  </ItemGroup>
+
 </Project>

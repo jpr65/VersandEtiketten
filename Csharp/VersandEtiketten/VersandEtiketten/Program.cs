@@ -48,6 +48,7 @@ namespace VersandEtiketten
 
         private static void LeseKundenUndAdressen()
         {
+            MiddleWareStub middleWareStub = (MiddleWareStub)IoFactory.getMiddleWare();
             KundenUndAdressenReader reader = new KundenUndAdressenReader();
 
             //i/ try-catch darf auch im Integrator verwendet werden,
@@ -57,8 +58,8 @@ namespace VersandEtiketten
                 List<Kunde>? kundenListe = reader.LeseKundenAusXml("AlleKunden.xml");
                 List<Adresse>? adressenListe = reader.LeseAdressenAusXml("AlleAdressen.xml");
 
-                // middleWareStub.FillKundeDict(kundenListe);
-                // middleWareStub.FillAdresseDict(adressenListe);
+                middleWareStub.FillKundeDict(kundenListe);
+                middleWareStub.FillAdresseDict(adressenListe);
             }
             catch (Exception ex)
             {
@@ -73,22 +74,20 @@ namespace VersandEtiketten
         {
             try
                 {
-                    //EtikettVariante1 etikett = versandEtikettenErsteller.versandEtikettVariante1(KundeId, AdresseId, Land, null);
+                EtikettVariante1 etikett = versandEtikettenErsteller.VersandEtikettVariante1(KundeId, AdresseId, Land, null);
 
-                    //IEtikettDrucker etikettDrucker = OperatorFactory.buildEtikettDrucker();
-                    //etikettDrucker.druckeEtikett(etikett.anschriftZeilen);
+                IEtikettDrucker etikettDrucker = OperatorFactory.buildEtikettDrucker();
+                etikettDrucker.DruckeEtikett(etikett.AnschriftZeilen);
 
-                    //anzahlEtikettenGedruckt++;
-                    //anzahlZeilenBelegt += etikett.belegteZeilenAnz();
-                }
+                anzahlEtikettenGedruckt++;
+                anzahlZeilenBelegt += etikett.BelegteZeilenAnz();
+            }
                 catch (Exception ex)
                 {
                     Console.WriteLine("Fehler beim Drucken des Etiketts");
                     Console.WriteLine(ex.Message);
                     Console.WriteLine("------------------------------------------");
                 }
-
-                Console.WriteLine("printEtikett noch nicht implementiert.");
         }
     }
 }
