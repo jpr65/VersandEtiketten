@@ -2,6 +2,10 @@
 
 namespace API_IO
 {
+    /// <summary>
+    /// API_IO: Daten-Klassen vom Typ T aus XML lesen
+    /// </summary>
+    /// <typeparam name="T">Zu lesender Datentyp</typeparam>
     public class XmlReader<T>
     {
        public T? ReadFromFile(String fileName)

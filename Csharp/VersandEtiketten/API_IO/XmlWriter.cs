@@ -2,6 +2,10 @@
 
 namespace API_IO
 {
+    /// <summary>
+    /// API_IO: Daten-Klassen vom Typ T nach XML schreiben
+    /// </summary>
+    /// <typeparam name="T">Zu schreibender Datentyp</typeparam>
     public class XmlWriter<T>
     {
         public void WriteIntoFile(T dataObject, String fileName)

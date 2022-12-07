@@ -4,6 +4,10 @@ using Operationen;
 
 namespace Integration
 {
+    /// <summary>
+    /// Integrator, der die Versandetiketten erstellen lässt
+    /// i/ Dieser Integrator enthält weder Logik noch eine Schleife!
+    /// </summary>
     public class VersandEtikettenErsteller
     {
         public int EtikettZaehler { get; private set; }

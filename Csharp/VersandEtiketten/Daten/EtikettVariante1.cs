@@ -3,7 +3,6 @@
     /// <summary>
     /// Datenklasse für Etikett, Variante 1
     ///
-    ///i/ Hier wird die StringUtil Klasse aus der API verwendet.
     /// </summary>
     public class EtikettVariante1
     {
@@ -31,7 +30,6 @@
 
             foreach (String? anschriftZeile in AnschriftZeilen)
             {
-
                 if (!String.IsNullOrWhiteSpace(anschriftZeile))
                 {
                     zeilenBelegtCounter++;
