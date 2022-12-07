@@ -3,15 +3,10 @@ using Daten;
 
 namespace Operationen
 {
-    /// <summary>
-    /// Operation: Anschrift formatieren, Variante für ESP (Spanien)
-    /// https://www.upu.int/en/Postal-Solutions/Programmes-Services/Addressing-Solutions
-    /// Siehe Doku-Ordner, espEn.pdf
-    /// </summary>
-    public class SpainAnschriftFormatierer : IAnschriftFormatierer
+    public class UnitedKingdomAnschriftFormatierer : IAnschriftFormatierer
     {
 
-        private String laenderKennung = "ESP";
+        private String laenderKennung = "GBR";
 
 
         public String GetLaenderKennung()
@@ -67,19 +62,14 @@ namespace Operationen
             this.ErstelleStrasseZeile(anschriftListe, adresseArg);
             this.ErstelleOrtsteilZeile(anschriftListe, adresseArg);
             this.ErstelleOrtsZeile(anschriftListe, adresseArg);
-            this.ErstelleProvinzZeile(anschriftListe, adresseArg);
+            this.ErstellePostcodeZeile(anschriftListe, adresseArg);
             this.ErstelleLandZeile(anschriftListe, adresseArg);
-
             return anschriftListe;
         }
 
         private void ErstelleStrasseZeile(List<String?> anschriftListe, Adresse adresseArg)
         {
-            String? strasseZeile = adresseArg.Strasse;
-
-            strasseZeile = StringUtil.AddOptionalPart(strasseZeile, adresseArg.Hausnummer);
-            strasseZeile = StringUtil.AddOptionalPart(strasseZeile, adresseArg.Flur, ", ");
-            strasseZeile = StringUtil.AddOptionalPart(strasseZeile, adresseArg.Tuer, ", ");
+            String? strasseZeile = StringUtil.AddOptionalPart(adresseArg.Hausnummer, adresseArg.Strasse);
 
             if (!String.IsNullOrWhiteSpace(strasseZeile))
             {
@@ -87,19 +77,17 @@ namespace Operationen
             }
         }
 
-        private void ErstelleOrtsteilZeile(List<String?> anschriftListe, Adresse adresseArg)
+        private void ErstellePostcodeZeile(List<String?> anschriftListe, Adresse adresseArg)
         {
-            if (!String.IsNullOrWhiteSpace(adresseArg.Ortsteil))
+            if (!String.IsNullOrWhiteSpace(adresseArg.PostLeitInfo))
             {
-                anschriftListe.Add(adresseArg.Ortsteil);
+                anschriftListe.Add(adresseArg.PostLeitInfo);
             }
         }
 
         private void ErstelleOrtsZeile(List<String?> anschriftListe, Adresse adresseArg)
         {
-            String? ortZeile = adresseArg.PostLeitInfo;
-
-            ortZeile = StringUtil.AddOptionalPart(ortZeile, StringUtil.ToUpperCase(adresseArg.Ort));
+            String? ortZeile = StringUtil.ToUpperCase(adresseArg.Ort);
 
             if (!String.IsNullOrWhiteSpace(ortZeile))
             {
@@ -113,17 +101,15 @@ namespace Operationen
 
             if (!String.IsNullOrWhiteSpace(land))
             {
-                anschriftListe.Add(land);
+                anschriftListe.Add(StringUtil.ToUpperCase(adresseArg.Land));
             }
         }
 
-        private void ErstelleProvinzZeile(List<String?> anschriftListe, Adresse adresseArg)
+        private void ErstelleOrtsteilZeile(List<String?> anschriftListe, Adresse adresseArg)
         {
-            String? provinz = StringUtil.ToUpperCase(adresseArg.Provinz);
-
-            if (!String.IsNullOrWhiteSpace(provinz))
+            if (!String.IsNullOrWhiteSpace(adresseArg.Ortsteil))
             {
-                anschriftListe.Add(provinz);
+                anschriftListe.Add(adresseArg.Ortsteil);
             }
         }
     }
