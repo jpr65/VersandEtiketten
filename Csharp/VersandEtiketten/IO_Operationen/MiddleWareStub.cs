@@ -24,8 +24,13 @@ namespace IO_Operationen
         private Dictionary<String, Kunde> kundeDict = new Dictionary<String, Kunde>();
         private Dictionary<String, Adresse> adresseDict = new Dictionary<String, Adresse>();
 
-        public Adresse LeseAdresse(String adresseID)
+        public Adresse LeseAdresse(String? adresseID)
         {
+            if (adresseID == null)
+            {
+                throw new Exception("adresseID nicht gesetzt!");
+            }
+
             Adresse adresse = adresseDict[adresseID];
 
             if (adresse == null)
@@ -37,8 +42,13 @@ namespace IO_Operationen
         }
 
 
-        public Kunde LeseKunde(String kundeID)
+        public Kunde LeseKunde(String? kundeID)
         {
+            if (kundeID == null)
+            {
+                throw new Exception("kundeID nicht gesetzt!");
+            }
+
             Kunde kunde = kundeDict[kundeID];
 
             if (kunde == null)

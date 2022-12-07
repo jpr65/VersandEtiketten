@@ -1,16 +1,12 @@
-using API_IO;
-using IO_Operationen;
-using System.Xml;
-
 namespace TestAPI_IO
 {
     [TestClass]
     public class TCA_0010_XmlSerialisierung
     {
-        private String TestDataPath = IoConfig.StubXmlDataPath;
+        private String TestDataPath = TestIoConfig.TestXmlDataPath;
 
         [TestMethod]
-        public void CreateReadDelete_SingleXml()
+        public void T_010_CreateReadDelete_SingleXml()
         {
             IoDataForXml testData = new IoDataForXml
             {

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfKunde xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Kunde>
+    <PKID>KUD0001</PKID>
+    <PrivatKunde>true</PrivatKunde>
+    <Titel />
+    <Name>Mustermann</Name>
+    <Vorname>Monika</Vorname>
+    <Firma />
+    <Abteilung />
+  </Kunde>
+  <Kunde>
+    <PKID>KUD0002</PKID>
+    <PrivatKunde>true</PrivatKunde>
+    <Titel>Prof. Dr.</Titel>
+    <Name>Staller</Name>
+    <Vorname>Hubert</Vorname>
+    <Firma />
+    <Abteilung />
+  </Kunde>
+  <Kunde>
+    <PKID>KUD0003</PKID>
+    <PrivatKunde>true</PrivatKunde>
+    <Titel />
+    <Name>Schloss Britz</Name>
+    <Vorname />
+    <Firma />
+    <Abteilung />
+  </Kunde>
+  <Kunde>
+    <PKID>KUD0004</PKID>
+    <PrivatKunde>true</PrivatKunde>
+    <Titel />
+    <Name>Sommer</Name>
+    <Vorname>Lisa</Vorname>
+    <Firma />
+    <Abteilung />
+  </Kunde>
+  <Kunde>
+    <PKID>FIR0001</PKID>
+    <PrivatKunde>false</PrivatKunde>
+    <Titel />
+    <Name />
+    <Vorname />
+    <Firma>Siemens PG</Firma>
+    <Abteilung>OI 41</Abteilung>
+  </Kunde>
+  <Kunde>
+    <PKID>FIR0002</PKID>
+    <PrivatKunde>false</PrivatKunde>
+    <Titel />
+    <Name />
+    <Vorname />
+    <Firma>Bädergalerie Bocholt</Firma>
+    <Abteilung />
+  </Kunde>
+  <Kunde>
+    <PKID>KUD0010</PKID>
+    <PrivatKunde>true</PrivatKunde>
+    <Titel />
+    <Name>Poppins</Name>
+    <Vorname>Mary</Vorname>
+    <Firma />
+    <Abteilung />
+  </Kunde>
+  <Kunde>
+    <PKID>KUD0011</PKID>
+    <PrivatKunde>true</PrivatKunde>
+    <Titel />
+    <Name>Brown</Name>
+    <Vorname>Walter C.</Vorname>
+    <Firma />
+    <Abteilung />
+  </Kunde>
+  <Kunde>
+    <PKID>KUD0020</PKID>
+    <PrivatKunde>true</PrivatKunde>
+    <Titel />
+    <Name>Casero</Name>
+    <Vorname>Carmen Garcés</Vorname>
+    <Firma />
+    <Abteilung />
+  </Kunde>
+  <Kunde>
+    <PKID>KUD0021</PKID>
+    <PrivatKunde>true</PrivatKunde>
+    <Titel />
+    <Name>Cortés</Name>
+    <Vorname>José Ayuso</Vorname>
+    <Firma />
+    <Abteilung />
+  </Kunde>
+</ArrayOfKunde>

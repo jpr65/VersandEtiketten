@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfAdresse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Adresse>
+    <PKID>ADR001</PKID>
+    <Strasse>Viktoriastraße</Strasse>
+    <Hausnummer>13b</Hausnummer>
+    <Ort>Bochum</Ort>
+    <PostLeitInfo>44787</PostLeitInfo>
+  </Adresse>
+  <Adresse>
+    <PKID>ADR002</PKID>
+    <Strasse>Postfach</Strasse>
+    <Ort>Erlangen</Ort>
+    <PostLeitInfo>91055</PostLeitInfo>
+    <Land>GERMANY</Land>
+  </Adresse>
+  <Adresse>
+    <PKID>ADR003</PKID>
+    <Strasse>Münsterstr.</Strasse>
+    <Hausnummer>123</Hausnummer>
+    <Ort>Bocholt</Ort>
+    <PostLeitInfo>46397</PostLeitInfo>
+  </Adresse>
+  <Adresse>
+    <PKID>ADR004</PKID>
+    <Strasse>Alt-Britz</Strasse>
+    <Hausnummer>18</Hausnummer>
+    <Ortsteil>Ortsteil Neukoelln</Ortsteil>
+    <Ort>Berlin</Ort>
+    <PostLeitInfo>12359</PostLeitInfo>
+    <Land>GERMANY</Land>
+  </Adresse>
+  <Adresse>
+    <PKID>ADR005</PKID>
+    <PackstationNr>Packstation 101</PackstationNr>
+    <PackstationKundenNr>1234567</PackstationKundenNr>
+    <Ort>Bonn</Ort>
+    <PostLeitInfo>53113</PostLeitInfo>
+    <Land>GERMANY</Land>
+  </Adresse>
+  <Adresse>
+    <PKID>ADR010</PKID>
+    <Strasse>Upper Littleton</Strasse>
+    <Hausnummer>1</Hausnummer>
+    <Ortsteil>Appleford</Ortsteil>
+    <Ort>ABINGDON</Ort>
+    <PostLeitInfo>OX14 4PG</PostLeitInfo>
+    <Land>UNITED KINGDOM</Land>
+  </Adresse>
+  <Adresse>
+    <PKID>ADR011</PKID>
+    <Strasse>Featherstone Street</Strasse>
+    <Hausnummer>49</Hausnummer>
+    <Ort>LONDON</Ort>
+    <PostLeitInfo>EC1Y 8SY</PostLeitInfo>
+    <Land>UNITED KINGDOM</Land>
+  </Adresse>
+  <Adresse>
+    <PKID>ADR020</PKID>
+    <Strasse>Calle Huertas</Strasse>
+    <Hausnummer>18</Hausnummer>
+    <Flur>4º</Flur>
+    <Tuer>C</Tuer>
+    <Ort>Marbella</Ort>
+    <PostLeitInfo>29400</PostLeitInfo>
+    <Provinz>Málaga</Provinz>
+    <Land>SPAIN</Land>
+  </Adresse>
+  <Adresse>
+    <PKID>ADR021</PKID>
+    <Strasse>Plaza de las Descalzas</Strasse>
+    <Hausnummer>27</Hausnummer>
+    <Ortsteil>Barrio de San Roque</Ortsteil>
+    <Ort>CANICOSA DE LA SIERRA</Ort>
+    <PostLeitInfo>09692</PostLeitInfo>
+    <Provinz>BURGOS</Provinz>
+    <Land>SPAIN</Land>
+  </Adresse>
+</ArrayOfAdresse>

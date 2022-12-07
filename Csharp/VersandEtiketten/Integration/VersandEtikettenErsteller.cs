@@ -10,7 +10,7 @@ namespace Integration
 
         public MiddleWareInterface middleWare = IoFactory.getMiddleWare();
 
-        public EtikettVariante1 VersandEtikettVariante1(String kundeID, String adresseID, String laenderKennung, String weitereID)
+        public EtikettVariante1 VersandEtikettVariante1(String? kundeID, String? adresseID, String? laenderKennung, String? weitereID)
         {
             EtikettVariante1 erstelltesEtikett = this.ErzeugeNeuesEtikett();
 		
@@ -28,7 +28,7 @@ namespace Integration
         return erstelltesEtikett;
     }
 
-    public List<String?>? AnschriftErstellung(String kundeID, String adresseID, String laenderKennung)
+    public List<String?>? AnschriftErstellung(String? kundeID, String? adresseID, String? laenderKennung)
     {
         Kunde kunde = middleWare.LeseKunde(kundeID);
         Adresse adresse = middleWare.LeseAdresse(adresseID);

@@ -12,7 +12,7 @@ namespace IO_Operationen
     /// </summary>
     public interface MiddleWareInterface
     {
-        public Adresse LeseAdresse(String adresseID);
-        public Kunde LeseKunde(String kundeID);
+        public Adresse LeseAdresse(String? adresseID);
+        public Kunde LeseKunde(String? kundeID);
     }
 }

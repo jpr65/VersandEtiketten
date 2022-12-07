@@ -23,14 +23,14 @@ namespace API_IO
             return dezerialized;
         }
 
-    private T? ReadFromStream(StreamReader fileInputStream)
+    public T? ReadFromStream(TextReader textReader)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(T));
             T? dataObject = default(T);
 
             try
             {
-                dataObject = (T?)serializer.Deserialize(fileInputStream);
+                dataObject = (T?)serializer.Deserialize(textReader);
             }
             catch (Exception ex)
             {

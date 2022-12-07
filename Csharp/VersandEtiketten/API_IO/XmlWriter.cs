@@ -19,13 +19,13 @@ namespace API_IO
             }
         }
 
-        private void WriteIntoStream(T dataObject, StreamWriter streamWriter)
+        public void WriteIntoStream(T dataObject, TextWriter textWriter)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(T));
 
             try
             {
-                serializer.Serialize(streamWriter, dataObject);
+                serializer.Serialize(textWriter, dataObject);
             }
             catch (Exception ex)
             {

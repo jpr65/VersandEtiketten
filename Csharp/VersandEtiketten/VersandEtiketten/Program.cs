@@ -73,7 +73,7 @@ namespace VersandEtiketten
             String? KundeId, String? AdresseId, String? Land)
         {
             try
-                {
+            {
                 EtikettVariante1 etikett = versandEtikettenErsteller.VersandEtikettVariante1(KundeId, AdresseId, Land, null);
 
                 IEtikettDrucker etikettDrucker = OperatorFactory.buildEtikettDrucker();

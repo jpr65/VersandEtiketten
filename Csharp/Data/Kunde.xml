@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Kunde xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PKID>KUD0001</PKID>
+  <PrivatKunde>true</PrivatKunde>
+  <Titel />
+  <Name>Mustermann</Name>
+  <Vorname>Monika</Vorname>
+  <Firma />
+  <Abteilung />
+</Kunde>

@@ -9,6 +9,8 @@ namespace TestFixtures
     /// </summary>
     public class KundenUndAdressenGenerator
     {
+        public String XmlDataPath { get; set; } = IoConfig.StubXmlDataPath;
+
         public Adresse LeseAdresseDummy(String adresseID)
         {
             Adresse dummyAdresse = new Adresse();
@@ -192,7 +194,7 @@ namespace TestFixtures
         {
             XmlWriter<List<Kunde>> kundeWriter = new XmlWriter<List<Kunde>>();
 
-            String dateiNameMitPfad = Path.Combine(IoConfig.StubXmlDataPath, dateiName);
+            String dateiNameMitPfad = Path.Combine(XmlDataPath, dateiName);
 
             Console.WriteLine("Write " + kundeListe.Count + " Kunden in Datei " + dateiNameMitPfad);
 
@@ -221,7 +223,7 @@ namespace TestFixtures
         {
             XmlWriter<List<Adresse>> AdresseWriter = new XmlWriter<List<Adresse>>();
 
-            String dateiNameMitPfad = Path.Combine(IoConfig.StubXmlDataPath,dateiName);
+            String dateiNameMitPfad = Path.Combine(XmlDataPath, dateiName);
 
             Console.WriteLine("Write " + AdresseListe.Count + " Adressen in Datei " + dateiNameMitPfad);
 
@@ -238,7 +240,7 @@ namespace TestFixtures
         {
             XmlWriter<Kunde> kundeWriter = new XmlWriter<Kunde>();
 
-            String dateiNameMitPfad = Path.Combine(IoConfig.StubXmlDataPath, dateiName);
+            String dateiNameMitPfad = Path.Combine(XmlDataPath, dateiName);
 
             Console.WriteLine("Write Kunde " + kunde.PKID + " in Datei " + dateiNameMitPfad);
 

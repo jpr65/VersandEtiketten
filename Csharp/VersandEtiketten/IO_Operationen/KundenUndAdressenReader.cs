@@ -8,11 +8,13 @@ namespace IO_Operationen
     /// </summary>
     public class KundenUndAdressenReader
     {
+        public String XmlDataPath { get; set; } = IoConfig.StubXmlDataPath;
+
         public List<Kunde>? LeseKundenAusXml(String dateiName)
         {
             XmlReader<List<Kunde>> kundeReader = new XmlReader<List<Kunde>>();
 
-            String dateiNameMitPfad = Path.Combine(IoConfig.StubXmlDataPath,dateiName);
+            String dateiNameMitPfad = Path.Combine(XmlDataPath, dateiName);
 
             Console.WriteLine("Lese Kunden aus Datei " + dateiNameMitPfad);
 
@@ -34,7 +36,7 @@ namespace IO_Operationen
         {
             XmlReader<List<Adresse>> adresseReader = new XmlReader<List<Adresse>>();
 
-            String dateiNameMitPfad = Path.Combine(IoConfig.StubXmlDataPath, dateiName);
+            String dateiNameMitPfad = Path.Combine(XmlDataPath, dateiName);
 
             Console.WriteLine("Lese Adressen aus Datei " + dateiNameMitPfad);
 
