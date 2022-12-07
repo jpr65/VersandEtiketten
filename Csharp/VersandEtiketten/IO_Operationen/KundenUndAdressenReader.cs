@@ -16,7 +16,7 @@ namespace IO_Operationen
 
             Console.WriteLine("Lese Kunden aus Datei " + dateiNameMitPfad);
 
-            List<Kunde>? kundeListe = kundeReader.readFromFile(dateiNameMitPfad);
+            List<Kunde>? kundeListe = kundeReader.ReadFromFile(dateiNameMitPfad);
 
             int anzGelesen = 0;
 
@@ -38,7 +38,7 @@ namespace IO_Operationen
 
             Console.WriteLine("Lese Adressen aus Datei " + dateiNameMitPfad);
 
-            List<Adresse>? adresseListe = adresseReader.readFromFile(dateiNameMitPfad);
+            List<Adresse>? adresseListe = adresseReader.ReadFromFile(dateiNameMitPfad);
 
             int anzGelesen = 0;
 

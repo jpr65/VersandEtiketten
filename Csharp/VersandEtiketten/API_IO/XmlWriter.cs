@@ -8,7 +8,7 @@ namespace API_IO
         {
             try
             {
-                using (FileStream fileInputStream = File.OpenWrite(fileName))
+                using (StreamWriter fileInputStream = new StreamWriter(fileName))
                 {
                     WriteIntoStream(dataObject, fileInputStream);
                 }
@@ -19,13 +19,13 @@ namespace API_IO
             }
         }
 
-        private void WriteIntoStream(T dataObject, FileStream fos)
+        private void WriteIntoStream(T dataObject, StreamWriter streamWriter)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(T));
 
             try
             {
-                serializer.Serialize(fos, dataObject);
+                serializer.Serialize(streamWriter, dataObject);
             }
             catch (Exception ex)
             {

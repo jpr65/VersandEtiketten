@@ -4,13 +4,13 @@ namespace API_IO
 {
     public class XmlReader<T>
     {
-       public T? readFromFile(String fileName)
+       public T? ReadFromFile(String fileName)
         {
             T? dezerialized = default(T);
 
             try
             {
-                using (FileStream fileInputStream = File.OpenRead(fileName))
+                using (StreamReader fileInputStream = new StreamReader(fileName))
                 {
                     return ReadFromStream(fileInputStream);
                 }
@@ -23,9 +23,9 @@ namespace API_IO
             return dezerialized;
         }
 
-    private T? ReadFromStream(FileStream fileInputStream)
+    private T? ReadFromStream(StreamReader fileInputStream)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<T>));
+            XmlSerializer serializer = new XmlSerializer(typeof(T));
             T? dataObject = default(T);
 
             try
