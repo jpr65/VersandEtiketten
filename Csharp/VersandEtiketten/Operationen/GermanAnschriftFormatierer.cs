@@ -3,6 +3,11 @@ using Daten;
 
 namespace Operationen
 {
+    /// <summary>
+    /// Operation: Anschrift formatieren, Variante für Deutschland (GER)
+    /// https://www.upu.int/en/Postal-Solutions/Programmes-Services/Addressing-Solutions
+    /// Siehe Doku-Ordner, deuEn.pdf
+    /// </summary>
     public class GermanAnschriftFormatierer : IAnschriftFormatierer
     {
         private String laenderKennung = "GER";

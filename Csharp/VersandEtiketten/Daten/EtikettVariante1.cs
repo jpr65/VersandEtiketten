@@ -1,5 +1,10 @@
 ﻿namespace Daten
 {
+    /// <summary>
+    /// Datenklasse für Etikett, Variante 1
+    ///
+    ///i/ Hier wird die StringUtil Klasse aus der API verwendet.
+    /// </summary>
     public class EtikettVariante1
     {
         public List<String?>? AnschriftZeilen { get; set; }

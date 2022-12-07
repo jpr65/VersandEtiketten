@@ -3,6 +3,11 @@ using Daten;
 
 namespace Operationen
 {
+    /// <summary>
+    /// Operation: Anschrift formatieren, Variante für GBR (UnitedKingdom)
+    /// https://www.upu.int/en/Postal-Solutions/Programmes-Services/Addressing-Solutions
+    /// Siehe Doku-Ordner, gbrEn.pdf
+    /// </summary>
     public class UnitedKingdomAnschriftFormatierer : IAnschriftFormatierer
     {
 
