@@ -16,10 +16,16 @@ namespace TestAPI_IO
 
             string testFileName = Path.Combine(TestDataPath, "testSingleElement.xml");
 
+            // --- Test Write --------------------------------------------------------
+            
             XmlWriter<IoDataForXml> xmlWriter = new XmlWriter<IoDataForXml>();
 
             xmlWriter.WriteIntoFile(testData, testFileName);
 
+            Assert.IsTrue(File.Exists(testFileName));
+
+            // --- Test Read --------------------------------------------------------
+            
             XmlReader<IoDataForXml> xmlReader = new XmlReader<IoDataForXml>();
 
             IoDataForXml? dataRead = xmlReader.ReadFromFile(testFileName);
@@ -29,6 +35,8 @@ namespace TestAPI_IO
             Assert.AreEqual(testData.Name, dataRead.Name);
             Assert.AreEqual(testData.Alter, dataRead.Alter);
 
+            // --- Aufräumen und Datei löschen ---------------------------------------
+            
             File.Delete(testFileName);
 
             Assert.IsFalse(File.Exists(testFileName));
