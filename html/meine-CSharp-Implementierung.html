@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<title>Meine C# Implementierung - IODA und TDD mit Java, C# und Raku</title>
+	<link type="text/css" rel="stylesheet" media="screen" href="stylesheet.css" />
+</head>
+
+<body>
+	<header>
+		<div>Meine C# Implementierung - IODA und TDD mit Java, C# und Raku</div>
+		<hr />
+	</header>
+	<h1>Meine Implementierung mit C# und .NET</h1>
+
+	<h2>Entwicklungsumgebung</h2>
+
+	<p>Microsoft Visual Studio 2022
+	</p>
+
+	<h2>Angewendete Techniken und Prinzipien</h2>
+
+	<p>Für die Software-Entwicklung wende ich folgende Techniken/Prinzipien an:</p>
+
+	<ul>
+		<li>Objektorientierung</li>
+		<li>TDD - Test Driven Development - <a href="mein-TDD.html">Mein Ansatz wird hier kurz beschrieben</a></li>
+		<li><a href="https://de.wikipedia.org/wiki/Clean_Code">Clean Code</a> (Wikipedia)</li>
+		<li><a href="https://de.wikipedia.org/wiki/EVA-Prinzip">EVA-Prinzip / IPO-Model</a> (Wikipedia)</li>
+		<li>IODA - <a href="ioda.html">hier kurz beschrieben</a></li>
+		<li><a href="https://de.wikipedia.org/wiki/Don%E2%80%99t_repeat_yourself">DRY - Don’t repeat yourself</a>
+			(Wikipedia) - Vermeidung / Reduzierung von Redundanz</li>
+		<li>Ableitung nur für Interfaces - <a href="keine-Ableitungen.html">hier kurz beschrieben</a></li>
+	</ul>
+
+	<h2>Historie der Entwicklung</h2>
+
+	<p>Im Folgenden beschreibe ich grob die Historie, wie ich was in welcher Reihenfolge umgesetzt habe.
+		Diese Reihenfolge ist natürlich nur eine mögliche Variante, die Software zu erstellen.
+		Es zählt einzig das	 Endergebnis.
+	</p>
+
+	<p>Vor der Codierung muss zuerst die Aufgabenstellung verstanden werden.
+		In diesem einfachen Fall ist das gut möglich. In echten Projekten muss die Aufgabenstellung
+		oft gemeinsam erarbeitet werden, bisweilen sogar iterativ mit Prototypen
+		oder leichten Implementierungen.
+	<p>
+
+	<h2>1. Analyse des Tickets und der Aufgabenstellung</h2>
+
+	<p>Die Analyse des Tickets und der Aufgabenstellung wird in der 
+		<a href="./meine-Java-Implementierung.html#analyse">Java-Implementierung</a>
+	beschrieben.</p>
+
+	<h2>2. Entwicklung</h2>
+
+	<h3>Generelle Hinweise</h3>
+
+	<p>Kommentare, die mit //i/ (i für info) starten,
+		enthalten Erläuterungen zu dieser Referenzimplementierung,
+		sie würden in Produktiv-Code entfallen.
+	</p>
+
+	<p>Der Source-Ordner liegt hier:</p>
+
+	<p><a href="../Csharp/VersandEtiketten/"></a></p>
+
+	<p>Hier wurde von mir keine Entwicklung, sondern eine Portierung 
+		der Java-Source-Dateien durchgeführt.</p>
+
+	<h3>a. Projekt einrichten</h3>
+
+	<p>Zuerst wurde ein Projekt mit Libraries eingerichtet. Ich verwende hier einen Standard-Aufbau:</p>
+
+	<img src="./CSharp_Standard_Projektaufbau.png"></td>
+
+	<p>Die Produkt-Libraries sind grün, die Test-Libraries violett und die Produkt-Exe rot eingerahmt.</p>
+
+	<p>Die Libray <i>Integration</i> ist noch einmal orange eingerahmt. 
+		Sie hat eine Sonderstellung, weil sie die Workflows der Applikation (des Produktes)
+		<i>VersandEtiketten</i>	implementiert. Deshalb ist die <i>Integration</i> die einzige Library,
+		die ich für ein	anderes Produkt nicht wiederverwenden würde.
+	</p>
+
+	<p>
+		Alle anderen Libraries aus dem grünen Rahmen können für andere Produkte/Projekte weiterverwendet werden.
+		Zum Beispiel könnte eine andere Integrations-Library das Adress-Feld für einen Briefversand 
+		ebenfalls mit diesen Operations-,
+		Daten- und API-Klassen erstellen und als String-Liste an das Brief-Management übergeben.
+	</p>
+
+	<p>Bis auf Program.cs in <i>VersandEtiketten</i> enthalten die anderen Projekte 
+		zum Start noch keine weiteren Source-Dateien.</p>
+
+	<h3>b. API portieren</h3>
+
+	<p>Im zweiten Schritt habe ich die API portiert und auch die Tests für die API-Klassen übernommen.
+		Dabei konnte ich auf einige Methoden verzichten, weil .NET bereits
+	</p>
+
+	<code>String.IsNullOrWhiteSpace(testStr)</code>
+
+	<p>bereitstellt.</p>
+
+	<h3>c. Operationen portieren</h3>
+
+	<h4>c.1 GermanAnschriftFormatierer</h4>
+
+	<p>Die erste portierte Operation war der <i>GermanAnschriftFormatierer</i>. 
+		Um ihn verwenden zu können, mussten noch die Klassen <i>Adresse</i> und <i>Kunde</i>
+		in die Daten-Lib sowie das Interface <i>IAnschrifFormatierer</i>
+		in die Operations-Lib portiert werden.
+	</p>
+
+	<h3>d. Daten portieren</h3>
+
+	<p>Da von den Daten nur noch die <i>EtikettVariante1</i> fehlte, habe ich diese als
+	   Nächstes importiert. Dazu gehört auch noch ein Test, weil diese Daten-Klasse auch
+	   Methoden enthält.
+	</p>
+
+	<h3>c. Operationen portieren - Teil 2</h3>
+
+	<h4>c.2 SpainAnschriftFormatierer</h4>
+
+	<p>Portiert inkl. der Tests.</p>
+	
+	<h4>c.3 UnitedKingdomAnschriftFormatierer</h4>
+
+	<p>Portiert inkl. der Tests.</p>
+
+	<h3>Zwischenstand</h3>
+
+	<p>Es gibt am 7.12.22 um 12:09 noch keinen Zugriff auf die Operationen vom Programm.cs aus.
+		Das Programm macht noch nichts außer auszugeben, dass noch nichts implementiert ist,
+		wenn man es startet. Es gibt zwar bereits die Klasse <i>VersandEtikettenErsteller</i>,
+		doch sie enthält außer einem einsamen Property noch keine einzige Methode!
+	</p>
+
+	<p>Zum Nachsehen in github: <a href="https://github.com/jpr65/VersandEtiketten/tree/05a9480009bb38d473f853b4af5b6f5ca52b5687/Csharp/VersandEtiketten">
+		Stand vom 7.12.22 um 12:09
+	</a></p>
+	
+	<p>Es existiert auch noch keine IO-Funktionalität. Diese wird im nächsten Schritt portiert.</p>
+
+	<h3>e. IO-Operationen portieren</h3>
+
+	<p>Das war ein wenig mehr Arbeit als bei den anderen Klassen, denn hier muss auf eine andere API
+		zugegriffen werden. .NET unterscheidet sich hier deutlich von Java.
+	</p>
+
+	<p>Es wäre vermutlich schneller gegangen, wenn ich alles gleich komplett neu implementiert hätte.
+		Denn bei der Umstellung von <code>&lt;List&lt;T&gt;&gt;</code> auf <code>&lt;T&gt;</code>
+		habe ich eine Stelle übersehen (sie versteckte sich sehr weit rechts im Code ...).
+	</p>
+
+	<p>Das hat dazu geführt, dass ich die Test-Daten zwar schreiben, aber nicht wieder einlesen konnte.</p>
+
+	<p>Die Fehlermeldung vom Parser war zwar korrekt auch nicht sehr hilfreich:</p>
+
+	<img src="Error_Deserialisierung.png">
+
+	<p>Wie geht man nun damit um?</p>
+
+	<p>Ich habe Einiges ausprobiert inkl. Debugging, habe einen eigenen Test
+		geschrieben, der nur ein Daten-Objekt schreibt und lädt,
+		habe ein anderes Daten-Objekt verwendet usw.
+	</p>
+	
+	<p>
+		Als das Alles nicht geholfen hat,
+		habe ich einfach den Beispiel-Code für XML-Serialisierung mit .NET,
+		den ich aus dem Internet geladen hatte,
+	    in eine eigene Test-Methode kopiert und entsprechend angepasst.
+	</p>
+
+	<p>Das dauerte einige Minuten, aber dann konnte ich einen einzelnen Datensatz
+		als XML schreiben und auch wieder einlesen.
+	</p>
+
+	<p>
+		Als nächstes habe ich die Datei eingelesen, die vom <i>XmlWriter</i> erzeugt wurde.
+		Da auch das funktionierte, musste der Fehler irgenwo im <i>XmlReader</i> liegen.
+	</p>
+
+	<p>Es dauerte noch eine Weile, bis ich die Stelle gefunden hatte, 
+		obwohl der XmlReader nur zwei Methoden hat:
+	</p>
+
+	<img src="XmlReader-mit-Fehler.png">
+
+	<p>Manchmal ist man eben blind und sieht den Wald vor lauter Bäumen nicht.
+		Und genau deshalb sollte man auch für (vermeintlich) trivialen Operations-Code
+		immer einen Test schreiben.
+		Man wundert sich nämlich manchmal, welche Fälle im Code nicht behandelt werden
+		oder stellt dabei fest, dass der Code doch nicht so einfach ist.
+	</p>
+
+	<p>
+		Nachdem ich alle Hilfs-Test wieder entfernt hatte,
+		blieb nur noch ein einziger Test für die IO-Lib übrig:
+	</p>
+
+	<img src="Test-CRD-XML.png">
+
+	<p>Es gibt nur noch eine weitere Test-Klasse im <i>TestAPI_IO</i>, die das 
+		Verzeichnis <code>Csharp/TestData</code> erstellt und den Inhalt löscht:
+		<i>TCA_0001_ManageTestDirs</i>
+	</p>
+
+	<p>Insgesamt habe ich für diesen Teil statt einer halben Stunde
+		zwei Stunden gebraucht.
+	</p>
+
+	<h3>f. Integratoren portieren</h3>
+
+	<p>Im letzten Schritt habe ich die Integratoren portiert 
+		und damit die Portierung abgeschlossen.
+		Das war recht leicht und hat gerade einmal eine halbe Stunde gedauert.
+	</p>
+
+	<p>Erst jetzt gibt es ein lauffähiges Programm, das die formatierten
+		Anschriften auf der Console ausgibt.
+	</p>
+
+	<h3>g. Code-Coverage</h3>
+
+	<p>Da ich nur die frei Version vom Visual-Studio nutze, konnte ich leider kein
+		automatisches Code-Coverage durchführen wie in Java.
+	</p>
+
+	<p>Code-Coverage fällt daher aus, was ich nur im privaten Bereich akzeptiere.
+		Im professionellen Bereich möchte ich darauf nicht verzichten.
+	</p>
+
+	<h3>h. Review</h3>
+
+	<p>Der nächste Schritt wäre ein Review des Codes durch einen zweiten Entwickler.</p>
+
+	<p>Da ich allein an meinem Mini-Projekt arbeite, habe ich das selbst durchgeführt
+		und z.B. noch Kommentare ergänzt und ein paar Kleinigkeiten "gerade gezogen".
+	</p>
+
+	<p>Diesen Schritt auszulassen kann sehr teuer werden, denn neben der besseren
+		Lesbarkeit werden oft noch mögliche Probleme oder fehlende Tests entdeckt.
+	</p>
+
+	<p>Die Tests zur API_IO sind z.B. noch nicht komplett. Habt ihr es bemerkt?</p>
+
+	<h2>Libraries</h2>
+
+	<p>Das folgende Diagramm zeigt eine Übersicht über die Libraries und ihre Tests:</p>
+	
+	<img src="CSharp_Projekt.png">
+	
+	<p>Ab hier fehlt noch eine weitere Beschreibung.</p>
+
+	<img src="CSharp_ProjektAbhaengigkeiten.png">
+
+	<p></p>
+
+	<img src="IODA-Libs.png">
+
+	<footer>
+		<hr />
+		<a href="index.html">&#8962; Home</a> - <a href="kontakt.html">Kontakt</a>
+	</footer>
+</body>
+
+</html>
