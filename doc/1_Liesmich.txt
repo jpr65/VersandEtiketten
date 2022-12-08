@@ -19,3 +19,5 @@ Eine ausführliche Beschreibung findet sich auf HMTL-Seiten im Ordner
 wie die drei PDF-Downloads hier vom Internationalen Postverein UPU.
 
 -----------------------------------------------------------------------
+
+Todos.txt enthält einige Punkte, die noch umgesetzt werden sollen.
