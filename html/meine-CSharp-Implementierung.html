@@ -63,7 +63,7 @@
 
 	<p>Der Source-Ordner liegt hier:</p>
 
-	<p><a href="../Csharp/VersandEtiketten/"></a></p>
+	<p><a href="../Csharp/VersandEtiketten/">Csharp/VersandEtiketten/</a></p>
 
 	<p>Hier wurde von mir keine Entwicklung, sondern eine Portierung 
 		der Java-Source-Dateien durchgeführt.</p>
@@ -156,7 +156,7 @@
 
 	<p>Das hat dazu geführt, dass ich die Test-Daten zwar schreiben, aber nicht wieder einlesen konnte.</p>
 
-	<p>Die Fehlermeldung vom Parser war zwar korrekt auch nicht sehr hilfreich:</p>
+	<p>Die Fehlermeldung vom Parser war zwar korrekt aber auch nicht sehr hilfreich:</p>
 
 	<img src="Error_Deserialisierung.png">
 
@@ -203,12 +203,15 @@
 
 	<img src="Test-CRD-XML.png">
 
+	<p>Wie in <a href="mein-TDD.html">"mein TDD"</a> beschrieben,
+	   fasse ich in dieser Methode Create, Read und Delete zusammen.</p>
+
 	<p>Es gibt nur noch eine weitere Test-Klasse im <i>TestAPI_IO</i>, die das 
 		Verzeichnis <code>Csharp/TestData</code> erstellt und den Inhalt löscht:
 		<i>TCA_0001_ManageTestDirs</i>
 	</p>
 
-	<p>Insgesamt habe ich für diesen Teil statt einer halben Stunde
+	<p>Insgesamt habe ich wegen der Fehlersuche für diesen Teil statt einer halben Stunde
 		zwei Stunden gebraucht.
 	</p>
 
@@ -225,7 +228,7 @@
 
 	<h3>g. Code-Coverage</h3>
 
-	<p>Da ich nur die frei Version vom Visual-Studio nutze, konnte ich leider kein
+	<p>Da ich nur die freie Version vom Visual-Studio nutze, konnte ich leider kein
 		automatisches Code-Coverage durchführen wie in Java.
 	</p>
 
@@ -253,13 +256,15 @@
 	
 	<img src="CSharp_Projekt.png">
 	
+	<h2>Zugriff auf und von den Libraries</h2>
+
+	<a href="IODA-Libs.png"><img src="IODA-Libs.png" width="400px"></a>
+
+	<p>Diagramm zum Vergrößern anklicken.</p>
+
 	<p>Ab hier fehlt noch eine weitere Beschreibung.</p>
 
 	<img src="CSharp_ProjektAbhaengigkeiten.png">
-
-	<p></p>
-
-	<img src="IODA-Libs.png">
 
 	<footer>
 		<hr />
