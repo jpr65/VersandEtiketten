@@ -14,7 +14,17 @@
 
   <h1>Mein TDD</h1>
 
-  <h2>TDD - Tests first</h2>
+  <h2>Inhalt</h2>
+	<ul>
+		<li><a href="#testsfirst">TDD - Tests first</a></li>
+		<li><a href="#parallel">TDD - Parallel oder alternierend</a></li>
+		<li><a href="#fixtures">Test-Fixtures und Hilfsklassen</a></li>
+		<li><a href="#klassennamen">Namen der Test-Klassen</a></li>
+		<li><a href="#methodennamen">Methoden-Namen in Test-Klassen</a></li>
+		<li><a href="#beispiel">Beispiel</a></li>
+	</ul>
+
+  <h2 id="testsfirst">TDD - Tests first</h2>
 
   <p>
     In <a href="" https://de.wikipedia.org/wiki/Testgetriebene_Entwicklung">
@@ -22,14 +32,14 @@
     wird üblicherweise der Test VOR dem Code geschrieben.
   </p>
 
-  <h2>TDD - Parallel oder alternierend</h2>
+  <h2 id="parallel">TDD - Parallel oder alternierend</h2>
 
   <p>Genauso wie Ralf Westphal und viele andere Entwickler bevorzuge ich es,
     abwechselnd Tests und Application-Code zu entwickeln. Das hat sich im Arbeitsalltag
     als praktisch herausgestellt.
-  <p>
+  </p>
 
-  <h2>Test-Fixtures und Hilfsklassen</h2>
+  <h2 id="fixtures">Test-Fixtures und Hilfsklassen</h2>
 
   <p>
     Nach der reinen Lehre des TDD darf für Test-Fixtures kein Produktiv-Code verwendet werden,
@@ -57,7 +67,7 @@
     lässt sich jedoch meistens leicht aufklären.
   </p>
 
-  <h3>Namen der Test-Klassen</h3>
+  <h3 id="klassennamen">Namen der Test-Klassen</h3>
 
   <p>Dazu nummeriere ich die Test-Klassen durch nach folgendem Schema:</p>
 
@@ -112,7 +122,7 @@
     der Reihenfolge bereits belegt sind.
   </p>
 
-  <h3>Methoden-Namen</h3>
+  <h3 id="methodennamen">Methoden-Namen in Test-Klassen</h3>
 
   <p>Test-Methoden benenne ich immer nach dem Schema <code>T000_NameDerMethode</code>.
     Ein Test darf zur Vorbereitung eines Tests
@@ -121,7 +131,7 @@
     Prinzip wie bei der Benennung der Test-Klassen.
   </p>
 
-  <h2>Beispiel</h2>
+  <h2 id="beispiel">Beispiel</h2>
 
   <h3>CRUD-Tests</h3>
 

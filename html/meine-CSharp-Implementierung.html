@@ -55,7 +55,7 @@
 		In diesem einfachen Fall ist das gut möglich. In echten Projekten muss die Aufgabenstellung
 		oft gemeinsam erarbeitet werden, bisweilen sogar iterativ mit Prototypen
 		oder leichten Implementierungen.
-	<p>
+	</p>
 
 	<h2 id="analyse">1. Analyse des Tickets und der Aufgabenstellung</h2>
 
@@ -120,7 +120,7 @@
 	<p>Die erste portierte Operation war der <i>GermanAnschriftFormatierer</i>. 
 		Um ihn verwenden zu können, mussten noch die Klassen <i>Adresse</i> und <i>Kunde</i>
 		in die Daten-Lib sowie das Interface <i>IAnschrifFormatierer</i>
-		in die Operations-Lib portiert werden.
+		in die Operations-Library portiert werden.
 	</p>
 
 	<h3>d. Daten portieren</h3>
@@ -145,7 +145,7 @@
 	<p>Es gibt am 7.12.22 um 12:09 noch keinen Zugriff auf die Operationen vom Programm.cs aus.
 		Das Programm macht noch nichts außer auszugeben, dass noch nichts implementiert ist,
 		wenn man es startet. Es gibt zwar bereits die Klasse <i>VersandEtikettenErsteller</i>,
-		doch sie enthält außer einem einsamen Property noch keine einzige Methode!
+		doch sie enthält außer einem einsamen Property noch keine einzige Methode.
 	</p>
 
 	<p>Zum Nachsehen in github: <a href="https://github.com/jpr65/VersandEtiketten/tree/05a9480009bb38d473f853b4af5b6f5ca52b5687/Csharp/VersandEtiketten">
@@ -167,7 +167,7 @@
 
 	<p>Das hat dazu geführt, dass ich die Test-Daten zwar schreiben, aber nicht wieder einlesen konnte.</p>
 
-	<p>Die Fehlermeldung vom Parser war zwar korrekt aber auch nicht sehr hilfreich:</p>
+	<p>Die Fehlermeldung vom Parser war korrekt aber auch nicht sehr hilfreich:</p>
 
 	<img src="Error_Deserialisierung.png">
 
@@ -181,7 +181,7 @@
 	<p>
 		Als das Alles nicht geholfen hat,
 		habe ich einfach den Beispiel-Code für XML-Serialisierung mit .NET,
-		den ich aus dem Internet geladen hatte,
+		den ich aus dem Internet geladen und als Vorlage verwendet hatte,
 	    in eine eigene Test-Methode kopiert und entsprechend angepasst.
 	</p>
 
@@ -190,7 +190,8 @@
 	</p>
 
 	<p>
-		Als nächstes habe ich die Datei eingelesen, die vom <i>XmlWriter</i> erzeugt wurde.
+		Als nächstes habe ich den <i>XmlWriter</i> eine Datei erzeugen lassen
+		und sie wieder eingelesen, mit dem Beispiel-Code aus dem Internet.
 		Da auch das funktionierte, musste der Fehler irgenwo im <i>XmlReader</i> liegen.
 	</p>
 
@@ -203,8 +204,9 @@
 	<p>Manchmal ist man eben blind und sieht den Wald vor lauter Bäumen nicht.
 		Und genau deshalb sollte man auch für (vermeintlich) trivialen Operations-Code
 		immer einen Test schreiben.
-		Man wundert sich nämlich manchmal, welche Fälle im Code nicht behandelt werden
-		oder stellt dabei fest, dass der Code doch nicht so einfach ist.
+		Oft werden einige Fälle im Code nicht behandelt, und man kann sie ergänzen.
+		Dabei stellt man manchmal fest, dass die zu entwicklende Lösung doch nicht so einfach ist,
+		wie anfangs angenommen.
 	</p>
 
 	<p>
@@ -219,8 +221,9 @@
 
 	<p>Es gibt nur noch eine weitere Test-Klasse im <i>TestAPI_IO</i>, die das 
 		Verzeichnis <code>Csharp/TestData</code> erstellt und den Inhalt löscht:
-		<i>TCA_0001_ManageTestDirs</i>
 	</p>
+
+	<p><code>TCA_0001_ManageTestDirs</code></p>
 
 	<p>Insgesamt habe ich wegen der Fehlersuche für diesen Teil statt einer halben Stunde
 		zwei Stunden gebraucht.
@@ -251,7 +254,7 @@
 
 	<p>Der nächste Schritt wäre ein Review des Codes durch einen zweiten Entwickler.</p>
 
-	<p>Da ich allein an meinem Mini-Projekt arbeite, habe ich das selbst durchgeführt
+	<p>Da ich allein an meinem Mini-Projekt arbeite, habe ich das REview selbst durchgeführt
 		und z.B. noch Kommentare ergänzt und ein paar Kleinigkeiten "gerade gezogen".
 	</p>
 
@@ -266,16 +269,76 @@
 	<p>Das folgende Diagramm zeigt eine Übersicht über die Libraries und ihre Tests:</p>
 	
 	<img src="CSharp_Projekt.png">
+
+	<p>Für jede Produkt-Library wurde eine Test-Library angelegt, 
+		mit Ausnahme der Lib <i>Integration</i>. Die Integration enthält ja keine Logik
+		und wird hier einfach im Program.cs getestet, da ein Durchlauf ausreichend ist.
+		Wichtig ist nur, dass keine (ungeplanten) Fehler auftreten.
+		In größeren Projekten kann man natürlich auch noch eine Test-Library
+		für die Integration erstellen oder eine eigene Integrations-Test-Solution.
+	</p>
 	
 	<h2 id="zugriff">Zugriff auf und von den Libraries</h2>
 
+	<p>Wozu dient nun die Erstellung so vieler Libraries? 
+		Wären Ordner im Dateisystem nicht auch ausreichend gewesen?
+	</p>
+
+	<p>Die API-Libraries können in beliebigen anderen Projekten wiederverwendet werden.
+		Dazu ist es ausreichend, die Libraries (ohne Quellcode) in das Projekt hereinzunehmen.
+	</p>
+
+	<p>Doch wie verhält es sich mit Libraries für Daten, Operationen, IO-Operationen und Integration?
+		Sie könnten auch in einer einzigen Library zusammengefasst werden.
+		Doch dann verliert man die Zugriffskontrolle. 
+		Rufen Daten Klassen aus dem Bereich der Operationen auf?
+		Rufen Operationen Integratoren auf? 
+		Das ist beides nicht erlaubt, wenn man nach IODA entwickelt.
+	</p>
+
+	<p>Das folgende Diagramm zeigt die erlaubten Zugriffe zwischen den Libraries.</p>
+
 	<a href="IODA-Libs.png"><img src="IODA-Libs.png" width="400px"></a>
 
-	<p>Diagramm zum Vergrößern anklicken.</p>
+	<p>Diagramm: Erlaubte Zugriffe in IODA (zum Vergrößern anklicken)</p>
 
-	<p>Ab hier fehlt noch eine weitere Beschreibung.</p>
+	<p>Unterhalb der eigenen API-Libs findet sich noch die .NET API.</p>
+
+	<p>Mittels der Projektabhängigkeiten in Visual Studio kann man nun
+		genau festlegen, welches Projekt (Library) auf welches andere Projekt
+		zugreifen darf.
+	</p>
 
 	<img src="CSharp_ProjektAbhaengigkeiten.png">
+
+	<p>Der Zugriff ist immer nur in einer Richtung erlaubt. Da die Integrations-Library
+		bereits auf die Operations-Library zugreift, kann in der anderen Richtung
+		für die Operations-Library kein Zugriff mehr auf die Integrations-Library
+		eingerichtet werden, das verbietet schon das Developer Studio.</p>
+
+	<p>Um auf die API_IO von der Operations-Library aus zugreifen zu können,
+		muss die Abhängigkeit von der API_IO im Projekt angegeben werden.
+		Diese unerwünschte Abhängigkeit wird irgendwann auffallen.
+		Durch ihre Entfernung
+		aus dem Projekt werden alle Klassen in der Operations-Library unkompilierbar,
+		die Klassen aus der API_IO verwenden. Der Code muss umgeschrieben werden.
+	</p>
+	
+	<p>Den verbotenen Zugriff einer Operationsklasse auf eine andere Operationsklasse
+		kann man so nicht automatisiert prüfen lassen, das muss in Reviews oder
+		anders geprüft werden.
+	</p>
+
+	<p>Mit genügend Übung in IODA kommt man irgendwann gar nicht mehr auf die Idee,
+		von einer Operation aus eine andere aufzurufen.
+	</p>
+
+	<p>Nicht ganz so leicht ist es, die Logik aus den Integrationsklassen herauszuhalten.
+		Das gilt besonders, wenn man unter Zeitdruck gerät. Für einen Hotfix
+		kann man eine Ausnahme machen, wenn man bei der Übernahme der Änderungen
+		in den Haupt-Zweig der Entwicklung den Code nicht einfach kopiert,
+		sondern die Logik in eigene Klassen auslagert.
+	</p>
 
 	<footer>
 		<hr />

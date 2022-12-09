@@ -13,9 +13,23 @@
 	</header>
 	<h1>IODA</h1>
 
+	<h2>Inhalt</h2>
+	<ul>
+		<li><a href="#motivation">Motivation</a></li>
+		<li><a href="#vorteile">Vorteile des IODA-Ansatzes</a></li>
+		<li><a href="#nach_ralfw">IODA nach Ralf Westphal</a></li>
+		<li><a href="#kurzintro">Kurze IODA Intro</a></li>
+		<li><a href="#eva">Meine Erweiterung nach dem EVA-Prinzip</a></li>
+		<li><a href="#fabrik">Analogie zur Fabrik</a></li>
+		<li><a href="#indirekteVerbindung">Indirekte Verbindung von Operationen</a></li>
+		<li><a href="#komplexeOperationen">Komplexe Operationen</a></li>
+	</ul>
+
+	<h2 id="motivation">Motivation</h2>
+
 	<p>
 	<div class="boese">Funktionale Abhängigkeiten sind böse!</div>
-	<p>
+	</p>
 
 	<p>Dieses Zitat von Ralf Westphal ist für mich wesentlich, weil
 		sich genau das immer wieder in meiner Arbeit bestätigt hat.</p>
@@ -25,7 +39,7 @@
 		in der Software zu regeln und zu minimieren.
 		Daraus ergeben sich dann weitere Vorteile.</p>
 
-	<h2>Vorteile des IODA-Ansatzes</h2>
+	<h2 id="vorteile">Vorteile des IODA-Ansatzes</h2>
 
 	<ul>
 		<li>Minimierung der funktionalen Abhängikeiten</li>
@@ -38,7 +52,7 @@
 
 	</ul>
 
-	<h2>IODA nach Ralf Westphal</h2>
+	<h2 id="nach_ralfw">IODA nach Ralf Westphal</h2>
 
 	<p>Ralf Westphal hat um 2015 herum IODA entwickelt/erfunden,
 		um diese <i>Funktionalen Abhängigkeiten</i> zu eliminieren oder
@@ -60,7 +74,7 @@
 		Einführung:
 	</p>
 
-	<h2>Kurze IODA Intro</h2>
+	<h2 id="kurzintro">Kurze IODA Intro</h2>
 
 	<p>IODA teilt alle Klassen in die Typen
 	</p>
@@ -105,15 +119,32 @@
 
 	<img src="IODA.png" />
 
-	<h2>Meine Erweiterung nach dem EVA-Prinzip</h2>
+	<h2 id="eva">Meine Erweiterung nach dem EVA-Prinzip</h2>
 
-	<p>Die Operationen mit IO werden von den Operationen ohne IO getrennt
-		und idealerweise in verschiedenen Libraries abgelegt.
+	<p>Das <a href="https://de.wikipedia.org/wiki/EVA-Prinzip">EVA-Prinzip oder IPO-Model</a>
+		beschreibt das folgende Grundprinzip der Datenverarbeitung: 
+	</p>
+
+	<p><b>Eingabe - Verarbeitung - Ausgabe</b></p>
+
+	<p>Während der Verarbeitung werden also weder Eingaben noch Ausgaben vorgenommen.</p>
+
+	<p>In den Operationsklassen werte ich das Lesen von Daten, 
+		z.B. aus der Datenbank, als Eingabe,
+		und das Zurückschreiben in die Datenbank aus Ausgabe.
+		Diese Funktionalitäten werden in eigenen Operations-Klassen durchgeführt.
+	</p>
+
+	<p>Trennt man nun die Operationen mit IO-Zugriffen 
+		von den Operationen ohne IO-Zugriffe, vereinfacht sich das Testen später sehr.
+		Idealerweise legt man diese Operations-Typen in verschiedenen Libraries ab.
 	</p>
 
 	<h3>IO-Operationen</h3>
 
-	<p>Ruft eine Operation über die <i>API IO-Operationen</i> (der API) auf,
+	<p>Wie erkennt man nun IO-Operationen?</p>
+
+	<p>Ruft eine Operation über eine API <i>IO-Operationen</i> auf,
 		so wird sie als <i>IO-Operation</i> gewertet.
 		Dazu gehören z.B. Schreib- und Lesezugriffe auf Datenbanken, Dateien, die Konsole,
 		Web-Services
@@ -132,9 +163,12 @@
 		Es werden von der Operation keinerlei weitere Daten von irgendwoher beschafft
 		oder irgendwohin abgelegt. Die Ergebnisse der Verarbeitung werden als
 		<i>Instanzen von Datenklassen</i> zurückgeliefert.
-	<p>
+	</p>
 
-	<h2>Analogie zur Fabrik</h2>
+	<h2 id="fabrik">Analogie zur Fabrik</h2>
+
+	<p>Etwas klarer wird es, wenn man die Klassen-Typen in Analogie
+		zur Verarbeitung in einer Fabrik beschreibt:</p>
 
 	<p>
 		In einer Fabrik werden Holzrohlinge mit Sägen oder komplexen 5-Achs-Fräs-Maschinen verarbeitet.
@@ -175,7 +209,7 @@
 		und zum Schluss einen Akkuschrauber.
 	</p>
 
-	<h2>Indirekte Verbindung von Operationen</h2>
+	<h2 id="indirekteVerbindung">Indirekte Verbindung von Operationen</h2>
 
 	<p>Operatoren sollen sich ja selbst keine Daten beschaffen.
 		Einen Sonderfall bildet der Aufruf einer Klasse, die Daten zurückliefert,
@@ -230,7 +264,7 @@
 	<p><i>Closures, Anonyme Funktionen sowie Iteratoren entstammen einer API, 
 		sie dürfen somit von Operationen aufgerufen werden.</i></p>
 
-	<h2>Komplexe Operationen</h2>
+	<h2 id="komplexeOperationen">Komplexe Operationen</h2>
 
 	<p>Operationen können sehr komplex sein, z.B. wie eine 5-Achs-Fräsmaschine:</p>
 
@@ -266,6 +300,11 @@
 	</p>
 
 	<p>Mit IODA kann man sich dieser idealen Welt nun auch in der Software-Entwicklung sehr stark annähern.
+	</p>
+
+	<p>Weitergehende praktische Tipps für den Einsatz von IODA habe ich in 
+		<a href="meine-CSharp-Implementierung.html#libraries">meine CSharp Implementierung</a>
+		angeführt.
 	</p>
 
 	<footer>
