@@ -229,6 +229,11 @@
 		zwei Stunden gebraucht.
 	</p>
 
+	<p>Als Ausgleich für den Mehraufwand 
+		gibt es jetzt einen zusätzlichen Test für die API_IO,
+		den ich im Java-Projekt ausgelassen habe.
+	</p>
+
 	<h3>f. Integratoren portieren</h3>
 
 	<p>Im letzten Schritt habe ich die Integratoren portiert 
@@ -254,7 +259,7 @@
 
 	<p>Der nächste Schritt wäre ein Review des Codes durch einen zweiten Entwickler.</p>
 
-	<p>Da ich allein an meinem Mini-Projekt arbeite, habe ich das REview selbst durchgeführt
+	<p>Da ich allein an meinem Mini-Projekt arbeite, habe ich das Review selbst durchgeführt
 		und z.B. noch Kommentare ergänzt und ein paar Kleinigkeiten "gerade gezogen".
 	</p>
 
@@ -291,12 +296,12 @@
 	<p>Doch wie verhält es sich mit Libraries für Daten, Operationen, IO-Operationen und Integration?
 		Sie könnten auch in einer einzigen Library zusammengefasst werden.
 		Doch dann verliert man die Zugriffskontrolle. 
-		Rufen Daten Klassen aus dem Bereich der Operationen auf?
+		Rufen Daten-Klassen andere Klassen aus dem Bereich der Operationen auf?
 		Rufen Operationen Integratoren auf? 
 		Das ist beides nicht erlaubt, wenn man nach IODA entwickelt.
 	</p>
 
-	<p>Das folgende Diagramm zeigt die erlaubten Zugriffe zwischen den Libraries.</p>
+	<p>Das folgende Diagramm zeigt die prinzipiell erlaubten Zugriffe zwischen den Libraries.</p>
 
 	<a href="IODA-Libs.png"><img src="IODA-Libs.png" width="400px"></a>
 
@@ -307,6 +312,13 @@
 	<p>Mittels der Projektabhängigkeiten in Visual Studio kann man nun
 		genau festlegen, welches Projekt (Library) auf welches andere Projekt
 		zugreifen darf.
+	</p>
+
+	<p>
+		Im Folgenden ist der Endzustand der Projektabhängigkeiten dargestellt.
+		Zum Start der Entwicklung werden zunächst gar keine Abhängigkeiten
+		eingetragen. Nur die notwendigen Abhängigkeiten wurden nach und nach
+		von mir ergänzt.
 	</p>
 
 	<img src="CSharp_ProjektAbhaengigkeiten.png">
@@ -337,7 +349,35 @@
 		Das gilt besonders, wenn man unter Zeitdruck gerät. Für einen Hotfix
 		kann man eine Ausnahme machen, wenn man bei der Übernahme der Änderungen
 		in den Haupt-Zweig der Entwicklung den Code nicht einfach kopiert,
-		sondern die Logik in eigene Klassen auslagert.
+		sondern dann die Logik in eigene Klassen auslagert.
+	</p>
+
+	<p>
+		Auch fehlende Abhängigkeiten sind interessant. So verwendet hier im C# die Daten-Library 
+		die API-Library nicht, denn die dort eingesetzten String-Operationen existieren bereits
+		in der .NET API. Daher ist die Abhängigkeit von der API überflüssig und wird hier auch 
+		nicht eingetragen.
+	</p>
+
+	<p>Wird die API-Library nirgendwo als Abhängigkeit eingetragen,
+		dann sollte man die Frage klären, warum das so ist.
+		Kennen die Entwickler die API-Library nicht?
+		Gibt es Methoden oder Code-Anteile, die in die API verschoben werden könnten?
+		Ist die API-Library zu schlecht dokumentiert, dauert die Suche nach Funktionalität
+		zu lange oder ist sie nicht auffindbar?
+	</p>
+
+	<p>Als ein Nachteil so vieler Libraries wird oft aufgeführt,
+		dass die Solution zu kompliziert werde 
+		oder die Erstellung und Verteilung eines Releases zu aufwendig werde.
+		In Zeiten von Docker und ähnlichen Tools kann ich diese Argumentation
+		nicht mehr nachvollziehen.
+	</p>
+
+	<p>
+		Reale Projekte sind oft auch sehr viel größer als diese kleine Demo,
+		dann ist eine Unterteilung in sinnvolle Libraries extrem hilfreich,
+		aus vielen Aspekten.
 	</p>
 
 	<footer>

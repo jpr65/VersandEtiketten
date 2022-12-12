@@ -176,7 +176,7 @@
     string kundeNr = "K4711";
 
     Kunde kunde = createKundeInMemory(kundeNr);
-    OrmManager testObject = this.CreateOrmManagerFuerDatenbank();
+    OrmManager testObject = this.CreateOrmManagerFuerKundeInDatenbank();
 
     // --- Test Create ----------
     testObject.Create(kunde);

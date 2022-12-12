@@ -4,21 +4,23 @@ Ticket Nr. 4711
 Titel
 -----
 
-Erstellung der Anschrift für Versand-Etiketten,
+Vorbereitung der Anschrift fÃ¼r einen Etikettdrucker
+
+Zusammenfassung
+---------------
+
+Erstellung der Anschrift fÃ¼r Versand-Etiketten,
 die auf selbstklebende Etiketten gedruckt werden soll.
 
-Aufgabe
--------
+Details der Aufgabe
+-------------------
 
 Aus der Datenhaltung sind die Kunden-Informationen und die
-Adress-Informationen über KundeID und AdressID zu lesen,
-
-und abhängig vom Land* der ZielAdresse formatiert
-
-als Liste von Textzeilen zurückzuliefern
-
-und dem Drucker zu übergeben.
+Adress-Informationen Ã¼ber KundeID und AdressID zu lesen,
+und abhÃ¤ngig vom Land* der ZielAdresse formatiert
+als Liste von Textzeilen zurÃ¼ckzuliefern und dem Drucker
+zu Ã¼bergeben.
 
 ---------------
 
-*Land = internationaler Ländercode, 3 stellig
+*Land = internationaler LÃ¤ndercode, 3 stellig

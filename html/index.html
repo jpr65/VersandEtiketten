@@ -26,11 +26,13 @@
 		<li>diese Aufgabe leicht verständlich ist,</li>
 		<li>diese Aufgabe nur scheinbar trivial ist, wenn mehrere Länder unterstützt werden sollen,</li>
 		<li>diese kleine Aufgabe dazu verführt, es flott und unsauber zu lösen,</li>
-		<li>alles Wichtige enthält, was man beim Design und Test von Software berücksichtigen sollte.</li>
+		<li>viele wichtige Punkte enthält, die man beim Design und Test von Software berücksichtigen sollte.</li>
 	</ul>
 	<p>
 		In diesem Referenzprojekt stelle ich nun vor, wie für mich eine <b><i>gute bis optimale Lösung</i></b>
-		dieser Aufgabe aussieht. Dabei erläutere ich, wie ich <a href="mein-TDD.html">TDD</a> einsetze und vor allem,
+		dieser Aufgabe aussieht. Dabei erläutere ich,
+	</p>
+	<p>wie ich <a href="mein-TDD.html">TDD</a> einsetze und vor allem,
 	</p>
 	<p>wie <a href="ioda.html">IODA</a> umgesetzt wird
 	</p>
@@ -44,16 +46,6 @@
 	</p>
 	<p>
 		Dazu bedarf es mehr Zeit.
-	</p>
-	<p>
-		Als erste Programmiersprache für die Implementierung habe ich Java gewählt,
-		weil ich mich dort noch nicht so gut auskenne
-		und mich ein wenig mehr in Java und Eclipse einarbeiten wollte. Außerdem kann ich so zeigen,
-		dass TDD und vor allem IODA auch - oder gerade dann - eingesetzt werden können, wenn man sich
-		noch nicht so gut auskennt.
-	</p>
-
-	<p>Als nächstes werde ich den Code noch einmal neu in RAKU (Perl-6) implementieren.
 	</p>
 
 	<h2>Angewendete Techniken und Prinzipien</h2>
@@ -73,7 +65,22 @@
 
 	<h2>Meine Implementierungen</h2>
 
+	<p>Die erste Implementierung erfolgte mit Java.</p>
+
+	<p>Anschließend habe ich den Java-Code nach C# portiert.</p>
+
+	<p>Eine Neu-Implementierung meiner Lösung in RAKU (Perl-6) steht noch aus.
+	</p>
+
 	<h3>Java</h3>
+
+	<p>
+		Als erste Programmiersprache für die Implementierung habe ich Java gewählt,
+		weil ich mich dort noch nicht so gut auskenne
+		und mich ein wenig mehr in Java und Eclipse einarbeiten wollte. Außerdem kann ich so zeigen,
+		dass TDD und vor allem IODA auch - oder gerade dann - eingesetzt werden können, wenn man sich
+		noch nicht so gut auskennt.
+	</p>
 
 	<p>
 		<a href="meine-Java-Implementierung.html">Die einzelnen Schritte meiner Implementierung
@@ -86,7 +93,7 @@
 
 	<h3>C#</h3>
 
-	<p>Die Implementierung in C# mit .NET ist durchgeführt.
+	<p>Die Portierung nach C# und .NET ist durchgeführt.
 	</p>
 	<p>Die <a href="./meine-CSharp-Implementierung.html">Beschreibung dazu findet sich hier</a>.</p>
 
@@ -104,6 +111,24 @@
 	<p>
 		Da diese Dokumentation - wie man hier sieht - doch etwas umfangreicher geworden ist,
 		habe ich sie von Text-Dateien auf HTML umgestellt.
+	</p>
+
+	<p>
+		Da der Fokus dieser Dokumentation auf Software-Entwicklung liegt,
+		habe ich hier bewusst darauf verzichtet,
+		Java-Script oder PHP einzusetzen (PHP setzt einen WebServer voraus).
+	</p>
+
+	<p>
+		Stattdessen habe ich statische handgeschriebene HTML-Seiten gewählt,
+		die eher einer Man-Page oder einem Buch ähneln
+		und die sich einfach durch Doppelklick auf diese Index-Seite öffnen
+		und lesen lassen.
+	</p>
+
+	<p>
+		Zur Erstellung der Doku-Seiten reichte mir ein HTML-fähiger Editor
+		wie <i>Visual Studio Code</i> aus.
 	</p>
 
 	<footer>
