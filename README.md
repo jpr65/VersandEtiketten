@@ -13,7 +13,7 @@ von Ralf Peine
 -------------------------------------------------------------------------------------
 
 In diesem Referenzprojekt stelle ich vor, 
-wie für mich eine gute bis optimale Lösung dieser Aufgabe aussieht. 
+wie für mich eine gute bis optimale Lösung dieser (Übungs-/Test-)Aufgabe aussieht. 
 Dabei erläutere ich, 
 
 wie ich TDD einsetze und vor allem,
