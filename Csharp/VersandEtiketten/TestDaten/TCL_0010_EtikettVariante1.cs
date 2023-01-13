@@ -39,12 +39,14 @@ namespace TestDaten
         }
 
         [TestMethod]
-        public void T010_belegteZeilen_0_0()
-        {
-            TestBelegteZeilen(0, 0);
-        }
-
-        private void TestBelegteZeilen(int leereZeilenVorgabe, int gefuellteZeilenVorgabe)
+        [DataRow(0, 0)]
+        [DataRow(1, 0)]
+        [DataRow(7, 0)]
+        [DataRow(0, 1)]
+        [DataRow(0, 9)]
+        [DataRow(1, 1)]
+        [DataRow(2, 3)]
+        public void T100_TestBelegteZeilen(int leereZeilenVorgabe, int gefuellteZeilenVorgabe)
         {
             // --- Testvorbereitung --------------------------------
 
@@ -57,42 +59,6 @@ namespace TestDaten
             // --- Testvalidierung --------------------------------
 
             Assert.AreEqual(gefuellteZeilenVorgabe, zeilenBelegt);
-        }
-
-        [TestMethod]
-        public void T100_belegteZeilen_1_0()
-        {
-            TestBelegteZeilen(1, 0);
-        }
-
-        [TestMethod]
-        public void T110_belegteZeilen_7_0()
-        {
-            TestBelegteZeilen(1, 0);
-        }
-
-        [TestMethod]
-        public void T200_belegteZeilen_0_1()
-        {
-            TestBelegteZeilen(0, 1);
-        }
-
-        [TestMethod]
-        public void T210_belegteZeilen_0_9()
-        {
-            TestBelegteZeilen(0, 9);
-        }
-
-        [TestMethod]
-        public void T300_belegteZeilen_1_1()
-        {
-            TestBelegteZeilen(0, 1);
-        }
-
-        [TestMethod]
-        public void T310_belegteZeilen_2_3()
-        {
-            TestBelegteZeilen(2, 3);
         }
     }
 }

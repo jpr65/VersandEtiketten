@@ -83,10 +83,6 @@ namespace TestOperationen
         }
         #endregion
 
-
-        /**
-         * Test method for {@link Operationen.SpainAnschriftFormatierer#GetLaenderkennung()}.
-         */
         [TestMethod]
         public void T001_GetLaenderkennung()
         {
@@ -104,9 +100,6 @@ namespace TestOperationen
             Assert.AreEqual("esp", laenderKennungResult.ToLowerInvariant());
         }
 
-        /**
-         * Test method for {@link Operationen.SpainAnschriftFormatierer#AnschriftErstellung(Kunde kundeArg, Adresse adresseArg)}.
-         */
         [TestMethod]
         public void T010_AnschriftErstellung_leer()
         {
@@ -128,9 +121,6 @@ namespace TestOperationen
             Assert.AreEqual("", testResult[0]);
         }
 
-        /**
-         * Test method for {@link Operationen.SpainAnschriftFormatierer#AnschriftErstellung(Kunde kundeArg, Adresse adresseArg)}.
-         */
         [TestMethod]
         public void T100_AnschriftErstellung_PrivatKunde()
         {
@@ -158,9 +148,6 @@ namespace TestOperationen
             Assert.AreEqual("SPAIN", testResult[lineNbr++]);
         }
 
-        /**
-         * Test method for {@link Operationen.SpainAnschriftFormatierer#AnschriftErstellung(Kunde kundeArg, Adresse adresseArg)}.
-         */
         [TestMethod]
         public void T110_AnschriftErstellung_FirmenKunde()
         {
@@ -187,9 +174,6 @@ namespace TestOperationen
             Assert.AreEqual("SPAIN", testResult[lineNbr++]);
         }
 
-        /**
-         * Test method for {@link Operationen.SpainAnschriftFormatierer#AnschriftErstellung(Kunde kundeArg, Adresse adresseArg)}.
-         */
         [TestMethod]
         public void T120_AnschriftErstellung_FirmenKundeOhneAbteilung()
         {

@@ -10,7 +10,7 @@ namespace TestAPI_IO
         {
             IoDataForXml testData = new IoDataForXml
             {
-                Alter = 10,
+                Alter = DateTime.Now.Second,
                 Name = "Jedermann"
             };
 

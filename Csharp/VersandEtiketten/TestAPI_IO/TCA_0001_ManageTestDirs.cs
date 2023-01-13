@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace TestAPI_IO
 {
+    /// <summary>
+    /// Dieser Test dient der Vorbereitung und dem Aufräumen des
+    /// Daten-Directorys für die IO-Tests.
+    /// </summary>
     [TestClass]
     public class TCA_0001_ManageTestDirs
     {
