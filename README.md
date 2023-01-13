@@ -27,4 +27,4 @@ und keinen Aufwand mehr für Test-Stubs, Mocks und Ähnliches investieren zu mü
 
 -------------------------------------------------------------------------------------
 
-[Hier geht es weiter zur ausführlichen Beschreibung](./html/index.html).
+[Hier geht es weiter zur ausführlichen Beschreibung](https://jpr65.github.io/VersandEtiketten/html/index.html).
