@@ -2,21 +2,46 @@
 <html lang="de">
 
 <head>
-	<title>Keine Ableitungen für Objekte - IODA und TDD mit Java, C# und Raku</title>
+	<title>Vererbung dosiert einsetzen - IODA und TDD mit Java, C# und Raku</title>
 	<link type="text/css" rel="stylesheet" media="screen" href="stylesheet.css" />
 </head>
 
 <body>
 	<header>
-		<div>Keine Ableitungen für Objekte - IODA und TDD mit Java, C# und Raku</div>
+		<div>Vererbung dosiert einsetzen - IODA und TDD mit Java, C# und Raku</div>
 		<hr />
 	</header>
 
-	<h1>Keine Ableitungen für Objekte</h1>
+	<h1>Interfaces</h1>
 
-	<p>Ich habe mich - wie auch der Erfinder von Java - dazu entschieden, freiwillig keine Ableitungen
-		mehr für Klassen zu verwenden. Ableitungen verwende ich nur noch für Interfaces.
+	<p>
+		Ein Interface gibt ja nur an, welche Methoden eine Klasse hat.
+		Interfaces ohne implementierende (abgeleitete) Klassen wären sinnlos
+		und daher darf (muss) hier immer abgeleitet werden.
 	</p>
+
+	<h1>Ableitungen/Vererbung für Klassen dosiert einsetzen</h1>
+
+	<p>Der Erfinder von Java wollte Ableitungen/Vererbung in seiner nächsten Programmiersprache
+		nicht mehr unterstützen.
+	</p>
+
+	<p>
+		So weit will ich nicht mehr gehen. Datenklassen voneinander abzuleiten,
+		um sie zu spezialisieren, hat sich für mich als hilfreich herausgestellt.
+	</p>
+
+	<p>
+		Ich bevorzuge aber "Composition over Inheritance", oder noch genauer gesagt:
+	</p>
+
+	<p><i>
+		Von Klassen abzuleiten bildet für mich eine Ausnahme, 
+		üblicherweise nutze ich für Klassen das <b>Zusammensetzen (Komposition)</b>
+		und <b>nicht</b> die Ableitung oder Vererbung.
+		Falls Ableitungen außerhalb von Datenklassen verwendet werden,
+		ist das gut zubegründen.
+	</i></p>
 
 	<p>Für Klassen keine Vererbung mehr zu verwenden, hat den folgenden Grund:</p>
 
@@ -34,7 +59,8 @@
 		umsetzen lassen.
 	</p>
 
-	<p>Verwendet man aber IODA, dann wird Vererbung von Objekten vollkommen überflüssig.</p>
+	<p>Verwendet man aber IODA, dann wird Vererbung von Objekten weitgehend überflüssig.
+		Dies gilt vor allem für Operationen.</p>
 
 	<p>Siehe dazu auch: <a href="https://de.wikipedia.org/wiki/Komposition_an_Stelle_von_Vererbung">
 			Komposition an Stelle von Vererbung</a> auf Wikipedia.</p>
